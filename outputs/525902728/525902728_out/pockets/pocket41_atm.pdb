@@ -1,0 +1,44 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    41:
+HEADER 0  - Pocket Score                      : 0.0331
+HEADER 1  - Drug Score                        : 0.0125
+HEADER 2  - Number of alpha spheres           :    27
+HEADER 3  - Mean alpha-sphere radius          : 3.5549
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.5389
+HEADER 5  - Mean B-factor of pocket residues  : 0.5909
+HEADER 6  - Hydrophobicity Score              : 30.0000
+HEADER 7  - Polarity Score                    :     2
+HEADER 8  - Amino Acid based volume Score     : 3.6250
+HEADER 9  - Pocket volume (Monte Carlo)       : 208.1622
+HEADER 10 - Pocket volume (convex hull)       : 15.4307
+HEADER 11 - Charge Score                      :     1
+HEADER 12 - Local hydrophobic density Score   : 15.1765
+HEADER 13 - Number of apolar alpha sphere     :    17
+HEADER 14 - Proportion of apolar alpha sphere : 0.6296
+ATOM   1033    N VAL A 136       7.711  18.641  -2.152  0.00  0.00           N 0
+ATOM   1060  CD1 LEU A 139       4.359  19.312  -5.676  0.00  0.00           C 0
+ATOM    484    O PRO A  62       4.680  15.898  -5.590  0.48  1.07           O 0
+ATOM   1039  CG2 VAL A 136       6.348  15.992  -2.705  0.00  0.00           C 0
+ATOM   1034   CA VAL A 136       6.266  18.438  -2.129  0.00  0.00           C 0
+ATOM    494   CB ALA A  64       7.152  13.109  -8.961  0.00  0.00           C 0
+ATOM    472   CB PHE A  61       5.320  11.039  -4.383  0.00  0.00           C 0
+ATOM   1016   OG SER A 133       9.539  16.156  -1.542  0.63  5.36           O 0
+ATOM   1029   CG LYS A 135       9.914  19.547  -5.121  0.00  0.00           C 0
+ATOM   1059   CG LEU A 139       4.609  20.766  -5.289  0.00  0.00           C 0
+ATOM   1061  CD2 LEU A 139       4.688  21.641  -6.527  0.00  0.00           C 0
+ATOM    490    O GLY A  63       6.523  17.141  -9.328  0.41  8.57           O 0
+ATOM   1026    C LYS A 135       8.188  19.750  -2.648  0.00  0.00           C 0
+ATOM   1027   CB LYS A 135      10.344  19.094  -3.732  0.00  0.00           C 0
+ATOM    475  CD1 PHE A  61       6.641  10.688  -2.273  0.00  0.00           C 0
+ATOM    473    O PHE A  61       4.238  12.742  -6.266  0.00  0.00           O 0
+ATOM    471    C PHE A  61       3.764  12.852  -5.133  0.00  0.00           C 0
+ATOM   1031   CE LYS A 135      10.055  21.359  -6.859  0.00  0.00           C 0
+ATOM   1014   CB SER A 133       9.102  15.328  -0.482  0.00  0.00           C 0
+ATOM    492   CA ALA A  64       6.957  14.523  -9.500  0.00  0.00           C 0
+ATOM    491    N ALA A  64       5.762  15.133  -8.922  0.71  1.09           N 0
+ATOM    489    C GLY A  63       5.668  16.406  -8.836  0.00  0.00           C 0
+TER
+END

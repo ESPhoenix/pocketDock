@@ -25,8 +25,10 @@ def read_inputs():
     # import config file and run input function to return variables
     try:
         config_module = __import__(configName)
-        protDir, ligandDir, outDir, mglToolsDir, util24Dir, vinaExe, ligandOrdersCsv, modelSelectionMode = config_module.inputs()
-        return protDir, ligandDir, outDir, mglToolsDir, util24Dir, vinaExe, ligandOrdersCsv, modelSelectionMode
+        (protDir, ligandDir, outDir, mglToolsDir, util24Dir,
+             ligandOrdersCsv, modelSelectionMode, maxFlexRes) = config_module.inputs()
+        return (protDir, ligandDir, outDir, mglToolsDir, util24Dir,
+             ligandOrdersCsv, modelSelectionMode, maxFlexRes)
     except ImportError:
         print(f"Error: Can't to import module '{configName}'. Make sure the input exists!")
         print("HOPE IS THE FIRST STEP ON THE ROAD TO DISAPPOINTMENT")
@@ -35,22 +37,23 @@ def read_inputs():
 #########################################################################################################################
 #########################################################################################################################
 def main():
-    protDir, ligandDir, outDir, mglToolsDir, util24Dir, vinaExe, ligandOrdersCsv, modelSelectionMode = read_inputs()
+    (protDir, ligandDir, outDir, mglToolsDir, util24Dir,
+             ligandOrdersCsv, modelSelectionMode, maxFlexRes) = read_inputs()
+    # disable copy warnings
+    pd.set_option('mode.chained_assignment', None)
 
     exhausiveness, numModes = choose_model_selection_mode(modelSelectionMode)
     if not exhausiveness:
         print("Options for modelSelectionMode are \"best\", \"broad\", or \"balenced\"")
         exit()
 
-    print(ligandOrdersCsv)
-
     # make outDir
     os.makedirs(outDir,exist_ok=True)    
     # read ligand orders csv file into a dictionary
-    ordersDf = pd.read_csv(ligandOrdersCsv,index_col="ID")
-    ordersDf = ordersDf["Cofactor"]
-    ordersDict = ordersDf.to_dict()
-
+    ordersDf = pd.read_csv(ligandOrdersCsv)
+    ordersDf["ID"] = ordersDf["ID"].astype(str)
+    ordersDict = ordersDf.set_index('ID')['Ligand'].to_dict()
+    
     pdbFiles =[]
     # loop through receptor PDB files
     for fileName in os.listdir(protDir):
@@ -60,22 +63,23 @@ def main():
             continue
         pdbFiles.append(fileName)
 
-    #run_paralell(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,mglToolsDir,vinaExe, exhausiveness, numModes)
+    #run_paralell(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,mglToolsDir, exhausiveness, numModes,maxFlexRes)
 
-    run_serial(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,mglToolsDir,vinaExe, exhausiveness, numModes)
+    run_serial(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,mglToolsDir, exhausiveness, numModes,maxFlexRes)
 #########################################################################################################################
 #########################################################################################################################
-def run_serial(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,mglToolsDir,vinaExe, exhausiveness, numModes):
+def run_serial(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,mglToolsDir, exhausiveness, numModes, maxFlexRes):
     # for testing 
     for fileName in pdbFiles:
-        docking_protocol(fileName,protDir, ligandDir,outDir,ordersDict,util24Dir,mglToolsDir,vinaExe,exhausiveness, numModes)
+        docking_protocol(fileName,protDir, ligandDir,outDir,ordersDict,util24Dir,mglToolsDir,exhausiveness, numModes, maxFlexRes)
 #########################################################################################################################
-def run_paralell(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,mglToolsDir,vinaExe, exhausiveness, numModes):
+def run_paralell(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,mglToolsDir, exhausiveness, numModes,maxFlexRes):
     num_cores = mp.cpu_count()
     pool = mp.Pool(processes=round(num_cores / 2))
 
     for fileName in pdbFiles:
-        pool.apply_async(docking_protocol, (fileName,protDir, ligandDir,outDir,ordersDict,util24Dir,mglToolsDir,vinaExe,exhausiveness, numModes))
+        pool.apply_async(docking_protocol, (fileName,protDir, ligandDir,outDir,ordersDict,
+                                            util24Dir,mglToolsDir,exhausiveness, numModes,maxFlexRes))
 
     # Close the pool to release resources
     pool.close()
@@ -84,7 +88,7 @@ def run_paralell(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,mglTool
 
 #########################################################################################################################
 
-def docking_protocol(fileName,protDir, ligandDir,outDir,ordersDict,util24Dir,mglToolsDir,vinaExe,exhausiveness, numModes):
+def docking_protocol(fileName,protDir, ligandDir,outDir,ordersDict,util24Dir,mglToolsDir,exhausiveness, numModes, maxFlexRes):
     # set up run directory and output key variables
     protName, protPdb, ligandPdb, ligandName, runDir = set_up_directory(fileName=fileName,
                                                                             protDir=protDir,
@@ -95,17 +99,19 @@ def docking_protocol(fileName,protDir, ligandDir,outDir,ordersDict,util24Dir,mgl
     boxCenter, pocketResidues       =   run_fpocket(name=protName,
                                                         runDir=runDir,
                                                         pdbFile=protPdb)
-    
+
     flexibeResidues =                   select_flexible_residues(protName=protName,
                                                                     protPdb=protPdb,
-                                                                    flexResList=pocketResidues)
-    
+                                                                    flexResList=pocketResidues,
+                                                                    maxFlexRes=maxFlexRes)
+
     protPdbqt                      =   pdb_to_pdbqt(name = protName,
                                                         pdbFile=protPdb,
                                                         outDir = runDir,
                                                         util24Dir = util24Dir,
                                                         mglToolsDir  = mglToolsDir,
                                                         jobType = "rigid")
+
     # Convert protein PDB to rigid and flexible PDBQT files
     rigidPdbqt, flexPdbqt                        =   pdb_to_pdbqt(name = protName,
                                                         pdbFile=protPdbqt,
@@ -114,6 +120,7 @@ def docking_protocol(fileName,protDir, ligandDir,outDir,ordersDict,util24Dir,mgl
                                                         mglToolsDir  = mglToolsDir,
                                                         jobType = "flex",
                                                         flexRes=flexibeResidues)
+
     # Convert ligand PDB to PDBQT files
     ligandPdbqt                     =   pdb_to_pdbqt(name = ligandName,
                                                         pdbFile=ligandPdb,
@@ -121,6 +128,7 @@ def docking_protocol(fileName,protDir, ligandDir,outDir,ordersDict,util24Dir,mgl
                                                         util24Dir = util24Dir,
                                                         mglToolsDir  = mglToolsDir,
                                                         jobType = "ligand")
+
     # Write a config file for vina
     vinaConfig, dockedPdbqt         =   write_vina_config(outDir = runDir,
                                                             receptorPdbqt = rigidPdbqt,
@@ -131,10 +139,10 @@ def docking_protocol(fileName,protDir, ligandDir,outDir,ordersDict,util24Dir,mgl
                                                             boxSize = 30,
                                                             exhaustiveness=exhausiveness,
                                                             numModes=numModes)
+
     # Run vina docking
     run_vina(outDir = runDir,
-                configFile = vinaConfig,
-                vinaExe = vinaExe)
+                configFile = vinaConfig)
     # split docking results PDBQT file into separate PDB files
     process_vina_results(outDir = runDir,
                             receptorPdbqt = protPdb,
@@ -233,10 +241,10 @@ def process_vina_results(outDir,dockedPdbqt,receptorPdbqt,flex=False):
                    outFile=writePdbFile)
 
 #########################################################################################################################
-def run_vina(outDir,configFile,vinaExe):
+def run_vina(outDir,configFile):
     logFile = p.join(outDir,"vina_docking.log")
     with open(logFile,"a") as logFile:
-        call([vinaExe,"--config",configFile],stdout=logFile)
+        call(["vina","--config",configFile],stdout=logFile)
 #########################################################################################################################
 ## writes a config file for a Vina docking simulation
 def write_vina_config(outDir,receptorPdbqt,ligandPdbqt,boxCenter,boxSize,flexPdbqt=None,
@@ -277,15 +285,24 @@ def write_vina_config(outDir,receptorPdbqt,ligandPdbqt,boxCenter,boxSize,flexPdb
         return vinaConfigFile, dockedPdbqt
 
 #########################################################################################################################
-def select_flexible_residues(protName,protPdb,flexResList):
+def select_flexible_residues(protName,protPdb,flexResList,maxFlexRes):
+
+    priorityFlexRes = ["TRP", "TYR", "PHE",         ## AROMATICS
+                       "ARG","LYS","HIS",           ## LARGE, POSITIVE
+                       "GLN","GLU","ASN","ASP",     ## NEGATIVE OR H-BONDING
+                       "MET","LEU","ILE","VAL",     ## LARGE, HYDROPHOBIC
+                       "SER","CYS","THR",           ## SMALL, PROTIC
+                       "ALA","PRO","GLY"]           ## SMALL, NO ROTATION IN SIDE CHAIN - NEVER GOING TO USE THESE
     # load protein PDB as a DF
     protDf = pdb2df(protPdb)
     # reduce DF down to unique residues in flexResList (created from binding pocket)
     flexDf = protDf[protDf["RES_ID"].isin(flexResList)]
     flexDf.drop_duplicates(subset=["RES_ID"], inplace=True)
-    # remove static residues from flexible residues (no dihedrals to rotate anyway!)
-    staticResidues = ["ALA","PRO","GLY"]
-    flexDf = flexDf[~flexDf["RES_NAME"].isin(staticResidues)]
+    # sort by priorityFlexRes, get up to the maximum number of flexible residues 
+    flexDf.loc[:,'RES_NAME'] = pd.Categorical(flexDf['RES_NAME'], categories=priorityFlexRes, ordered=True)
+    flexDf = flexDf.sort_values(by="RES_NAME")
+    flexDf = flexDf.head(maxFlexRes)
+        
     # get a list of unique CHAIN IDs
     uniqueChains = flexDf.drop_duplicates(subset=["CHAIN_ID"])["CHAIN_ID"].tolist()
     # generate MGLTools compatable flexible residues
@@ -308,7 +325,6 @@ def select_flexible_residues(protName,protPdb,flexResList):
 #########################################################################################################################
 
 def pdb_to_pdbqt(name, pdbFile, outDir, util24Dir, mglToolsDir,jobType,flexRes=None):
-    print(pdbFile)
     env = os.environ.copy()
     env["PYTHONPATH"] = mglToolsDir
     os.chdir(outDir)

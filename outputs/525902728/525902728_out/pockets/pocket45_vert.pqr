@@ -1,0 +1,41 @@
+HEADER
+HEADER This is a pqr format file writen by the programm fpocket.                 
+HEADER It represent the voronoi vertices of a single pocket found by the         
+HEADER algorithm.                                                                
+HEADER                                                                           
+HEADER Information about the pocket    45:
+HEADER 0  - Pocket Score                      : 0.0224
+HEADER 1  - Drug Score                        : 0.0122
+HEADER 2  - Number of V. Vertices             :    19
+HEADER 3  - Mean alpha-sphere radius          : 3.6687
+HEADER 4  - Mean alpha-sphere SA              : 0.5318
+HEADER 5  - Mean B-factor                     : 0.8090
+HEADER 6  - Hydrophobicity Score              : 50.5000
+HEADER 7  - Polarity Score                    :     1
+HEADER 8  - Volume Score                      : 3.8333
+HEADER 9  - Real volume (approximation)       : 233.2879
+HEADER 10 - Charge Score                      :     0
+HEADER 11 - Local hydrophobic density Score   : 15.0000
+HEADER 12 - Number of apolar alpha sphere     :    16
+HEADER 13 - Proportion of apolar alpha sphere : 0.8421
+ATOM      1    C STP    45      -7.794  10.951 -15.490    0.00     3.34
+ATOM      2    C STP    45      -9.117  11.155 -15.668    0.00     4.12
+ATOM      3    C STP    45      -9.655   9.511 -10.808    0.00     3.29
+ATOM      4    C STP    45     -10.107   9.390 -10.687    0.00     3.23
+ATOM      5    O STP    45      -9.189   9.795 -10.357    0.00     3.03
+ATOM      6    C STP    45      -9.232   9.733 -10.528    0.00     3.14
+ATOM      7    C STP    45      -8.929  10.671 -15.636    0.00     3.83
+ATOM      8    C STP    45     -10.082  11.284 -14.280    0.00     4.01
+ATOM      9    C STP    45     -10.680  11.363 -13.278    0.00     4.27
+ATOM     10    C STP    45     -10.823  11.542 -13.453    0.00     4.41
+ATOM     11    O STP    45      -8.656  10.236 -15.595    0.00     3.54
+ATOM     12    O STP    45      -8.877  10.263 -15.824    0.00     3.56
+ATOM     13    C STP    45     -10.241   9.896 -11.716    0.00     3.48
+ATOM     14    C STP    45     -10.517  10.417 -12.397    0.00     3.74
+ATOM     15    C STP    45     -11.153   9.349 -11.074    0.00     3.31
+ATOM     16    C STP    45     -11.045   9.491 -11.128    0.00     3.38
+ATOM     17    C STP    45     -11.261   9.538 -11.179    0.00     3.41
+ATOM     18    C STP    45     -12.929  10.714 -12.659    0.00     4.49
+ATOM     19    C STP    45     -11.686  10.797 -12.840    0.00     4.13
+TER
+END

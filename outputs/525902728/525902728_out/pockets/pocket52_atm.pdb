@@ -1,0 +1,41 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    52:
+HEADER 0  - Pocket Score                      : -0.0256
+HEADER 1  - Drug Score                        : 0.0008
+HEADER 2  - Number of alpha spheres           :    18
+HEADER 3  - Mean alpha-sphere radius          : 3.8803
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.6691
+HEADER 5  - Mean B-factor of pocket residues  : 0.9227
+HEADER 6  - Hydrophobicity Score              : 19.5000
+HEADER 7  - Polarity Score                    :     3
+HEADER 8  - Amino Acid based volume Score     : 3.8333
+HEADER 9  - Pocket volume (Monte Carlo)       : 209.6396
+HEADER 10 - Pocket volume (convex hull)       : 8.8739
+HEADER 11 - Charge Score                      :     0
+HEADER 12 - Local hydrophobic density Score   : 9.0000
+HEADER 13 - Number of apolar alpha sphere     :    10
+HEADER 14 - Proportion of apolar alpha sphere : 0.5556
+ATOM   1981   CB ALA A 256       4.793  -0.460  18.172  0.00  0.00           C 0
+ATOM   1749   CA ALA A 227       5.418   3.574  17.172  0.00  0.00           C 0
+ATOM   1982    O ALA A 256       2.551  -0.287  20.547  0.00  0.00           O 0
+ATOM   1751   CB ALA A 227       6.230   4.586  17.969  0.00  0.00           C 0
+ATOM   1752    O ALA A 227       3.051   3.797  17.484  0.50  3.21           O 0
+ATOM   1999   CB ASP A 259       4.418  -0.199  23.750  0.00  0.00           C 0
+ATOM   1979   CA ALA A 256       4.512  -1.183  19.500  0.00  0.00           C 0
+ATOM   2003  OD2 ASP A 259       6.656  -0.860  23.281  0.00  0.00           O 0
+ATOM   1200   OH TYR A 155       3.672   7.652  17.781  0.58  3.21           O 0
+ATOM   1781  NH1 ARG A 231       0.183   8.312  22.297  0.00  0.00           N 0
+ATOM   1779   CD ARG A 231      -0.611   6.492  20.266  0.00  0.00           C 0
+ATOM   1198  CE1 TYR A 155       1.497   8.594  18.047  0.00  0.00           C 0
+ATOM   1201   CZ TYR A 155       2.836   8.750  17.750  0.00  0.00           C 0
+ATOM   2007   CB ALA A 260      -0.115   1.654  21.766  0.00  0.00           C 0
+ATOM   2004    N ALA A 260       1.205   0.282  23.312  0.00  0.00           N 0
+ATOM   1998    C ASP A 259       2.033   0.269  24.359  0.00  0.00           C 0
+ATOM   2005   CA ALA A 260       0.137   1.274  23.234  0.00  0.00           C 0
+ATOM   2000    O ASP A 259       1.935   1.027  25.328  0.00  0.00           O 0
+ATOM   1776   CB ARG A 231      -0.370   4.539  18.688  0.00  0.00           C 0
+TER
+END

@@ -1,0 +1,87 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket     4:
+HEADER 0  - Pocket Score                      : 0.3268
+HEADER 1  - Drug Score                        : 0.0057
+HEADER 2  - Number of alpha spheres           :   111
+HEADER 3  - Mean alpha-sphere radius          : 3.5933
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.4573
+HEADER 5  - Mean B-factor of pocket residues  : 0.7730
+HEADER 6  - Hydrophobicity Score              : -2.4737
+HEADER 7  - Polarity Score                    :    15
+HEADER 8  - Amino Acid based volume Score     : 4.6316
+HEADER 9  - Pocket volume (Monte Carlo)       : 688.4789
+HEADER 10 - Pocket volume (convex hull)       : 381.5960
+HEADER 11 - Charge Score                      :    -1
+HEADER 12 - Local hydrophobic density Score   : 13.8000
+HEADER 13 - Number of apolar alpha sphere     :    20
+HEADER 14 - Proportion of apolar alpha sphere : 0.1802
+ATOM   3466   CB GLU A 441     -11.812   3.496  24.594  0.00  0.00           C 0
+ATOM   3479   NE ARG A 442      -7.672  -0.748  22.266  0.00  0.00           N 0
+ATOM   3477   CG ARG A 442      -7.754   0.040  24.609  0.00  0.00           C 0
+ATOM   3471  OE2 GLU A 441     -14.133   2.303  25.391  0.00  0.00           O 0
+ATOM   1778   CG ARG A 231      -1.288   5.270  19.656  0.00  0.00           C 0
+ATOM   1777    O ARG A 231      -3.273   3.184  18.062  0.53  2.14           O 0
+ATOM   2008    O ALA A 260      -2.188   1.418  23.812  0.44  6.43           O 0
+ATOM   3474    C ARG A 442      -6.316   3.613  25.047  0.00  0.00           C 0
+ATOM   3453  CG1 VAL A 439      -8.594   8.469  20.312  0.00  0.00           C 0
+ATOM   1792  CE1 TYR A 232      -4.012   7.645  17.891  0.00  0.00           C 0
+ATOM   1236  OE1 GLU A 159      -3.734  10.875  20.328  0.46  4.29           O 0
+ATOM   1782  NH2 ARG A 231      -2.006   8.664  22.875  0.46  2.19           N 0
+ATOM   3407   CB PRO A 434     -11.664  -4.832  16.312  0.00  0.00           C 0
+ATOM   2055  OE2 GLU A 266      -6.934  -3.242  18.406  0.54  1.07           O 0
+ATOM   3481  NH2 ARG A 442      -7.879  -1.179  20.016  0.33  8.75           N 0
+ATOM   2054  OE1 GLU A 266      -8.203  -4.848  19.219  0.00  0.00           O 0
+ATOM   3409   CG PRO A 434     -10.297  -5.434  16.312  0.00  0.00           C 0
+ATOM   2018   CG ARG A 262      -3.969  -0.541  20.453  0.00  0.00           C 0
+ATOM   2019   CD ARG A 262      -3.652   0.136  19.125  0.00  0.00           C 0
+ATOM   3431  OE1 GLN A 436      -9.688   1.669  15.672  0.52  7.50           O 0
+ATOM   3415    O TYR A 435     -13.961  -1.651  16.469  0.52  9.64           O 0
+ATOM   3408    O PRO A 434     -12.273  -2.785  13.859  0.34  1.07           O 0
+ATOM   2022  NH2 ARG A 262      -4.840  -0.905  15.805  0.00  0.00           N 0
+ATOM   1807  ND2 ASN A 234      -7.215  -1.375  13.203  0.10  1.09           N 0
+ATOM   2023   CZ ARG A 262      -4.102  -0.305  16.734  0.00  0.00           C 0
+ATOM   1788    O TYR A 232      -4.828   2.904  13.883  0.31  2.14           O 0
+ATOM   1794   OH TYR A 232      -2.703   9.227  19.109  0.00  0.00           O 0
+ATOM   3468   CG GLU A 441     -13.141   3.996  24.047  0.00  0.00           C 0
+ATOM   3436    O TYR A 437     -15.281   5.270  18.188  0.56  7.50           O 0
+ATOM   3469   CD GLU A 441     -14.344   3.248  24.594  0.00  0.00           C 0
+ATOM   3470  OE1 GLU A 441     -15.492   3.598  24.250  0.57  7.50           O 0
+ATOM   3463    N GLU A 441     -10.398   3.957  22.641  0.00  0.00           N 0
+ATOM   3452    O VAL A 439     -11.430   6.078  20.672  0.15  4.29           O 0
+ATOM   2005   CA ALA A 260       0.137   1.274  23.234  0.00  0.00           C 0
+ATOM   1781  NH1 ARG A 231       0.183   8.312  22.297  0.00  0.00           N 0
+ATOM   1783   CZ ARG A 231      -1.107   8.062  22.109  0.00  0.00           C 0
+ATOM   3428   CG GLN A 436     -11.914   2.432  16.141  0.00  0.00           C 0
+ATOM   3432    N TYR A 437     -14.984   3.029  16.219  0.60  2.19           N 0
+ATOM   3361  NH1 ARG A 428     -10.805  -0.906  12.273  0.00  0.00           N 0
+ATOM   3461  OD1 ASP A 440      -8.594   1.780  21.719  0.56  4.29           O 0
+ATOM   3472    N ARG A 442      -8.586   2.965  24.359  0.00  0.00           N 0
+ATOM   3410   CD PRO A 434      -9.727  -5.328  14.930  0.00  0.00           C 0
+ATOM   2050   CB GLU A 266      -5.770  -4.723  16.438  0.00  0.00           C 0
+ATOM   1780   NE ARG A 231      -1.505   7.211  21.172  0.47  2.19           N 0
+ATOM   3476    O ARG A 442      -5.406   3.607  25.891  0.55  9.64           O 0
+ATOM   3459    O ASP A 440      -8.695   5.352  22.359  0.00  0.00           O 0
+ATOM   1779   CD ARG A 231      -0.611   6.492  20.266  0.00  0.00           C 0
+ATOM   2006    C ALA A 260      -1.146   0.759  23.875  0.00  0.00           C 0
+ATOM   2000    O ASP A 259       1.935   1.027  25.328  0.00  0.00           O 0
+ATOM   3426   CB GLN A 436     -12.461   1.270  15.328  0.00  0.00           C 0
+ATOM   3456   CA ASP A 440      -9.461   4.199  20.391  0.00  0.00           C 0
+ATOM   2007   CB ALA A 260      -0.115   1.654  21.766  0.00  0.00           C 0
+ATOM   3447    O GLY A 438     -11.781   6.078  17.016  0.00  0.00           O 0
+ATOM   3430  NE2 GLN A 436      -9.953   3.855  16.125  0.61  1.09           N 0
+ATOM   1785   CA TYR A 232      -3.328   3.971  15.422  0.00  0.00           C 0
+ATOM   1257  NE2 GLN A 162      -7.363   6.840  14.531  0.54  1.09           N 0
+ATOM   1790  CD1 TYR A 232      -4.117   6.711  16.859  0.00  0.00           C 0
+ATOM   1258  OE1 GLN A 162      -8.719   7.141  16.297  0.00  0.00           O 0
+ATOM   3462  OD2 ASP A 440      -7.770   1.101  19.812  0.69  2.14           O 0
+ATOM   3429   CD GLN A 436     -10.414   2.623  15.961  0.00  0.00           C 0
+ATOM   2020   NE ARG A 262      -4.391  -0.472  18.016  0.00  0.00           N 0
+ATOM   3458   CB ASP A 440      -8.180   3.434  20.047  0.00  0.00           C 0
+ATOM   3455    N ASP A 440      -9.570   5.414  19.594  0.00  0.00           N 0
+ATOM   3460   CG ASP A 440      -8.188   2.006  20.562  0.00  0.00           C 0
+ATOM   3475   CB ARG A 442      -6.836   1.240  24.453  0.00  0.00           C 0
+TER
+END
