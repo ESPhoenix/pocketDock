@@ -1,0 +1,40 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    51:
+HEADER 0  - Pocket Score                      : -0.0540
+HEADER 1  - Drug Score                        : 0.0007
+HEADER 2  - Number of alpha spheres           :    19
+HEADER 3  - Mean alpha-sphere radius          : 3.4834
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.5692
+HEADER 5  - Mean B-factor of pocket residues  : 0.9289
+HEADER 6  - Hydrophobicity Score              : 4.0000
+HEADER 7  - Polarity Score                    :     4
+HEADER 8  - Amino Acid based volume Score     : 4.6667
+HEADER 9  - Pocket volume (Monte Carlo)       : 218.0880
+HEADER 10 - Pocket volume (convex hull)       : 5.9918
+HEADER 11 - Charge Score                      :     0
+HEADER 12 - Local hydrophobic density Score   : 10.0000
+HEADER 13 - Number of apolar alpha sphere     :    11
+HEADER 14 - Proportion of apolar alpha sphere : 0.5789
+ATOM   2075    O ARG A 271       3.424  10.219  19.297  0.00  0.00           O 0
+ATOM   2052    N ALA A 267       5.703  12.820  17.547  0.00  0.00           N 0
+ATOM   2053   CA ALA A 267       5.781  13.516  18.828  0.00  0.00           C 0
+ATOM   2055   CB ALA A 267       7.234  13.656  19.266  0.00  0.00           C 0
+ATOM   2020    O GLU A 263       8.172  11.617  16.516  0.68  2.14           O 0
+ATOM   2047   CB LEU A 266       4.945  10.359  15.875  0.00  0.00           C 0
+ATOM   2090    N ARG A 273       5.004   6.590  19.469  0.54  2.19           N 0
+ATOM   2017   CA GLU A 263       9.141   9.906  15.133  0.00  0.00           C 0
+ATOM   2050  CD1 LEU A 266       5.312   8.062  14.938  0.00  0.00           C 0
+ATOM   2093   CB ARG A 273       7.117   5.535  18.781  0.00  0.00           C 0
+ATOM   2019   CB GLU A 263      10.312   9.219  15.836  0.00  0.00           C 0
+ATOM   2021   CG GLU A 263      10.328   7.703  15.648  0.00  0.00           C 0
+ATOM   2083   CA ASP A 272       3.121   7.770  20.609  0.00  0.00           C 0
+ATOM   2089  OD2 ASP A 272       4.199   6.520  23.500  0.00  0.00           O 0
+ATOM   2096   CD ARG A 273       7.805   5.055  16.406  0.00  0.00           C 0
+ATOM   2091   CA ARG A 273       5.633   5.742  18.469  0.00  0.00           C 0
+ATOM   2022   CD GLU A 263      11.539   7.035  16.281  0.00  0.00           C 0
+ATOM   2024  OE2 GLU A 263      12.523   7.754  16.578  0.00  0.00           O 0
+TER
+END

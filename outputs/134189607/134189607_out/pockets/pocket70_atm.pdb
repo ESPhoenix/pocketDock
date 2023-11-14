@@ -1,0 +1,38 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    70:
+HEADER 0  - Pocket Score                      : -0.0546
+HEADER 1  - Drug Score                        : 0.0001
+HEADER 2  - Number of alpha spheres           :    16
+HEADER 3  - Mean alpha-sphere radius          : 3.7080
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.7151
+HEADER 5  - Mean B-factor of pocket residues  : 0.9633
+HEADER 6  - Hydrophobicity Score              : 28.8000
+HEADER 7  - Polarity Score                    :     4
+HEADER 8  - Amino Acid based volume Score     : 5.2000
+HEADER 9  - Pocket volume (Monte Carlo)       : 202.0861
+HEADER 10 - Pocket volume (convex hull)       : 7.3401
+HEADER 11 - Charge Score                      :     0
+HEADER 12 - Local hydrophobic density Score   : 0.0000
+HEADER 13 - Number of apolar alpha sphere     :     1
+HEADER 14 - Proportion of apolar alpha sphere : 0.0625
+ATOM   5058   CB TRP A 691     -20.125   9.602 -11.211  0.00  0.00           C 0
+ATOM   5059    O TRP A 691     -18.438   7.062 -10.227  0.00  0.00           O 0
+ATOM   5121  NH2 ARG A 698     -14.281   6.684 -12.469  0.27  3.28           N 0
+ATOM   6053  CD1 LEU A 820     -14.945   9.359  -9.914  0.00  0.00           C 0
+ATOM   5056   CA TRP A 691     -20.234   8.094 -11.430  0.00  0.00           C 0
+ATOM   5053  OE1 GLU A 690     -22.953   5.289 -17.031  0.00  0.00           O 0
+ATOM   5090   OG SER A 694     -19.516   4.320 -14.016  0.00  0.00           O 0
+ATOM   5052   CD GLU A 690     -23.453   5.945 -16.078  0.00  0.00           C 0
+ATOM   5051   CG GLU A 690     -23.016   5.645 -14.656  0.00  0.00           C 0
+ATOM   5120  NH1 ARG A 698     -15.336   5.406 -14.047  0.27  5.47           N 0
+ATOM   5055    N TRP A 691     -21.625   7.703 -11.641  0.00  0.00           N 0
+ATOM   5054  OE2 GLU A 690     -24.312   6.844 -16.250  0.00  0.00           O 0
+ATOM   5049   CB GLU A 690     -23.734   6.484 -13.617  0.00  0.00           C 0
+ATOM   5050    O GLU A 690     -21.047   5.547 -11.992  0.00  0.00           O 0
+ATOM   5048    C GLU A 690     -21.906   6.430 -11.906  0.00  0.00           C 0
+ATOM   5088   CB SER A 694     -18.344   4.441 -13.227  0.00  0.00           C 0
+TER
+END

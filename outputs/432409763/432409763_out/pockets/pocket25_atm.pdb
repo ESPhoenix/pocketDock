@@ -1,0 +1,41 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    25:
+HEADER 0  - Pocket Score                      : 0.0641
+HEADER 1  - Drug Score                        : 0.0003
+HEADER 2  - Number of alpha spheres           :    19
+HEADER 3  - Mean alpha-sphere radius          : 3.8109
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.6537
+HEADER 5  - Mean B-factor of pocket residues  : 0.6967
+HEADER 6  - Hydrophobicity Score              : -24.1250
+HEADER 7  - Polarity Score                    :     5
+HEADER 8  - Amino Acid based volume Score     : 3.8750
+HEADER 9  - Pocket volume (Monte Carlo)       : 252.1879
+HEADER 10 - Pocket volume (convex hull)       : 16.8586
+HEADER 11 - Charge Score                      :     0
+HEADER 12 - Local hydrophobic density Score   : 3.2000
+HEADER 13 - Number of apolar alpha sphere     :     5
+HEADER 14 - Proportion of apolar alpha sphere : 0.2632
+ATOM   2713  NH1 ARG A 359      27.625   9.922 -13.977  0.00  0.00           N 0
+ATOM   2714  NH2 ARG A 359      29.312   8.836 -15.070  0.00  0.00           N 0
+ATOM   2663   CA GLY A 353      29.250  13.102 -12.461  0.00  0.00           C 0
+ATOM   2657    O GLU A 352      30.531  10.547 -12.844  0.37  2.14           O 0
+ATOM   2672   CD PRO A 354      27.953  14.820 -14.461  0.00  0.00           C 0
+ATOM   2685  CG2 THR A 356      24.375  11.250 -18.172  0.00  0.00           C 0
+ATOM   2498    O ASP A 327      25.312  12.172 -21.281  0.00  0.00           O 0
+ATOM   2512   CG PRO A 329      25.000  16.547 -18.453  0.00  0.00           C 0
+ATOM   2671   CG PRO A 354      26.844  15.469 -15.227  0.00  0.00           C 0
+ATOM   2513   CD PRO A 329      24.703  16.000 -19.812  0.00  0.00           C 0
+ATOM   2670    O PRO A 354      25.484  12.375 -14.672  0.00  0.00           O 0
+ATOM   2712   NE ARG A 359      27.172   8.016 -15.203  0.37  8.75           N 0
+ATOM   2699   CG ARG A 358      23.859   4.527 -20.453  0.00  0.00           C 0
+ATOM   2710   CG ARG A 359      25.031   6.902 -15.672  0.00  0.00           C 0
+ATOM   2500  OD1 ASP A 327      25.312   7.762 -23.016  0.00  0.00           O 0
+ATOM   2715   CZ ARG A 359      28.031   8.922 -14.750  0.00  0.00           C 0
+ATOM   2686  OG1 THR A 356      23.750   8.930 -17.969  0.00  0.00           O 0
+ATOM   2697   CB ARG A 358      23.047   5.809 -20.344  0.00  0.00           C 0
+ATOM   2495   CA ASP A 327      24.109  10.430 -22.406  0.00  0.00           C 0
+TER
+END

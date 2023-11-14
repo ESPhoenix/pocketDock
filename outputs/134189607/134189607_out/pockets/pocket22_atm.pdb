@@ -1,0 +1,40 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    22:
+HEADER 0  - Pocket Score                      : 0.0717
+HEADER 1  - Drug Score                        : 0.0054
+HEADER 2  - Number of alpha spheres           :    23
+HEADER 3  - Mean alpha-sphere radius          : 3.1842
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.4649
+HEADER 5  - Mean B-factor of pocket residues  : 0.9599
+HEADER 6  - Hydrophobicity Score              : 37.1429
+HEADER 7  - Polarity Score                    :     3
+HEADER 8  - Amino Acid based volume Score     : 4.2857
+HEADER 9  - Pocket volume (Monte Carlo)       : 80.3480
+HEADER 10 - Pocket volume (convex hull)       : 2.0537
+HEADER 11 - Charge Score                      :     0
+HEADER 12 - Local hydrophobic density Score   : 15.0000
+HEADER 13 - Number of apolar alpha sphere     :    16
+HEADER 14 - Proportion of apolar alpha sphere : 0.6957
+ATOM   2441   CZ PHE A 361      -4.699 -19.938  16.688  0.00  0.00           C 0
+ATOM   5825    O THR A 791      -4.680 -23.031  12.242  0.44  3.21           O 0
+ATOM   5815   CB GLU A 790      -2.230 -23.703  16.656  0.00  0.00           C 0
+ATOM   5820  OE2 GLU A 790      -4.598 -25.047  16.906  0.44  4.29           O 0
+ATOM   5210   SG CYS A 710       0.213 -20.469  16.266  0.00  0.00           S 0
+ATOM   5814    C GLU A 790      -1.432 -24.141  14.312  0.00  0.00           C 0
+ATOM   2439  CE1 PHE A 361      -3.580 -19.125  16.734  0.00  0.00           C 0
+ATOM   2440  CE2 PHE A 361      -5.887 -19.469  16.172  0.00  0.00           C 0
+ATOM   5834  CG2 VAL A 792      -5.152 -20.234  13.031  0.00  0.00           C 0
+ATOM   2459   CD LYS A 363      -5.816 -22.719  19.547  0.00  0.00           C 0
+ATOM   2461   NZ LYS A 363      -6.594 -25.016  18.969  0.00  0.00           N 0
+ATOM   5828    N VAL A 792      -3.322 -21.562  11.148  0.00  0.00           N 0
+ATOM   5194    O VAL A 708      -0.429 -21.047  11.219  0.00  0.00           O 0
+ATOM   5195  CG1 VAL A 708      -0.243 -18.047  13.078  0.00  0.00           C 0
+ATOM   5822   CA THR A 791      -2.314 -23.438  12.180  0.00  0.00           C 0
+ATOM   5816    O GLU A 790      -0.296 -23.734  14.055  0.00  0.00           O 0
+ATOM   5823    C THR A 791      -3.576 -22.656  11.844  0.00  0.00           C 0
+ATOM   5821    N THR A 791      -2.455 -24.109  13.469  0.00  0.00           N 0
+TER
+END

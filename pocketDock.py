@@ -8,6 +8,8 @@ from shutil import copy, move
 import pandas as pd
 import multiprocessing as mp
 import argpass
+from tqdm import tqdm
+import subprocess
 #########################################################################################################################
 # get inputs
 def read_inputs():
@@ -53,7 +55,7 @@ def main():
     ordersDf = pd.read_csv(ligandOrdersCsv)
     ordersDf["ID"] = ordersDf["ID"].astype(str)
     ordersDict = ordersDf.set_index('ID')['Ligand'].to_dict()
-    
+
     pdbFiles =[]
     # loop through receptor PDB files
     for fileName in os.listdir(protDir):
@@ -63,23 +65,28 @@ def main():
             continue
         pdbFiles.append(fileName)
 
-    #run_paralell(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,mglToolsDir, exhausiveness, numModes,maxFlexRes)
+    run_paralell(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,mglToolsDir, exhausiveness, numModes,maxFlexRes)
 
-    run_serial(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,mglToolsDir, exhausiveness, numModes,maxFlexRes)
+    #run_serial(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,mglToolsDir, exhausiveness, numModes,maxFlexRes)
 #########################################################################################################################
 #########################################################################################################################
 def run_serial(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,mglToolsDir, exhausiveness, numModes, maxFlexRes):
     # for testing 
     for fileName in pdbFiles:
         docking_protocol(fileName,protDir, ligandDir,outDir,ordersDict,util24Dir,mglToolsDir,exhausiveness, numModes, maxFlexRes)
+
+
 #########################################################################################################################
 def run_paralell(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,mglToolsDir, exhausiveness, numModes,maxFlexRes):
     num_cores = mp.cpu_count()
-    pool = mp.Pool(processes=round(num_cores / 2))
+    paralellCores= round(num_cores / 2)
 
-    for fileName in pdbFiles:
-        pool.apply_async(docking_protocol, (fileName,protDir, ligandDir,outDir,ordersDict,
-                                            util24Dir,mglToolsDir,exhausiveness, numModes,maxFlexRes))
+    with mp.Pool(processes=paralellCores) as pool:
+        pool.starmap(docking_protocol,
+                     tqdm([(fileName,protDir, ligandDir,outDir,ordersDict,
+                                util24Dir,mglToolsDir,exhausiveness, numModes,maxFlexRes) for fileName in pdbFiles],
+                                total=len(pdbFiles)))
+
 
     # Close the pool to release resources
     pool.close()
@@ -252,7 +259,6 @@ def write_vina_config(outDir,receptorPdbqt,ligandPdbqt,boxCenter,boxSize,flexPdb
     vinaConfigFile=p.join(outDir,f"vina_conf.txt")
 
     with open(vinaConfigFile,"w") as outFile:
-
         if flex:
             outFile.write(f"receptor = {receptorPdbqt}\n")
             outFile.write(f"flex = {flexPdbqt}\n\n")
@@ -334,21 +340,24 @@ def pdb_to_pdbqt(name, pdbFile, outDir, util24Dir, mglToolsDir,jobType,flexRes=N
 
     if jobType == "rigid":
         protPdbqt = p.join(outDir,"{}.pdbqt".format(name))
-        call(["python2.7",prepReceptorPy,"-r",pdbFile,"-o",protPdbqt],env=env)
+        call(["python2.7",prepReceptorPy,"-r",pdbFile,"-o",protPdbqt],
+             env=env,stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         return protPdbqt
 
     elif jobType == "flex":
         if flexRes == None:
-            print(f"--X-->\tNo Flexible residues supplied for {name}")
+            #print(f"--X-->\tNo Flexible residues supplied for {name}")
             return
         rigidPdbqt = p.join(outDir,f"{name}_rigid.pdbqt")
         flexPdbqt = p.join(outDir,f"{name}_flex.pdbqt")
-        call(["python2.7",prepFlexReceptorPy,"-r",pdbFile,"-s",flexRes,"-g",rigidPdbqt,"-x",flexPdbqt],env=env)
+        call(["python2.7",prepFlexReceptorPy,"-r",pdbFile,"-s",flexRes,"-g",rigidPdbqt,"-x",flexPdbqt],
+             env=env,stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         return rigidPdbqt, flexPdbqt
     
     elif jobType == "ligand":
         ligandPdbqt = p.join(outDir,f"{name}.pdbqt")
-        call(["python2.7",prepligandPy,"-l",pdbFile,"-o",ligandPdbqt],env=env)
+        call(["python2.7",prepligandPy,"-l",pdbFile,"-o",ligandPdbqt],
+             env=env,stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         return ligandPdbqt
 
 #########################################################################################################################
@@ -373,24 +382,25 @@ def set_up_directory(fileName,protDir,ligandDir,outDir,ordersDict):
 #########################################################################################################################
 
 def run_fpocket(name,runDir,pdbFile):
-    print("----->\tRunning Fpocket!")
+   # print("----->\tRunning Fpocket!")
     os.chdir(runDir)
     minSphereSize = "3.0"
     maxSphereSize = "6.0"
-    call(["fpocket","-f",pdbFile,"-m",minSphereSize,"-M",maxSphereSize])
+    call(["fpocket","-f",pdbFile,"-m",minSphereSize,"-M",maxSphereSize],
+         stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     fpocketOutDir = p.join(runDir,f"{name}_out","pockets")
     ## ASSUMPTION == LARGEST POCKET IS OUR BINDING POCKET ## Not really true!
     largestPocketPdb = p.join(fpocketOutDir,"pocket1_atm.pdb")
     ## ERROR Handling
     if not p.isfile(largestPocketPdb):
-        print("--X-->\tFpocket Failed!")
+        #print("--X-->\tFpocket Failed!")
         return
     largestPocketDf = pdb2df(largestPocketPdb)
 
     boxCenter = [largestPocketDf["X"].mean(), largestPocketDf["Y"].mean(),largestPocketDf["Z"].mean()]
     pocketResidues = largestPocketDf["RES_ID"].unique().tolist()
 
-    print("----->\tFpocket Success!")
+    #print("----->\tFpocket Success!")
     return boxCenter, pocketResidues
 
 
