@@ -22,18 +22,8 @@ chmod +x install.sh
 ./install.sh
 ```
 
-## Step 3: Install Vina
 
-Download AutoDock Vina from [here](https://vina.scripps.edu/downloads/).
-
-```bash
-cd /home/{username}/bin/
-tar -xzf autodock_vina_1_1_2_linux_x86.tgz
-cd autodock_vina_1_1_2_linux_x8/bin
-chmod +x vina
-```
-
-Add Python2 to your PATH in .bashrc (or .bash_profile):
+## Step 3: Add Python2 to your PATH in .bashrc (or .bash_profile):
 
 ```bash
 export PATH="$PATH:/usr/bin/python2.7"
@@ -50,7 +40,7 @@ python2.7 -m pip install numpy
 
 ## Step 4: Install Python3 Libraries
 
-Install required Python3 libraries using pip:
+Install required Python3 libraries using pip and conda:
 
 ```bash
 pip3 install pytest-shutil
@@ -58,6 +48,8 @@ pip3 install pandas
 conda config --add channels conda-forge
 conda install fpocket
 pip3 install argpass
+pip3 install tqdm
+pip3 install vina
 ```
 
 ## Step 5: Create Config File
