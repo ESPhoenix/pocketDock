@@ -28,9 +28,9 @@ def read_inputs():
     try:
         config_module = __import__(configName)
         (protDir, ligandDir, outDir, mglToolsDir, util24Dir,
-             ligandOrdersCsv, modelSelectionMode, maxFlexRes) = config_module.inputs()
+             ligandOrdersCsv, modelSelectionMode, maxFlexRes,nCoresPerRun) = config_module.inputs()
         return (protDir, ligandDir, outDir, mglToolsDir, util24Dir,
-             ligandOrdersCsv, modelSelectionMode, maxFlexRes)
+             ligandOrdersCsv, modelSelectionMode, maxFlexRes,nCoresPerRun)
     except ImportError:
         print(f"Error: Can't to import module '{configName}'. Make sure the input exists!")
         print("HOPE IS THE FIRST STEP ON THE ROAD TO DISAPPOINTMENT")
@@ -40,7 +40,7 @@ def read_inputs():
 #########################################################################################################################
 def main():
     (protDir, ligandDir, outDir, mglToolsDir, util24Dir,
-             ligandOrdersCsv, modelSelectionMode, maxFlexRes) = read_inputs()
+             ligandOrdersCsv, modelSelectionMode, maxFlexRes,nCoresPerRun) = read_inputs()
     # disable copy warnings
     pd.set_option('mode.chained_assignment', None)
 
@@ -65,26 +65,30 @@ def main():
             continue
         pdbFiles.append(fileName)
 
-    run_paralell(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,mglToolsDir, exhausiveness, numModes,maxFlexRes)
+    run_paralell(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,
+                 mglToolsDir, exhausiveness, numModes,maxFlexRes,nCoresPerRun)
 
-    #run_serial(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,mglToolsDir, exhausiveness, numModes,maxFlexRes)
+    #run_serial(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,
+    # mglToolsDir, exhausiveness, numModes,maxFlexRes,nCoresPerRun)
 #########################################################################################################################
 #########################################################################################################################
-def run_serial(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,mglToolsDir, exhausiveness, numModes, maxFlexRes):
+def run_serial(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,
+               mglToolsDir, exhausiveness, numModes, maxFlexRes,nCoresPerRun):
     # for testing 
     for fileName in pdbFiles:
         docking_protocol(fileName,protDir, ligandDir,outDir,ordersDict,util24Dir,mglToolsDir,exhausiveness, numModes, maxFlexRes)
 
 
 #########################################################################################################################
-def run_paralell(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,mglToolsDir, exhausiveness, numModes,maxFlexRes):
+def run_paralell(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,
+                 mglToolsDir, exhausiveness, numModes,maxFlexRes,nCoresPerRun):
     num_cores = mp.cpu_count()
     paralellCores= round(num_cores / 2)
 
     with mp.Pool(processes=paralellCores) as pool:
         pool.starmap(docking_protocol,
-                     tqdm([(fileName,protDir, ligandDir,outDir,ordersDict,
-                                util24Dir,mglToolsDir,exhausiveness, numModes,maxFlexRes) for fileName in pdbFiles],
+                     tqdm([(fileName,protDir, ligandDir,outDir,ordersDict,util24Dir,
+                            mglToolsDir,exhausiveness, numModes,maxFlexRes,nCoresPerRun) for fileName in pdbFiles],
                                 total=len(pdbFiles)))
 
 
@@ -95,7 +99,8 @@ def run_paralell(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,mglTool
 
 #########################################################################################################################
 
-def docking_protocol(fileName,protDir, ligandDir,outDir,ordersDict,util24Dir,mglToolsDir,exhausiveness, numModes, maxFlexRes):
+def docking_protocol(fileName,protDir, ligandDir,outDir,ordersDict,util24Dir,
+                     mglToolsDir,exhausiveness, numModes, maxFlexRes,nCoresPerRun):
     # set up run directory and output key variables
     protName, protPdb, ligandPdb, ligandName, runDir = set_up_directory(fileName=fileName,
                                                                             protDir=protDir,
@@ -145,7 +150,8 @@ def docking_protocol(fileName,protDir, ligandDir,outDir,ordersDict,util24Dir,mgl
                                                             boxCenter = boxCenter,
                                                             boxSize = 30,
                                                             exhaustiveness=exhausiveness,
-                                                            numModes=numModes)
+                                                            numModes=numModes,
+                                                            cpus=str(nCoresPerRun))
 
     # Run vina docking
     run_vina(outDir = runDir,
@@ -257,7 +263,6 @@ def run_vina(outDir,configFile):
 def write_vina_config(outDir,receptorPdbqt,ligandPdbqt,boxCenter,boxSize,flexPdbqt=None,
                         exhaustiveness = 16, numModes = 10, cpus=2, energyRange = 5, seed = 42, flex=False):
     vinaConfigFile=p.join(outDir,f"vina_conf.txt")
-
     with open(vinaConfigFile,"w") as outFile:
         if flex:
             outFile.write(f"receptor = {receptorPdbqt}\n")

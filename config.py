@@ -15,6 +15,8 @@ def inputs():
     modelSelectionMode = "best"     
     # maximum number of flexible residues per docking simulation (time scales with this)
     maxFlexRes = 5
+    # number of cores per docking simulation (use 1 for lots of receptors!)
+    nCoresPerRun = 4
 
     return (protDir, ligandDir, outDir, mglToolsDir, util24Dir,
-             ligandOrdersCsv, modelSelectionMode, maxFlexRes)
+             ligandOrdersCsv, modelSelectionMode, maxFlexRes,nCoresPerRun)
