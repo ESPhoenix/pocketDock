@@ -1,0 +1,38 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    44:
+HEADER 0  - Pocket Score                      : 0.0210
+HEADER 1  - Drug Score                        : 0.0012
+HEADER 2  - Number of alpha spheres           :    15
+HEADER 3  - Mean alpha-sphere radius          : 3.7394
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.6606
+HEADER 5  - Mean B-factor of pocket residues  : 0.9331
+HEADER 6  - Hydrophobicity Score              : 29.8000
+HEADER 7  - Polarity Score                    :     2
+HEADER 8  - Amino Acid based volume Score     : 3.8000
+HEADER 9  - Pocket volume (Monte Carlo)       : 205.1948
+HEADER 10 - Pocket volume (convex hull)       : 7.1470
+HEADER 11 - Charge Score                      :    -2
+HEADER 12 - Local hydrophobic density Score   : 8.0000
+HEADER 13 - Number of apolar alpha sphere     :     9
+HEADER 14 - Proportion of apolar alpha sphere : 0.6000
+ATOM   3806  OD1 ASP A 531      63.625  -8.422 -59.031  0.81  7.50           O 0
+ATOM   3805   CG ASP A 531      63.406  -9.609 -59.375  0.00  0.00           C 0
+ATOM   3803   CB ASP A 531      63.250 -10.664 -58.312  0.00  0.00           C 0
+ATOM   3835  CD2 LEU A 535      57.688 -10.961 -54.812  0.00  0.00           C 0
+ATOM   3804    O ASP A 531      62.250 -10.953 -55.188  0.73  1.07           O 0
+ATOM   3826   CB ALA A 534      62.250  -7.805 -53.688  0.00  0.00           C 0
+ATOM   3801   CA ASP A 531      63.719 -10.195 -56.938  0.00  0.00           C 0
+ATOM   3834  CD1 LEU A 535      58.781 -12.984 -55.812  0.00  0.00           C 0
+ATOM   3572  CD2 LEU A 503      62.125 -13.766 -57.625  0.00  0.00           C 0
+ATOM   3571  CD1 LEU A 503      62.000 -14.547 -60.000  0.00  0.00           C 0
+ATOM   3807  OD2 ASP A 531      63.312  -9.961 -60.562  0.00  0.00           O 0
+ATOM   3833   CG LEU A 535      58.938 -11.789 -54.875  0.00  0.00           C 0
+ATOM   3825    C ALA A 534      61.094  -9.297 -52.031  0.00  0.00           C 0
+ATOM   3828    N LEU A 535      60.781 -10.438 -52.688  0.00  0.00           N 0
+ATOM   3859  OE2 GLU A 538      55.812  -8.375 -52.594  0.62  8.57           O 0
+ATOM   3827    O ALA A 534      60.344  -8.836 -51.188  0.50  5.36           O 0
+TER
+END

@@ -1,0 +1,39 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    79:
+HEADER 0  - Pocket Score                      : -0.0773
+HEADER 1  - Drug Score                        : 0.0008
+HEADER 2  - Number of alpha spheres           :    17
+HEADER 3  - Mean alpha-sphere radius          : 3.5543
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.5395
+HEADER 5  - Mean B-factor of pocket residues  : 0.9584
+HEADER 6  - Hydrophobicity Score              : 31.2857
+HEADER 7  - Polarity Score                    :     4
+HEADER 8  - Amino Acid based volume Score     : 4.5714
+HEADER 9  - Pocket volume (Monte Carlo)       : 184.4082
+HEADER 10 - Pocket volume (convex hull)       : 10.7691
+HEADER 11 - Charge Score                      :    -1
+HEADER 12 - Local hydrophobic density Score   : 6.0000
+HEADER 13 - Number of apolar alpha sphere     :     7
+HEADER 14 - Proportion of apolar alpha sphere : 0.4118
+ATOM   3480   NZ LYS A 492      46.031  -7.180 -49.781  0.00  0.00           N 0
+ATOM   3442   CB GLU A 488      41.906 -10.859 -47.719  0.00  0.00           C 0
+ATOM   3447  OE2 GLU A 488      40.656  -8.445 -47.812  0.85  3.21           O 0
+ATOM   3479   CE LYS A 492      45.969  -8.508 -50.469  0.00  0.00           C 0
+ATOM   3417    O GLU A 485      42.875 -10.867 -44.156  0.69  4.29           O 0
+ATOM   3478   CD LYS A 492      47.125  -9.414 -50.000  0.00  0.00           C 0
+ATOM   3454  CD1 LEU A 489      48.219 -10.086 -44.875  0.00  0.00           C 0
+ATOM   3896  CD2 LEU A 542      50.875  -9.188 -46.719  0.00  0.00           C 0
+ATOM   3449   CA LEU A 489      45.938 -11.977 -46.156  0.00  0.00           C 0
+ATOM   3448    N LEU A 489      44.500 -12.031 -46.406  0.63  1.09           N 0
+ATOM   3441    C GLU A 488      44.000 -12.242 -47.625  0.00  0.00           C 0
+ATOM   3416   CB GLU A 485      41.062  -8.891 -42.281  0.00  0.00           C 0
+ATOM   3414   CA GLU A 485      40.812  -9.961 -43.344  0.00  0.00           C 0
+ATOM   3418   CG GLU A 485      40.156  -7.672 -42.438  0.00  0.00           C 0
+ATOM   3451   CB LEU A 489      46.219 -11.578 -44.719  0.00  0.00           C 0
+ATOM   3946  CD1 LEU A 549      44.781  -9.906 -40.781  0.00  0.00           C 0
+ATOM   3916  CG2 THR A 545      48.656  -7.695 -41.531  0.00  0.00           C 0
+TER
+END

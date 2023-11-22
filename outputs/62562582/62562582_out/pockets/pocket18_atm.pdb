@@ -1,0 +1,37 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    18:
+HEADER 0  - Pocket Score                      : 0.0861
+HEADER 1  - Drug Score                        : 0.0024
+HEADER 2  - Number of alpha spheres           :    19
+HEADER 3  - Mean alpha-sphere radius          : 3.1746
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.3763
+HEADER 5  - Mean B-factor of pocket residues  : 0.4067
+HEADER 6  - Hydrophobicity Score              : 46.0000
+HEADER 7  - Polarity Score                    :     1
+HEADER 8  - Amino Acid based volume Score     : 3.8333
+HEADER 9  - Pocket volume (Monte Carlo)       : 64.0578
+HEADER 10 - Pocket volume (convex hull)       : 2.0698
+HEADER 11 - Charge Score                      :     1
+HEADER 12 - Local hydrophobic density Score   : 13.0000
+HEADER 13 - Number of apolar alpha sphere     :    14
+HEADER 14 - Proportion of apolar alpha sphere : 0.7368
+ATOM   2609  CG1 VAL A 340       0.537  15.859   3.242  0.00  0.00           C 0
+ATOM   2583  NH1 ARG A 337       0.555   9.414   3.621  0.00  0.00           N 0
+ATOM   2581   CD ARG A 337       2.732  10.750   4.863  0.00  0.00           C 0
+ATOM   2801    O GLY A 364      -3.084  12.477   3.947  0.00  0.00           O 0
+ATOM   1883   CB ALA A 242      -0.641  10.695   1.395  0.00  0.00           C 0
+ATOM   2607   CB VAL A 340       2.061  15.922   3.166  0.00  0.00           C 0
+ATOM   2579    O ARG A 337       4.297  14.555   5.789  0.00  0.00           O 0
+ATOM   1754  CD1 LEU A 224       3.211  12.594  -0.112  0.00  0.00           C 0
+ATOM   2617  CG2 VAL A 341       1.825  14.734   8.125  0.00  0.00           C 0
+ATOM   2610  CG2 VAL A 340       2.533  15.750   1.723  0.00  0.00           C 0
+ATOM   2576   CA ARG A 337       5.180  12.820   4.391  0.00  0.00           C 0
+ATOM   1884    O ALA A 242      -0.872  13.000  -0.415  0.81  1.07           O 0
+ATOM   2799   CA GLY A 364      -2.352  11.742   6.102  0.00  0.00           C 0
+ATOM   2582   NE ARG A 337       1.682  10.008   5.551  0.62  1.09           N 0
+ATOM   2585   CZ ARG A 337       0.672   9.383   4.945  0.00  0.00           C 0
+TER
+END

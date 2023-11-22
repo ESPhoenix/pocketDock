@@ -1,0 +1,64 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    28:
+HEADER 0  - Pocket Score                      : -0.0484
+HEADER 1  - Drug Score                        : 0.0030
+HEADER 2  - Number of alpha spheres           :    63
+HEADER 3  - Mean alpha-sphere radius          : 3.9078
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.4927
+HEADER 5  - Mean B-factor of pocket residues  : 0.6999
+HEADER 6  - Hydrophobicity Score              : -8.8000
+HEADER 7  - Polarity Score                    :    10
+HEADER 8  - Amino Acid based volume Score     : 3.9333
+HEADER 9  - Pocket volume (Monte Carlo)       : 810.3577
+HEADER 10 - Pocket volume (convex hull)       : 249.1366
+HEADER 11 - Charge Score                      :    -3
+HEADER 12 - Local hydrophobic density Score   : 17.7857
+HEADER 13 - Number of apolar alpha sphere     :    28
+HEADER 14 - Proportion of apolar alpha sphere : 0.4444
+ATOM   2026   CG GLU A 264       0.492 -19.406   2.389  0.00  0.00           C 0
+ATOM   2789  NH1 ARG A 362      -2.080 -18.062  -3.531  0.00  0.00           N 0
+ATOM   2022   CA GLU A 264       2.969 -18.781   2.500  0.00  0.00           C 0
+ATOM   2024   CB GLU A 264       1.924 -19.891   2.561  0.00  0.00           C 0
+ATOM   2787   CD ARG A 362      -0.321 -16.141  -4.645  0.00  0.00           C 0
+ATOM   2025    O GLU A 264       2.141 -16.812   3.584  0.00  0.00           O 0
+ATOM   2785    O ARG A 362      -0.476 -12.477  -1.443  0.79  2.14           O 0
+ATOM   2049    O SER A 267       1.185 -13.500   3.803  0.00  0.00           O 0
+ATOM   2028  OE1 GLU A 264      -1.732 -20.266   2.164  0.68  5.36           O 0
+ATOM   2469   CB VAL A 325      -5.602 -14.750  -2.154  0.00  0.00           C 0
+ATOM   2487  OE1 GLU A 327      -5.664 -18.531  -4.168  0.62  4.29           O 0
+ATOM   2021    N GLU A 264       4.316 -19.344   2.453  0.00  0.00           N 0
+ATOM   2009    O VAL A 262       6.715 -18.859  -0.193  0.00  0.00           O 0
+ATOM   1931   CB PRO A 251       7.238 -13.984  -5.250  0.00  0.00           C 0
+ATOM   2001   CB PRO A 261       9.039 -20.500  -3.404  0.00  0.00           C 0
+ATOM   2005    N VAL A 262       9.094 -17.953  -1.369  0.00  0.00           N 0
+ATOM   1999   CA PRO A 261      10.094 -19.578  -2.795  0.00  0.00           C 0
+ATOM   1932    O PRO A 251      10.273 -14.570  -6.637  0.00  0.00           O 0
+ATOM   1954   CA GLN A 255      13.164 -16.438  -8.391  0.00  0.00           C 0
+ATOM   1986    O GLU A 259      14.219 -19.250  -4.434  0.58  5.36           O 0
+ATOM   1998    N PRO A 261      11.305 -20.406  -2.797  0.00  0.00           N 0
+ATOM   2004   CD PRO A 261      11.094 -21.766  -3.117  0.00  0.00           C 0
+ATOM   2008   CB VAL A 262       8.000 -15.977  -0.330  0.00  0.00           C 0
+ATOM   1929   CA PRO A 251       8.727 -13.742  -4.996  0.00  0.00           C 0
+ATOM   2061    N GLY A 269      -2.072 -11.508   1.695  0.15  1.09           N 0
+ATOM   1948   CB ASP A 254      12.773 -15.469  -4.098  0.00  0.00           C 0
+ATOM   1952  OD2 ASP A 254      11.953 -15.141  -1.889  0.00  0.00           O 0
+ATOM   2470    O VAL A 325      -8.125 -16.219  -1.307  0.63  9.64           O 0
+ATOM   2472  CG2 VAL A 325      -4.395 -13.859  -1.859  0.00  0.00           C 0
+ATOM   2786   CG ARG A 362      -0.696 -15.016  -3.686  0.00  0.00           C 0
+ATOM   1956   CB GLN A 255      11.914 -16.297  -9.266  0.00  0.00           C 0
+ATOM   1958   CG GLN A 255      11.945 -17.141 -10.523  0.00  0.00           C 0
+ATOM   1933   CG PRO A 251       6.543 -13.352  -4.086  0.00  0.00           C 0
+ATOM   2050   OG SER A 267       2.793 -13.820   0.984  0.58  7.50           O 0
+ATOM   2799  CD2 TYR A 363       4.410 -11.688  -1.406  0.00  0.00           C 0
+ATOM   2010  CG1 VAL A 262       7.488 -15.406   0.991  0.00  0.00           C 0
+ATOM   1953    N GLN A 255      13.031 -15.641  -7.176  0.00  0.00           N 0
+ATOM   2466    N VAL A 325      -6.684 -14.070  -0.022  0.00  0.00           N 0
+ATOM   2795   CB TYR A 363       2.730 -11.156  -3.215  0.00  0.00           C 0
+ATOM   2784   CB ARG A 362      -1.174 -13.773  -4.426  0.00  0.00           C 0
+ATOM   1918  OD2 ASP A 249       5.492  -9.633  -6.895  0.00  0.00           O 0
+ATOM   2016    O LYS A 263       5.379 -17.344   2.596  0.00  0.00           O 0
+TER
+END

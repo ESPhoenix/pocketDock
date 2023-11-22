@@ -68,15 +68,16 @@ def main():
     run_paralell(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,
                  mglToolsDir, exhausiveness, numModes,maxFlexRes,nCoresPerRun)
 
-    #run_serial(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,
-    # mglToolsDir, exhausiveness, numModes,maxFlexRes,nCoresPerRun)
+  #  run_serial(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,
+   #  mglToolsDir, exhausiveness, numModes,maxFlexRes,nCoresPerRun)
 #########################################################################################################################
 #########################################################################################################################
 def run_serial(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,
                mglToolsDir, exhausiveness, numModes, maxFlexRes,nCoresPerRun):
     # for testing 
     for fileName in pdbFiles:
-        docking_protocol(fileName,protDir, ligandDir,outDir,ordersDict,util24Dir,mglToolsDir,exhausiveness, numModes, maxFlexRes)
+        docking_protocol(fileName,protDir, ligandDir,outDir,ordersDict,util24Dir,
+                         mglToolsDir,exhausiveness, numModes, maxFlexRes,nCoresPerRun)
 
 
 #########################################################################################################################
@@ -178,12 +179,50 @@ def choose_model_selection_mode(modelSelectionMode):
     return exhaustiveness, numModes
     
 
-
-
+#########################################################################################################################
+def process_vina_results(outDir,dockedPdbqt,receptorPdbqt,flex=False):
+    # read output pdbqt file into a list of dataframes
+    dockingDfList = read_docking_results(dockedPdbqt)
+    receptorDf = pdbqt2df(receptorPdbqt)
+    
+    splice_docking_results(dockingDfList, receptorDf,outDir)
 
 #########################################################################################################################
+def splice_docking_results(dockingDfList, receptorDf, outDir):
+    finalPdbDir = p.join(outDir,"final_docked_pdbs")
+    os.makedirs(finalPdbDir,exist_ok=True)
+    ## loop over each pose in dockingDfList
+    for poseNumber, dockedDf in zip(range(1,len(dockingDfList)+1),dockingDfList):
+        ## find  max chain ID in receptor, set ligand to one more than that
+        lastChainIdInProt = receptorDf.iloc[-1]["CHAIN_ID"]
+        ligandChainId = chr((ord(lastChainIdInProt) - ord('A') + 1) % 26 + ord('A'))
+        dockedDf.loc[dockedDf["RES_ID"] == 0,"CHAIN_ID"] = ligandChainId
+        ## find max residue number, set ligand residue number to one more than that
+        lastResidueIdInProt = receptorDf.iloc[-1]["RES_ID"]
+        ligandResidueId = int(lastResidueIdInProt)+1
+        dockedDf.loc[dockedDf["RES_ID"] == 0,"RES_ID"] = ligandResidueId
+        ## chage HETATM to ATOM for dockedDf
+        dockedDf.loc[:,"ATOM"] = "ATOM"
 
-def process_vina_results(outDir,dockedPdbqt,receptorPdbqt,flex=False):
+        # Concat docked and rigid DFs togeter - this is in a weird order
+        wholeDisorderedDf = pd.concat([dockedDf,receptorDf],axis=0)
+        # get a list of unique residue Ids
+        uniqueResidues = sorted(pd.unique(wholeDisorderedDf["RES_ID"]).tolist())
+        # get one df per residue
+        orderedResidues = []
+        for residueNum in uniqueResidues:
+            residueDf = wholeDisorderedDf[wholeDisorderedDf["RES_ID"]==residueNum]
+            orderedResidues.append(residueDf)
+        # concat into correct order
+        wholeDf = pd.concat(orderedResidues)
+        # re-do atom numbers
+        wholeDf.loc[:,"ATOM_ID"] = range(1,len(wholeDf)+1)
+        # save as pdb file
+        saveFile = p.join(finalPdbDir, f"docked_pose_{str(poseNumber)}.pdb")
+        df2Pdb(df=wholeDf,outFile=saveFile)
+
+#########################################################################################################################
+def read_docking_results(dockedPdbqt):
     # remove ROOT/BRANCH
     pdbqtColumns    =   ["ATOM","ATOM_ID", "ATOM_NAME", "RES_NAME",
                     "CHAIN_ID", "RES_ID", "X", "Y", "Z", "OCCUPANCY", 
@@ -193,7 +232,6 @@ def process_vina_results(outDir,dockedPdbqt,receptorPdbqt,flex=False):
     # read pdbqt file into multiple dataframes
     dockingDfList =[]
     data = []
- 
     # read output PDBQT file into set of dataframes
     with open(dockedPdbqt, 'r') as file:            
         for line in file:   
@@ -214,44 +252,8 @@ def process_vina_results(outDir,dockedPdbqt,receptorPdbqt,flex=False):
     df[["X","Y","Z","OCCUPANCY","BETAFACTOR"]]=df[["X","Y","Z","OCCUPANCY","BETAFACTOR"]].astype(float)
     dockingDfList.append(df)
 
+    return dockingDfList
 
-    # read input receptor into dataframe
-    receptorDf = pdbqt2df(receptorPdbqt)
-    finalPdbDir = p.join(outDir,"final_docked_pdbs")
-    os.makedirs(finalPdbDir,exist_ok=True)
-    ligandResidueId = str(int(receptorDf.iloc[-1]["RES_ID"])+1)
-    lastChainIdInProt = receptorDf.iloc[-1]["CHAIN_ID"]
-    ligandChainId = chr((ord(lastChainIdInProt) - ord('A') + 1) % 26 + ord('A'))
-    if flex:
-        for poseNumber, dockedDf in zip(range(1,len(dockingDfList)+1),dockingDfList):
-            newDf = receptorDf.copy()
-            # split dockedDf into residueDfs
-            residueDfs = [group for _, group in dockedDf.groupby("RES_ID")]
-            for residueDf in residueDfs:
-                if residueDf["RES_ID"] == 0:
-                    residueDf["RES_ID"] = ligandResidueId
-                    residueDf["ATOM"]   = "ATOM"
-                    residueDf["CHAIN_ID"] = ligandChainId
-                    newDf = pd.concat([newDf, residueDf],ignore_index=True)
-                else:
-                    targetIndex = newDf[newDf["RES_ID"] == str(int(residueDf["RES_ID"])+1)].index[0]
-                    newDf_part1 =  newDf[:targetIndex]
-                    newDf_part2 = newDf[targetIndex+1:]
-                    newDf = pd.concat([newDf_part1,residueDf,newDf_part2],ignore_index=True)
-                    writePdbFile = p.join(finalPdbDir, f"docked_pose_{str(poseNumber)}.pdb")
-                    df2Pdb(df = newDf,
-                           outFile=writePdbFile)
-    else:
-        for poseNumber, dockedDf in zip(range(1,len(dockingDfList)+1),dockingDfList):
-            dockedDf["RES_ID"] = ligandResidueId
-            dockedDf["ATOM"] = "ATOM"
-            dockedDf["CHAIN_ID"] = ligandChainId
-            newDf = pd.concat([receptorDf,dockedDf],axis=0)
-            newDf["ATOM_ID"] = range(1,len(newDf)+1)
-
-            writePdbFile = p.join(finalPdbDir, f"docked_pose_{str(poseNumber)}.pdb")
-            df2Pdb(df = newDf,
-                   outFile=writePdbFile)
 
 #########################################################################################################################
 def run_vina(outDir,configFile):

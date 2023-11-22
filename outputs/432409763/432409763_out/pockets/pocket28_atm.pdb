@@ -1,0 +1,43 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    28:
+HEADER 0  - Pocket Score                      : 0.0576
+HEADER 1  - Drug Score                        : 0.0225
+HEADER 2  - Number of alpha spheres           :    31
+HEADER 3  - Mean alpha-sphere radius          : 3.4150
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.3485
+HEADER 5  - Mean B-factor of pocket residues  : 0.8346
+HEADER 6  - Hydrophobicity Score              : 55.9091
+HEADER 7  - Polarity Score                    :     1
+HEADER 8  - Amino Acid based volume Score     : 4.1818
+HEADER 9  - Pocket volume (Monte Carlo)       : 176.3588
+HEADER 10 - Pocket volume (convex hull)       : 13.8634
+HEADER 11 - Charge Score                      :     1
+HEADER 12 - Local hydrophobic density Score   : 18.0000
+HEADER 13 - Number of apolar alpha sphere     :    19
+HEADER 14 - Proportion of apolar alpha sphere : 0.6129
+ATOM   1896    O PHE A 246       6.172   5.410   3.447  0.88  1.07           O 0
+ATOM   1784   CB ALA A 230       8.508  10.617   1.266  0.00  0.00           C 0
+ATOM   1917   CD PRO A 248       9.859   6.406   1.420  0.00  0.00           C 0
+ATOM   1776    O ALA A 228       4.480   7.984   0.773  0.67  4.29           O 0
+ATOM   1916   CG PRO A 248      10.594   6.750   0.156  0.00  0.00           C 0
+ATOM   1980  CD1 ILE A 258      14.195   7.328   4.180  0.00  0.00           C 0
+ATOM   2006  NH2 ARG A 261      13.586  11.758   4.828  0.00  8.75           N 0
+ATOM   1780    O GLY A 229       5.434  10.297   3.691  0.08  1.07           O 0
+ATOM   1782   CA ALA A 230       7.523  11.344   2.178  0.00  0.00           C 0
+ATOM   1909  CG2 ILE A 247       8.938   5.426   5.797  0.00  0.00           C 0
+ATOM   1819  CD2 LEU A 235       7.211  11.359   6.684  0.00  0.00           C 0
+ATOM   1890  CG2 ILE A 245       5.090   6.281   7.129  0.00  0.00           C 0
+ATOM   1979  CG2 ILE A 258      11.984   7.867   6.277  0.00  0.00           C 0
+ATOM   1977    O ILE A 258      11.938   9.078   9.273  0.60  1.07           O 0
+ATOM   2013  CG1 ILE A 262       8.484   8.836   9.312  0.00  0.00           C 0
+ATOM   1785    O ALA A 230       8.859  13.234   2.801  0.00  0.00           O 0
+ATOM   1818  CD1 LEU A 235       8.727  13.359   6.660  0.00  0.00           C 0
+ATOM   2004   NE ARG A 261      13.586  12.648   6.945  0.73  1.09           N 0
+ATOM   2007   CZ ARG A 261      13.477  12.805   5.629  0.00  0.00           C 0
+ATOM   2000   CB ARG A 261      12.117  12.477   9.641  0.00  0.00           C 0
+ATOM   2015  CD1 ILE A 262       8.547   7.441   8.711  0.00  0.00           C 0
+TER
+END

@@ -1,0 +1,38 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    27:
+HEADER 0  - Pocket Score                      : 0.0009
+HEADER 1  - Drug Score                        : 0.0013
+HEADER 2  - Number of alpha spheres           :    15
+HEADER 3  - Mean alpha-sphere radius          : 3.6343
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.6070
+HEADER 5  - Mean B-factor of pocket residues  : 0.8278
+HEADER 6  - Hydrophobicity Score              : 28.3333
+HEADER 7  - Polarity Score                    :     1
+HEADER 8  - Amino Acid based volume Score     : 4.8333
+HEADER 9  - Pocket volume (Monte Carlo)       : 240.9779
+HEADER 10 - Pocket volume (convex hull)       : 17.9918
+HEADER 11 - Charge Score                      :     1
+HEADER 12 - Local hydrophobic density Score   : 11.0000
+HEADER 13 - Number of apolar alpha sphere     :    12
+HEADER 14 - Proportion of apolar alpha sphere : 0.8000
+ATOM   1488   CB VAL A 191      17.266 -20.719 -20.422  0.00  0.00           C 0
+ATOM   1446  CE2 PHE A 186      16.438 -25.453 -19.484  0.00  0.00           C 0
+ATOM   1491  CG2 VAL A 191      16.125 -21.734 -20.406  0.00  0.00           C 0
+ATOM   1457   CA PRO A 188      17.844 -24.250 -23.250  0.00  0.00           C 0
+ATOM   1460    O PRO A 188      18.750 -22.047 -23.531  0.00  0.00           O 0
+ATOM   1459   CB PRO A 188      19.031 -25.219 -23.312  0.00  0.00           C 0
+ATOM   1619   CG PRO A 206      18.828 -19.234 -15.633  0.00  0.00           C 0
+ATOM   1490  CG1 VAL A 191      17.625 -20.297 -19.000  0.00  0.00           C 0
+ATOM   1503    N ARG A 193      20.766 -16.219 -19.156  0.00  0.00           N 0
+ATOM   1508   CG ARG A 193      22.906 -17.781 -17.562  0.00  0.00           C 0
+ATOM   1489    O VAL A 191      19.016 -18.766 -22.094  0.00  0.00           O 0
+ATOM   1510   NE ARG A 193      24.453 -19.688 -17.266  0.00  0.00           N 0
+ATOM   1620   CD PRO A 206      20.219 -18.953 -15.148  0.00  0.00           C 0
+ATOM   1331   CZ PHE A 171      14.875 -21.750 -16.297  0.00  0.00           C 0
+ATOM   1329  CE1 PHE A 171      14.461 -22.016 -17.594  0.00  0.00           C 0
+ATOM   1447   CZ PHE A 186      16.594 -26.344 -18.438  0.00  0.00           C 0
+TER
+END

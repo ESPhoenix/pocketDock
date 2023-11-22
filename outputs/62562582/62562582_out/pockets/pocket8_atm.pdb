@@ -1,0 +1,37 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket     8:
+HEADER 0  - Pocket Score                      : 0.1409
+HEADER 1  - Drug Score                        : 0.0022
+HEADER 2  - Number of alpha spheres           :    19
+HEADER 3  - Mean alpha-sphere radius          : 3.2019
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.3744
+HEADER 5  - Mean B-factor of pocket residues  : 0.8465
+HEADER 6  - Hydrophobicity Score              : 44.2222
+HEADER 7  - Polarity Score                    :     4
+HEADER 8  - Amino Acid based volume Score     : 4.4444
+HEADER 9  - Pocket volume (Monte Carlo)       : 69.2570
+HEADER 10 - Pocket volume (convex hull)       : 2.4244
+HEADER 11 - Charge Score                      :     0
+HEADER 12 - Local hydrophobic density Score   : 11.0000
+HEADER 13 - Number of apolar alpha sphere     :    12
+HEADER 14 - Proportion of apolar alpha sphere : 0.6316
+ATOM   1952  CD1 PHE A 252       0.246  12.766  -7.398  0.00  0.00           C 0
+ATOM   1931    O ALA A 249      -3.488  15.414  -8.250  0.00  0.00           O 0
+ATOM   2123  CG2 ILE A 272      -2.070   9.289  -8.648  0.00  0.00           C 0
+ATOM   2981    O ALA A 387      -5.871  12.398  -8.656  0.86  1.07           O 0
+ATOM   1878  CG2 THR A 241      -1.547   9.867  -4.629  0.00  0.00           C 0
+ATOM   1890   CG GLN A 243      -2.559  13.320  -3.607  0.00  0.00           C 0
+ATOM   1957    N TYR A 253      -1.383  14.758 -10.031  0.00  0.00           N 0
+ATOM   1958   CA TYR A 253      -1.811  13.891 -11.125  0.00  0.00           C 0
+ATOM   1960   CB TYR A 253      -3.340  13.836 -11.203  0.00  0.00           C 0
+ATOM   1930   CB ALA A 249      -5.426  15.328  -5.582  0.00  0.00           C 0
+ATOM   2139   CD PRO A 274      -5.762   8.406  -5.668  0.00  0.00           C 0
+ATOM   2138   CG PRO A 274      -6.250   9.352  -4.613  0.00  0.00           C 0
+ATOM   2951  CZ3 TRP A 382      -7.594  13.438  -3.521  0.00  0.00           C 0
+ATOM   2136   CB PRO A 274      -5.246   9.391  -3.510  0.00  0.00           C 0
+ATOM   1888   CB GLN A 243      -3.773  13.648  -2.750  0.00  0.00           C 0
+TER
+END

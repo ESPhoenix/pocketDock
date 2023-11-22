@@ -1,0 +1,63 @@
+HETATM    1  N1  LFN     0      -2.441   1.286   0.000  0.00  0.00           N  
+HETATM    2  C2  LFN     0      -3.586   0.608   0.000  0.00  0.00           C  
+HETATM    3  C10 LFN     0      -1.272   0.669   0.005  0.00  0.00           C  
+HETATM    4  O2  LFN     0      -4.626   1.242   0.000  0.00  0.00           O  
+HETATM    5  N3  LFN     0      -3.666  -0.731  -0.001  0.00  0.00           N  
+HETATM    6  C4  LFN     0      -2.553  -1.501  -0.001  0.00  0.00           C  
+HETATM    7  O4  LFN     0      -2.623  -2.715  -0.001  0.00  0.00           O  
+HETATM    8  C4A LFN     0      -1.249  -0.803   0.000  0.00  0.00           C  
+HETATM    9  N5  LFN     0      -0.111  -1.450   0.000  0.00  0.00           N  
+HETATM   10  C5A LFN     0       1.053  -0.786   0.000  0.00  0.00           C  
+HETATM   11  C6  LFN     0       2.267  -1.501   0.000  0.00  0.00           C  
+HETATM   12  C9A LFN     0       1.084   0.627   0.000  0.00  0.00           C  
+HETATM   13  C7  LFN     0       3.451  -0.829   0.000  0.00  0.00           C  
+HETATM   14  C7M LFN     0       4.746  -1.600   0.000  0.00  0.00           C  
+HETATM   15  C8  LFN     0       3.480   0.562   0.000  0.00  0.00           C  
+HETATM   16  C8M LFN     0       4.804   1.282   0.000  0.00  0.00           C  
+HETATM   17  C9  LFN     0       2.309   1.288   0.000  0.00  0.00           C  
+HETATM   18  N10 LFN     0      -0.091   1.349  -0.001  0.00  0.00           N  
+HETATM   19  C1' LFN     0      -0.069   2.814  -0.001  0.00  0.00           C  
+HETATM   20  H3  LFN     0      -4.538  -1.155  -0.001  0.00  0.00           H  
+HETATM   21  H6  LFN     0       2.259  -2.581   0.001  0.00  0.00           H  
+HETATM   22 H7M1 LFN     0       5.058  -1.786   1.028  0.00  0.00           H  
+HETATM   23 H7M2 LFN     0       4.603  -2.551  -0.513  0.00  0.00           H  
+HETATM   24 H7M3 LFN     0       5.514  -1.022  -0.513  0.00  0.00           H  
+HETATM   25 H8M1 LFN     0       5.123   1.455   1.027  0.00  0.00           H  
+HETATM   26 H8M2 LFN     0       5.548   0.674  -0.514  0.00  0.00           H  
+HETATM   27 H8M3 LFN     0       4.698   2.238  -0.514  0.00  0.00           H  
+HETATM   28  H9  LFN     0       2.342   2.367  -0.001  0.00  0.00           H  
+HETATM   29 H1'1 LFN     0      -0.064   3.177  -1.029  0.00  0.00           H  
+HETATM   30 H1'2 LFN     0      -0.954   3.190   0.512  0.00  0.00           H  
+HETATM   31 H1'3 LFN     0       0.826   3.164   0.513  0.00  0.00           H  
+CONECT    1    2    3
+CONECT    2    1    4    5
+CONECT    3    1    8   18
+CONECT    4    2
+CONECT    5    2    6   20
+CONECT    6    5    7    8
+CONECT    7    6
+CONECT    8    3    6    9
+CONECT    9    8   10
+CONECT   10    9   11   12
+CONECT   11   10   13   21
+CONECT   12   10   17   18
+CONECT   13   11   14   15
+CONECT   14   13   22   23   24
+CONECT   15   13   16   17
+CONECT   16   15   25   26   27
+CONECT   17   12   15   28
+CONECT   18    3   12   19
+CONECT   19   18   29   30   31
+CONECT   20    5
+CONECT   21   11
+CONECT   22   14
+CONECT   23   14
+CONECT   24   14
+CONECT   25   16
+CONECT   26   16
+CONECT   27   16
+CONECT   28   17
+CONECT   29   19
+CONECT   30   19
+CONECT   31   19
+END

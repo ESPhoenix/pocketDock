@@ -1,0 +1,21 @@
+receptor = /home/esp/scriptDevelopment/pocketDock/outputs/134189607/134189607_rigid.pdbqt
+flex = /home/esp/scriptDevelopment/pocketDock/outputs/134189607/134189607_flex.pdbqt
+
+ligand = /home/esp/scriptDevelopment/pocketDock/outputs/134189607/Lumoflavin.pdbqt
+
+center_x = -7.470746268656717
+center_y = -4.400522388059701
+center_z = 6.25236815920398
+
+size_x = 30
+size_y = 30
+size_z = 30
+
+exhaustiveness = 16
+num_modes = 1
+energy_range = 5
+
+seed = 42
+
+out = /home/esp/scriptDevelopment/pocketDock/outputs/134189607/binding_poses.pdbqt
+cpu = 4
