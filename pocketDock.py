@@ -10,6 +10,8 @@ import multiprocessing as mp
 import argpass
 from tqdm import tqdm
 import subprocess
+## custom pdb2df type scripts
+from pdbUtils import *
 #########################################################################################################################
 # get inputs
 def read_inputs():
@@ -56,6 +58,8 @@ def main():
     ordersDf["ID"] = ordersDf["ID"].astype(str)
     ordersDict = ordersDf.set_index('ID')['Ligand'].to_dict()
 
+
+
     pdbFiles =[]
     # loop through receptor PDB files
     for fileName in os.listdir(protDir):
@@ -65,11 +69,11 @@ def main():
             continue
         pdbFiles.append(fileName)
 
-    run_paralell(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,
-                 mglToolsDir, exhausiveness, numModes,maxFlexRes,nCoresPerRun)
+    # run_paralell(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,
+    #              mglToolsDir, exhausiveness, numModes,maxFlexRes,nCoresPerRun)
 
-  #  run_serial(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,
-   #  mglToolsDir, exhausiveness, numModes,maxFlexRes,nCoresPerRun)
+    run_serial(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,
+     mglToolsDir, exhausiveness, numModes,maxFlexRes,nCoresPerRun)
 #########################################################################################################################
 #########################################################################################################################
 def run_serial(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,
@@ -411,77 +415,4 @@ def run_fpocket(name,runDir,pdbFile):
     return boxCenter, pocketResidues
 
 
-
-
-#########################################################################################################################
-#           BASIC UTILS - BEST MOVE TO AN IMPORTABLE MODULE?
-#
-#########################################################################################################################
-# read pdb files as pandas dataframes
-def pdb2df(protPdb):
-    columns = ['ATOM', 'ATOM_ID', 'ATOM_NAME', 'RES_NAME', 'CHAIN_ID', 'RES_ID', 'X', 'Y', 'Z', 'OCCUPANCY', 'BETAFACTOR', 'ELEMENT']
-    data = []
-    with open(protPdb, 'r') as pdb_file:
-        for line in pdb_file:
-            if line.startswith('ATOM') or line.startswith('HETATM'):
-                atom_type = line[0:6].strip()
-                atom_id = int(line[6:11].strip())
-                atom_name = line[12:16].strip()
-                res_name = line[17:20].strip()
-                chain_id = line[21:22].strip()
-                if chain_id == '':
-                    chain_id = None
-                res_id = int(line[22:26].strip())
-                x = float(line[30:38].strip())
-                y = float(line[38:46].strip())
-                z = float(line[46:54].strip())
-                occupancy = float(line[54:60].strip())
-                temp_factor = float(line[60:66].strip())
-                element = line[76:78].strip()
-
-                data.append([atom_type, atom_id, atom_name, res_name, chain_id, res_id, x, y, z, occupancy, temp_factor, element])
-
-    return pd.DataFrame(data, columns=columns)
-##########################
-# reads a pdbqt file to pandas dataframe
-def pdbqt2df(pdbqtFile):
-    # remove ROOT/BRANCH    
-    pdbqtColumns    =   ["ATOM","ATOM_ID", "ATOM_NAME", "RES_NAME",
-                    "CHAIN_ID", "RES_ID", "X", "Y", "Z", "OCCUPANCY", 
-                    "BETAFACTOR","CHARGE", "ELEMENT"]
-    columsNums = [(0, 6), (6, 11), (11, 17), (17, 21), (21, 22), (22, 26), 
-                  (26, 38), (38, 46), (46, 54), (54, 60), (60, 70), (70, 77), (77, 79)]
-
-    # read pdbqt file        
-    data = []
-    with open(pdbqtFile, 'r') as file:
-        for line in file:
-            if line.startswith("ATOM") or line.startswith("HETATM"):
-                record = [line[start:end].strip() for start, end in columsNums]
-                data.append(record)
-    df = pd.DataFrame(data,columns=pdbqtColumns)
-    # set appropriate types for elements in dataframe
-    df[["ATOM_ID","RES_ID"]] = df[["ATOM_ID","RES_ID"]].astype(int)
-    df[["X","Y","Z","OCCUPANCY","BETAFACTOR"]]=df[["X","Y","Z","OCCUPANCY","BETAFACTOR"]].astype(float)
-    return df
-##########################
-def df2Pdb(df, outFile):
-    with open(outFile,"w") as f:
-        for _, row in df.iterrows():
-            pdbLine = f"{row['ATOM']:<6}"
-            pdbLine += f"{row['ATOM_ID']:>5}{' '*2}"
-            pdbLine += f"{row['ATOM_NAME']:<4}"
-            pdbLine += f"{row['RES_NAME']:<4}"
-            pdbLine += f"{row['CHAIN_ID']:<1}{' '*1}"
-            pdbLine += f"{row['RES_ID']:<7}"
-            pdbLine += f"{row['X']:>8.3f}"
-            pdbLine += f"{row['Y']:>8.3f}"
-            pdbLine += f"{row['Z']:>8.3f}"
-            pdbLine += f"{row['OCCUPANCY']:>6.2f}"
-            pdbLine += f"{row['BETAFACTOR']:>6.2f}"
-            pdbLine += "\n"
-            #pdbLine += f"{row['ELEMENT']:>12}\n"
-            f.write(pdbLine)
-
-#########################################################################################################################
 main()
