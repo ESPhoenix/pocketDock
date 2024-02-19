@@ -7,44 +7,36 @@ import pandas as pd
 import multiprocessing as mp
 import argpass
 from tqdm import tqdm
+import yaml
 ## pocketDock modules
 from pdbUtils import *
 from modules_pocketDock import *
 #########################################################################################################################
 # get inputs
 def read_inputs():
-    # create an argpass parser, read config file, snip off ".py" if on the end of file
+    ## create an argpass parser, read config file, 
     parser = argpass.ArgumentParser()
     parser.add_argument("--config")
     args = parser.parse_args()
-    configName=args.config
-    configName = p.splitext(configName)[0]
 
-    # add config to PYTHONPATH
-    cwd = os.getcwd()
-    configPath = p.join(cwd,configName)
-    sys.path.append(configPath)
-    # import config file and run input function to return variables
-    try:
-        config_module = __import__(configName)
-        (protDir, ligandDir, outDir, mglToolsDir, util24Dir,
-             ligandOrdersCsv, modelSelectionMode, maxFlexRes,nCoresPerRun) = config_module.inputs()
-        return (protDir, ligandDir, outDir, mglToolsDir, util24Dir,
-             ligandOrdersCsv, modelSelectionMode, maxFlexRes,nCoresPerRun)
-    except ImportError:
-        print(f"Error: Can't to import module '{configName}'. Make sure the input exists!")
-        print("HOPE IS THE FIRST STEP ON THE ROAD TO DISAPPOINTMENT")
-        exit()
-
+    configFile=args.config
+    ## Read config.yaml into a dictionary
+    with open(configFile,"r") as yamlFile:
+        config = yaml.safe_load(yamlFile) 
+    pathInfo = config["pathInfo"]
+    dockingInfo = config["dockingInfo"]
+    return pathInfo,dockingInfo
 #########################################################################################################################
 #########################################################################################################################
 def main():
-    (protDir, ligandDir, outDir, mglToolsDir, util24Dir,
-             ligandOrdersCsv, modelSelectionMode, maxFlexRes,nCoresPerRun) = read_inputs()
+    pathInfo, dockingInfo  = read_inputs()
+    protDir = pathInfo["protDir"]
+    outDir = pathInfo["outDir"]
+    ligandOrdersCsv = pathInfo["liagndOrdersCsv"]
     # disable copy warnings
     pd.set_option('mode.chained_assignment', None)
 
-    exhausiveness, numModes = choose_model_selection_mode(modelSelectionMode)
+    exhausiveness, numModes = choose_model_selection_mode(dockingInfo["modelSelectionMode"])
     if not exhausiveness:
         print("Options for modelSelectionMode are \"best\", \"broad\", or \"balenced\"")
         exit()
@@ -71,7 +63,7 @@ def main():
     #              mglToolsDir, exhausiveness, numModes,maxFlexRes,nCoresPerRun)
 
     run_serial(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,
-     mglToolsDir, exhausiveness, numModes,maxFlexRes,nCoresPerRun)
+    mglToolsDir, exhausiveness, numModes,maxFlexRes,nCoresPerRun)
 #########################################################################################################################
 #########################################################################################################################
 def run_serial(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,
