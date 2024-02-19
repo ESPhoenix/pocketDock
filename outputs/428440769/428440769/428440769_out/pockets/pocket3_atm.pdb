@@ -1,0 +1,60 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket     3:
+HEADER 0  - Pocket Score                      : 0.1565
+HEADER 1  - Drug Score                        : 0.0039
+HEADER 2  - Number of alpha spheres           :    45
+HEADER 3  - Mean alpha-sphere radius          : 3.5978
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.5402
+HEADER 5  - Mean B-factor of pocket residues  : 0.8873
+HEADER 6  - Hydrophobicity Score              : -7.9167
+HEADER 7  - Polarity Score                    :     8
+HEADER 8  - Amino Acid based volume Score     : 4.1667
+HEADER 9  - Pocket volume (Monte Carlo)       : 445.4818
+HEADER 10 - Pocket volume (convex hull)       : 127.4828
+HEADER 11 - Charge Score                      :     0
+HEADER 12 - Local hydrophobic density Score   : 6.0000
+HEADER 13 - Number of apolar alpha sphere     :    14
+HEADER 14 - Proportion of apolar alpha sphere : 0.3111
+ATOM    722   CZ PHE A  90      -4.984  20.109  -0.593  0.00  0.00           C 0
+ATOM    298   CA ASP A  37      -7.758  15.977  -2.566  0.00  0.00           C 0
+ATOM    293    O ASP A  36      -7.816  16.203  -5.328  0.00  0.00           O 0
+ATOM    299    C ASP A  37      -6.828  16.453  -1.455  0.00  0.00           C 0
+ATOM    301    O ASP A  37      -7.246  17.172  -0.552  0.00  0.00           O 0
+ATOM    295  OD1 ASP A  36      -4.855  16.234  -6.535  0.00  0.00           O 0
+ATOM    305    N GLY A  38      -5.641  16.031  -1.463  0.00  0.00           N 0
+ATOM    306   CA GLY A  38      -4.633  16.500  -0.527  0.00  0.00           C 0
+ATOM    227   CG ARG A  28      -0.930  14.219 -14.039  0.00  0.00           C 0
+ATOM    194  OE1 GLN A  24       1.191  17.609  -8.984  0.42  6.43           O 0
+ATOM    230  NH1 ARG A  28       2.193  15.562 -13.352  0.00  0.00           N 0
+ATOM    228   CD ARG A  28      -0.053  15.008 -15.000  0.00  0.00           C 0
+ATOM    190    O GLN A  24       0.932  13.414 -11.156  0.00  0.00           O 0
+ATOM    226    O ARG A  28      -3.322  10.469 -15.133  0.16  6.43           O 0
+ATOM   2625   CG ARG A 339      -8.953  13.219 -13.102  0.00  0.00           C 0
+ATOM   2626   CD ARG A 339      -8.250  14.555 -12.906  0.00  0.00           C 0
+ATOM   2623   CB ARG A 339      -9.336  12.984 -14.555  0.00  0.00           C 0
+ATOM    731   CA PRO A  92      -0.428  17.344  -1.639  0.00  0.00           C 0
+ATOM    720  CE1 PHE A  90      -3.908  20.953  -0.768  0.00  0.00           C 0
+ATOM    733   CB PRO A  92       0.471  17.734  -2.816  0.00  0.00           C 0
+ATOM    220  NH2 ARG A  27      -2.189  14.289  -3.670  0.00  0.00           N 0
+ATOM    221   CZ ARG A  27      -2.555  14.305  -4.945  0.00  0.00           C 0
+ATOM   2620    N ARG A 339      -9.945  11.344 -16.281  0.61  3.28           N 0
+ATOM   2607    O GLU A 337      -8.031  10.297 -19.828  0.00  0.00           O 0
+ATOM   2601    O CYS A 336      -6.574   8.203 -17.062  0.48  1.07           O 0
+ATOM    249   CB SER A  31      -6.965   9.938 -12.680  0.00  0.00           C 0
+ATOM    214   CB ARG A  27      -2.178  13.000  -9.406  0.00  0.00           C 0
+ATOM    296  OD2 ASP A  36      -5.715  16.531  -8.531  0.00  0.00           O 0
+ATOM   2628  NH1 ARG A 339      -6.367  16.406 -11.859  0.00  0.00           N 0
+ATOM    213    C ARG A  27      -2.746  11.703 -11.477  0.00  0.00           C 0
+ATOM    223   CA ARG A  28      -2.115  11.977 -13.703  0.00  0.00           C 0
+ATOM    225   CB ARG A  28      -1.005  12.742 -14.422  0.00  0.00           C 0
+ATOM    218   NE ARG A  27      -1.629  14.375  -5.895  0.53  1.09           N 0
+ATOM    193  NE2 GLN A  24       1.638  16.875  -6.902  0.00  0.00           N 0
+ATOM    215    O ARG A  27      -3.949  11.672 -11.734  0.00  0.00           O 0
+ATOM    251   OG SER A  31      -7.504   9.266 -13.805  0.00  0.00           O 0
+ATOM    217   CD ARG A  27      -1.909  14.398  -7.328  0.00  0.00           C 0
+ATOM    219  NH1 ARG A  27      -3.844  14.242  -5.254  0.00  0.00           N 0
+TER
+END

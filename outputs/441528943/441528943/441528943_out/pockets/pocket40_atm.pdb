@@ -1,0 +1,40 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    40:
+HEADER 0  - Pocket Score                      : -0.1089
+HEADER 1  - Drug Score                        : 0.0026
+HEADER 2  - Number of alpha spheres           :    29
+HEADER 3  - Mean alpha-sphere radius          : 3.6198
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.6065
+HEADER 5  - Mean B-factor of pocket residues  : 0.9175
+HEADER 6  - Hydrophobicity Score              : 23.1429
+HEADER 7  - Polarity Score                    :     1
+HEADER 8  - Amino Acid based volume Score     : 3.5714
+HEADER 9  - Pocket volume (Monte Carlo)       : 192.6904
+HEADER 10 - Pocket volume (convex hull)       : 14.7870
+HEADER 11 - Charge Score                      :     0
+HEADER 12 - Local hydrophobic density Score   : 15.0000
+HEADER 13 - Number of apolar alpha sphere     :    16
+HEADER 14 - Proportion of apolar alpha sphere : 0.5517
+ATOM    747   CA PHE A  99      12.555   6.246   8.680  0.00  0.00           C 0
+ATOM    713   CA PHE A  94      16.453   5.453   5.609  0.00  0.00           C 0
+ATOM    748    C PHE A  99      11.695   6.594   7.469  0.00  0.00           C 0
+ATOM    711    O ALA A  93      17.812   7.223   7.309  0.65  3.21           O 0
+ATOM    757    N ASN A 100      11.953   5.965   6.406  0.00  0.00           N 0
+ATOM    744   CG PRO A  98      12.078  11.336   9.562  0.00  0.00           C 0
+ATOM    746    N PHE A  99      12.672   7.391   9.578  0.00  0.00           N 0
+ATOM    750    O PHE A  99      10.875   7.516   7.527  0.00  0.00           O 0
+ATOM    745   CD PRO A  98      13.516  11.141   9.938  0.00  0.00           C 0
+ATOM    720  CE1 PHE A  94      15.125   8.078   2.527  0.00  0.00           C 0
+ATOM    764  OD1 ASN A 100      10.484   7.180   2.555  0.00  0.00           O 0
+ATOM    758   CA ASN A 100      11.133   6.117   5.211  0.00  0.00           C 0
+ATOM    760   CB ASN A 100      11.984   5.930   3.949  0.00  0.00           C 0
+ATOM    731    O ALA A  96      15.438   7.094   9.953  0.55  1.07           O 0
+ATOM    736    O PRO A  97      15.633   9.797  11.570  0.00  0.00           O 0
+ATOM    718  CD1 PHE A  94      15.398   7.148   3.531  0.00  0.00           C 0
+ATOM    709    C ALA A  93      18.406   6.762   6.336  0.00  0.00           C 0
+ATOM    710   CB ALA A  93      19.922   8.484   5.320  0.00  0.00           C 0
+TER
+END

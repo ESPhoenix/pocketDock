@@ -1,0 +1,39 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    56:
+HEADER 0  - Pocket Score                      : -0.1112
+HEADER 1  - Drug Score                        : 0.0005
+HEADER 2  - Number of alpha spheres           :    24
+HEADER 3  - Mean alpha-sphere radius          : 3.9259
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.5027
+HEADER 5  - Mean B-factor of pocket residues  : 0.9154
+HEADER 6  - Hydrophobicity Score              : 40.3750
+HEADER 7  - Polarity Score                    :     2
+HEADER 8  - Amino Acid based volume Score     : 3.7500
+HEADER 9  - Pocket volume (Monte Carlo)       : 261.0865
+HEADER 10 - Pocket volume (convex hull)       : 10.7109
+HEADER 11 - Charge Score                      :     1
+HEADER 12 - Local hydrophobic density Score   : 12.0000
+HEADER 13 - Number of apolar alpha sphere     :    13
+HEADER 14 - Proportion of apolar alpha sphere : 0.5417
+ATOM   3032   CZ ARG A 373       0.974   5.312   1.554  0.00  0.00           C 0
+ATOM   3031  NH2 ARG A 373       0.745   5.430   2.854  0.00  5.47           N 0
+ATOM   3030  NH1 ARG A 373       1.517   4.199   1.082  0.00  0.00           N 0
+ATOM   3193  CD1 ILE A 395       5.008   8.844   4.773  0.00  0.00           C 0
+ATOM   3292    N VAL A 408       8.727   9.273  -1.296  0.66  1.09           N 0
+ATOM   3289   CA GLY A 407       8.688   9.562   1.148  0.00  0.00           C 0
+ATOM   3028   CD ARG A 373       0.861   6.301  -0.709  0.00  0.00           C 0
+ATOM   3029   NE ARG A 373       0.657   6.312   0.736  0.17  1.09           N 0
+ATOM   3027   CG ARG A 373       0.436   7.617  -1.348  0.00  0.00           C 0
+ATOM   3049   CZ PHE A 375      -0.521  11.031  -0.473  0.00  0.00           C 0
+ATOM   3310  CG2 THR A 410       3.781  12.234   1.840  0.00  0.00           C 0
+ATOM   3302   CB CYS A 409       3.961  10.094  -2.637  0.00  0.00           C 0
+ATOM   3305    N THR A 410       5.266  12.234  -0.830  0.00  0.00           N 0
+ATOM   3299    N CYS A 409       6.414  10.211  -2.607  0.68  3.28           N 0
+ATOM   3047  CE1 PHE A 375      -1.195  11.172   0.730  0.00  0.00           C 0
+ATOM   3178    O GLY A 393       2.537  13.141   4.414  0.00  0.00           O 0
+ATOM   3311  OG1 THR A 410       6.191  12.266   1.813  0.00  0.00           O 0
+TER
+END

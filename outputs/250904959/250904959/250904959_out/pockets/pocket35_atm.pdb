@@ -1,0 +1,39 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    35:
+HEADER 0  - Pocket Score                      : -0.1148
+HEADER 1  - Drug Score                        : 0.0027
+HEADER 2  - Number of alpha spheres           :    29
+HEADER 3  - Mean alpha-sphere radius          : 3.7027
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.6041
+HEADER 5  - Mean B-factor of pocket residues  : 0.9429
+HEADER 6  - Hydrophobicity Score              : 21.6000
+HEADER 7  - Polarity Score                    :     3
+HEADER 8  - Amino Acid based volume Score     : 5.2000
+HEADER 9  - Pocket volume (Monte Carlo)       : 163.7685
+HEADER 10 - Pocket volume (convex hull)       : 3.1417
+HEADER 11 - Charge Score                      :     2
+HEADER 12 - Local hydrophobic density Score   : 21.0000
+HEADER 13 - Number of apolar alpha sphere     :    22
+HEADER 14 - Proportion of apolar alpha sphere : 0.7586
+ATOM   1261  CE2 TYR A 168       1.489 -15.930 -29.047  0.00  0.00           C 0
+ATOM   1262   OH TYR A 168      -0.255 -17.547 -28.828  0.00  0.00           O 0
+ATOM   1237   CB LEU A 166      -3.480 -10.203 -28.109  0.00  0.00           C 0
+ATOM   1208    O ARG A 163      -3.193  -9.664 -31.703  0.00  0.00           O 0
+ATOM   1240  CD1 LEU A 166      -5.781 -11.195 -28.031  0.00  0.00           C 0
+ATOM   1361   CG PRO A 181      -2.482 -13.648 -24.609  0.00  0.00           C 0
+ATOM   1263   CZ TYR A 168       0.649 -16.688 -28.250  0.00  0.00           C 0
+ATOM   1252    N TYR A 168       2.205 -11.898 -26.594  0.53  1.09           N 0
+ATOM   1258  CD1 TYR A 168       1.627 -15.703 -26.281  0.00  0.00           C 0
+ATOM   1259  CD2 TYR A 168       2.400 -15.062 -28.453  0.00  0.00           C 0
+ATOM   1257   CG TYR A 168       2.484 -14.938 -27.078  0.00  0.00           C 0
+ATOM   1238    O LEU A 166      -0.636  -9.680 -29.297  0.26  8.57           O 0
+ATOM   1260  CE1 TYR A 168       0.711 -16.578 -26.859  0.00  0.00           C 0
+ATOM   1362   CD PRO A 181      -1.484 -14.766 -24.609  0.00  0.00           C 0
+ATOM   1244    C HIS A 167       1.381 -11.000 -26.109  0.00  0.00           C 0
+ATOM   1236    C LEU A 166      -1.094  -9.453 -28.172  0.00  0.00           C 0
+ATOM   1242    N HIS A 167      -0.425  -9.602 -27.031  0.00  0.00           N 0
+TER
+END

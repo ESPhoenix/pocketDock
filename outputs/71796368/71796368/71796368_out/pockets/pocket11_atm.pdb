@@ -1,0 +1,36 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    11:
+HEADER 0  - Pocket Score                      : 0.0882
+HEADER 1  - Drug Score                        : 0.0002
+HEADER 2  - Number of alpha spheres           :    18
+HEADER 3  - Mean alpha-sphere radius          : 3.2049
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.4637
+HEADER 5  - Mean B-factor of pocket residues  : 0.9669
+HEADER 6  - Hydrophobicity Score              : 32.3333
+HEADER 7  - Polarity Score                    :     1
+HEADER 8  - Amino Acid based volume Score     : 2.1667
+HEADER 9  - Pocket volume (Monte Carlo)       : 70.7109
+HEADER 10 - Pocket volume (convex hull)       : 1.8493
+HEADER 11 - Charge Score                      :     0
+HEADER 12 - Local hydrophobic density Score   : 0.0000
+HEADER 13 - Number of apolar alpha sphere     :     1
+HEADER 14 - Proportion of apolar alpha sphere : 0.0556
+ATOM    441   CB SER A  59      -9.578   4.891   7.906  0.00  0.00           C 0
+ATOM    769    O VAL A  99     -12.695   5.395   2.602  0.79  6.43           O 0
+ATOM    140    O ALA A  19      -8.734   7.637   6.754  0.73  5.36           O 0
+ATOM    443   OG SER A  59      -8.578   4.227   7.145  0.00  0.00           O 0
+ATOM    139   CB ALA A  19      -8.727   9.500   4.129  0.00  0.00           C 0
+ATOM    775    O GLY A 100     -10.852   9.156   1.907  0.00  0.00           O 0
+ATOM    136    N ALA A  19      -7.105   7.699   4.500  0.00  0.00           N 0
+ATOM    779   CB ALA A 101      -8.328   6.402   0.753  0.00  0.00           C 0
+ATOM    458   CB ALA A  61     -10.883   2.236   4.184  0.00  0.00           C 0
+ATOM    442    O SER A  59     -11.641   2.611   7.828  0.00  0.00           O 0
+ATOM    459    O ALA A  61      -7.703   2.723   4.578  0.00  0.00           O 0
+ATOM    774    C GLY A 100     -11.320   8.234   1.240  0.00  0.00           C 0
+ATOM    776    N ALA A 101     -10.547   7.426   0.514  0.00  0.00           N 0
+ATOM    457    C ALA A  61      -8.406   1.950   3.924  0.00  0.00           C 0
+TER
+END

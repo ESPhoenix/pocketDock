@@ -1,0 +1,42 @@
+HEADER
+HEADER This is a pqr format file writen by the programm fpocket.                 
+HEADER It represent the voronoi vertices of a single pocket found by the         
+HEADER algorithm.                                                                
+HEADER                                                                           
+HEADER Information about the pocket    23:
+HEADER 0  - Pocket Score                      : 0.0144
+HEADER 1  - Drug Score                        : 0.0006
+HEADER 2  - Number of V. Vertices             :    20
+HEADER 3  - Mean alpha-sphere radius          : 3.3541
+HEADER 4  - Mean alpha-sphere SA              : 0.4719
+HEADER 5  - Mean B-factor                     : 0.9464
+HEADER 6  - Hydrophobicity Score              : 26.8000
+HEADER 7  - Polarity Score                    :     3
+HEADER 8  - Volume Score                      : 5.0000
+HEADER 9  - Real volume (approximation)       : 184.6086
+HEADER 10 - Charge Score                      :     1
+HEADER 11 - Local hydrophobic density Score   : 9.0000
+HEADER 12 - Number of apolar alpha sphere     :    10
+HEADER 13 - Proportion of apolar alpha sphere : 0.5000
+ATOM      1    O STP    23     -11.046 -13.481  17.706    0.00     4.35
+ATOM      2    O STP    23     -14.270 -13.773  16.860    0.00     3.96
+ATOM      3    O STP    23     -14.251 -13.650  16.633    0.00     3.86
+ATOM      4    O STP    23     -12.062 -11.695  14.438    0.00     3.08
+ATOM      5    O STP    23     -12.143 -11.575  14.605    0.00     3.23
+ATOM      6    O STP    23     -12.056 -11.795  14.561    0.00     3.07
+ATOM      7    O STP    23     -11.695 -12.925  16.358    0.00     3.55
+ATOM      8    O STP    23     -13.134 -13.144  16.151    0.00     3.37
+ATOM      9    O STP    23     -12.121 -11.777  14.808    0.00     3.20
+ATOM     10    O STP    23     -14.290 -13.405  16.388    0.00     3.66
+ATOM     11    C STP    23     -12.721 -11.629  14.647    0.00     3.04
+ATOM     12    C STP    23     -11.979 -10.704  14.084    0.00     3.39
+ATOM     13    C STP    23     -12.564 -10.647  14.060    0.00     3.20
+ATOM     14    C STP    23     -12.685 -10.564  14.082    0.00     3.13
+ATOM     15    C STP    23     -11.789 -10.507  14.172    0.00     3.36
+ATOM     16    C STP    23     -11.723 -10.708  13.491    0.00     3.20
+ATOM     17    C STP    23     -11.837  -9.952  14.373    0.00     3.11
+ATOM     18    C STP    23     -11.417 -10.842  12.803    0.00     3.05
+ATOM     19    C STP    23     -11.234 -10.192  14.650    0.00     3.26
+ATOM     20    C STP    23     -11.562  -9.550  14.713    0.00     3.01
+TER
+END

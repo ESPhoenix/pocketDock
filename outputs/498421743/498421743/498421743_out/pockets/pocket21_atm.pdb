@@ -1,0 +1,38 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    21:
+HEADER 0  - Pocket Score                      : 0.0497
+HEADER 1  - Drug Score                        : 0.0029
+HEADER 2  - Number of alpha spheres           :    19
+HEADER 3  - Mean alpha-sphere radius          : 3.5809
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.4813
+HEADER 5  - Mean B-factor of pocket residues  : 0.8035
+HEADER 6  - Hydrophobicity Score              : 30.3333
+HEADER 7  - Polarity Score                    :     4
+HEADER 8  - Amino Acid based volume Score     : 5.5000
+HEADER 9  - Pocket volume (Monte Carlo)       : 168.5211
+HEADER 10 - Pocket volume (convex hull)       : 10.5532
+HEADER 11 - Charge Score                      :     1
+HEADER 12 - Local hydrophobic density Score   : 14.0000
+HEADER 13 - Number of apolar alpha sphere     :    15
+HEADER 14 - Proportion of apolar alpha sphere : 0.7895
+ATOM   1656    O ILE A 209     -23.016  -0.174  16.391  0.00  0.00           O 0
+ATOM   1653   CA ILE A 209     -21.828  -1.570  14.844  0.00  0.00           C 0
+ATOM   1686   CD LYS A 212     -27.594  -0.288  14.906  0.00  0.00           C 0
+ATOM   1683   CB LYS A 212     -25.609   1.239  15.180  0.00  0.00           C 0
+ATOM   1658  CG2 ILE A 209     -22.906  -3.262  16.391  0.00  0.00           C 0
+ATOM   1739  CE2 TYR A 219     -24.359   1.030  11.758  0.00  0.00           C 0
+ATOM   1820   CB LEU A 228     -23.859  -3.861   8.648  0.00  0.00           C 0
+ATOM   1657  CG1 ILE A 209     -22.094  -3.973  14.102  0.00  0.00           C 0
+ATOM   1821    O LEU A 228     -24.031  -6.953   9.141  0.58  4.29           O 0
+ATOM   1824  CD2 LEU A 228     -22.016  -2.723   9.914  0.00  0.00           C 0
+ATOM   1688   NZ LYS A 212     -29.547  -1.810  14.562  0.00  0.00           N 0
+ATOM   1740   OH TYR A 219     -26.688   0.555  11.484  0.81  6.43           O 0
+ATOM   1832  OE1 GLU A 229     -28.016  -5.547   8.305  0.00  0.00           O 0
+ATOM   1627   CE LYS A 205     -21.391  -7.660  10.641  0.00  0.00           C 0
+ATOM   1659  CD1 ILE A 209     -21.891  -5.449  14.414  0.00  0.00           C 0
+ATOM   1823  CD1 LEU A 228     -24.047  -1.426   9.211  0.00  0.00           C 0
+TER
+END

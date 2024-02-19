@@ -1,0 +1,37 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    15:
+HEADER 0  - Pocket Score                      : 0.0785
+HEADER 1  - Drug Score                        : 0.0001
+HEADER 2  - Number of alpha spheres           :    17
+HEADER 3  - Mean alpha-sphere radius          : 3.4593
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.4750
+HEADER 5  - Mean B-factor of pocket residues  : 0.2981
+HEADER 6  - Hydrophobicity Score              : -17.0000
+HEADER 7  - Polarity Score                    :     3
+HEADER 8  - Amino Acid based volume Score     : 3.7500
+HEADER 9  - Pocket volume (Monte Carlo)       : 170.7002
+HEADER 10 - Pocket volume (convex hull)       : 6.6620
+HEADER 11 - Charge Score                      :    -1
+HEADER 12 - Local hydrophobic density Score   : 2.0000
+HEADER 13 - Number of apolar alpha sphere     :     3
+HEADER 14 - Proportion of apolar alpha sphere : 0.1765
+ATOM    297   NZ LYS A  39      -9.836  -9.633  -4.031  0.00  0.00           N 0
+ATOM      6   CG GLU A   1     -13.188 -10.594  -9.820  0.00  0.00           C 0
+ATOM      7   CD GLU A   1     -14.039 -11.773  -9.383  0.00  0.00           C 0
+ATOM      8  OE1 GLU A   1     -15.188 -11.555  -8.930  0.00  0.00           O 0
+ATOM      4   CB GLU A   1     -11.734 -10.969 -10.094  0.00  0.00           C 0
+ATOM      2   CA GLU A   1     -10.797  -9.766 -10.227  0.00  0.00           C 0
+ATOM      3    C GLU A   1      -9.352 -10.203 -10.047  0.00  0.00           C 0
+ATOM      9  OE2 GLU A   1     -13.555 -12.922  -9.500  0.00  0.00           O 0
+ATOM     21  OD1 ASP A   3      -7.938 -13.312  -5.344  0.07  3.21           O 0
+ATOM     22  OD2 ASP A   3      -7.078 -14.484  -6.980  0.24  7.50           O 0
+ATOM     10    N ALA A   2      -8.492  -9.328  -9.312  0.36  1.09           N 0
+ATOM    296   CE LYS A  39      -9.062  -8.359  -4.008  0.00  0.00           C 0
+ATOM     14    O ALA A   2      -7.410  -9.312  -6.703  0.28  2.14           O 0
+ATOM      5    O GLU A   1      -8.891 -11.133 -10.711  0.33  5.36           O 0
+ATOM     12    C ALA A   2      -6.836  -9.938  -7.598  0.00  0.00           C 0
+TER
+END

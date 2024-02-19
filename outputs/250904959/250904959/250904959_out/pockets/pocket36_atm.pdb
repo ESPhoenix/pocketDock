@@ -1,0 +1,35 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    36:
+HEADER 0  - Pocket Score                      : -0.1586
+HEADER 1  - Drug Score                        : 0.0002
+HEADER 2  - Number of alpha spheres           :    17
+HEADER 3  - Mean alpha-sphere radius          : 4.2068
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.7249
+HEADER 5  - Mean B-factor of pocket residues  : 0.9628
+HEADER 6  - Hydrophobicity Score              : 13.0000
+HEADER 7  - Polarity Score                    :     3
+HEADER 8  - Amino Acid based volume Score     : 3.4000
+HEADER 9  - Pocket volume (Monte Carlo)       : 121.9190
+HEADER 10 - Pocket volume (convex hull)       : 0.3116
+HEADER 11 - Charge Score                      :    -2
+HEADER 12 - Local hydrophobic density Score   : 3.0000
+HEADER 13 - Number of apolar alpha sphere     :     4
+HEADER 14 - Proportion of apolar alpha sphere : 0.2353
+ATOM   2274    O THR A 307     -12.203  10.695  11.555  0.75  5.36           O 0
+ATOM   2276  OG1 THR A 307     -12.867   6.887  12.047  0.00  0.00           O 0
+ATOM   2272    C THR A 307     -12.000   9.695  12.242  0.00  0.00           C 0
+ATOM   2282   CG GLU A 308     -15.336   9.102  14.539  0.00  0.00           C 0
+ATOM    252    C ASP A  36     -15.000   8.945   5.441  0.00  0.00           C 0
+ATOM    259   CA ALA A  37     -12.930   9.539   6.590  0.00  0.00           C 0
+ATOM    254    O ASP A  36     -15.367  10.117   5.332  0.00  0.00           O 0
+ATOM    253   CB ASP A  36     -16.906   7.395   5.898  0.00  0.00           C 0
+ATOM   2273   CB THR A 307     -12.031   7.496  11.055  0.00  0.00           C 0
+ATOM    261   CB ALA A  37     -12.109   8.930   7.723  0.00  0.00           C 0
+ATOM    258    N ALA A  37     -13.836   8.547   6.020  0.64  1.09           N 0
+ATOM    234  CD1 LEU A  33     -15.555   4.918  10.984  0.00  0.00           C 0
+ATOM    232    O LEU A  33     -13.773   5.777   7.688  0.00  0.00           O 0
+TER
+END

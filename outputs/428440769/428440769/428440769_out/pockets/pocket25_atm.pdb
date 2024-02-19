@@ -1,0 +1,38 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    25:
+HEADER 0  - Pocket Score                      : -0.0122
+HEADER 1  - Drug Score                        : 0.0004
+HEADER 2  - Number of alpha spheres           :    19
+HEADER 3  - Mean alpha-sphere radius          : 3.7242
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.5267
+HEADER 5  - Mean B-factor of pocket residues  : 0.8588
+HEADER 6  - Hydrophobicity Score              : -5.6000
+HEADER 7  - Polarity Score                    :     3
+HEADER 8  - Amino Acid based volume Score     : 4.4000
+HEADER 9  - Pocket volume (Monte Carlo)       : 204.4329
+HEADER 10 - Pocket volume (convex hull)       : 5.8306
+HEADER 11 - Charge Score                      :     0
+HEADER 12 - Local hydrophobic density Score   : 7.0000
+HEADER 13 - Number of apolar alpha sphere     :     8
+HEADER 14 - Proportion of apolar alpha sphere : 0.4211
+ATOM   2948   CG PRO A 380     -11.516 -18.281 -17.219  0.00  0.00           C 0
+ATOM   2946   CB PRO A 380     -11.586 -19.172 -16.031  0.00  0.00           C 0
+ATOM   2913    O LEU A 376     -14.359 -16.000 -15.180  0.66  3.21           O 0
+ATOM   3204  NE2 GLN A 414     -19.891 -19.422 -16.328  0.53  5.47           N 0
+ATOM   3202   CG GLN A 414     -19.109 -19.547 -14.039  0.00  0.00           C 0
+ATOM   3201    O GLN A 414     -18.828 -22.844 -14.102  0.43  8.57           O 0
+ATOM   2923  OD1 ASP A 377     -18.359 -15.438 -17.141  0.78  3.21           O 0
+ATOM   2921    O ASP A 377     -13.844 -14.648 -18.359  0.64  7.50           O 0
+ATOM   2911    C LEU A 376     -15.125 -15.148 -14.719  0.00  0.00           C 0
+ATOM   2918   CA ASP A 377     -15.773 -14.461 -16.953  0.00  0.00           C 0
+ATOM   3211   CG ARG A 415     -15.125 -21.531 -12.016  0.00  0.00           C 0
+ATOM   2944   CA PRO A 380     -11.852 -18.234 -14.852  0.00  0.00           C 0
+ATOM   2947    O PRO A 380     -12.016 -19.484 -12.812  0.72  1.07           O 0
+ATOM   3213   NE ARG A 415     -13.523 -19.719 -11.586  0.00  0.00           N 0
+ATOM   2916  CD2 LEU A 376     -15.352 -17.250 -10.992  0.00  0.00           C 0
+ATOM   2912   CB LEU A 376     -16.438 -15.711 -12.664  0.00  0.00           C 0
+TER
+END

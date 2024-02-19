@@ -1,0 +1,38 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    15:
+HEADER 0  - Pocket Score                      : 0.0618
+HEADER 1  - Drug Score                        : 0.0003
+HEADER 2  - Number of alpha spheres           :    19
+HEADER 3  - Mean alpha-sphere radius          : 3.4606
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.5577
+HEADER 5  - Mean B-factor of pocket residues  : 0.6286
+HEADER 6  - Hydrophobicity Score              : 10.5000
+HEADER 7  - Polarity Score                    :     4
+HEADER 8  - Amino Acid based volume Score     : 3.3333
+HEADER 9  - Pocket volume (Monte Carlo)       : 129.8011
+HEADER 10 - Pocket volume (convex hull)       : 6.8167
+HEADER 11 - Charge Score                      :     1
+HEADER 12 - Local hydrophobic density Score   : 2.0000
+HEADER 13 - Number of apolar alpha sphere     :     3
+HEADER 14 - Proportion of apolar alpha sphere : 0.1579
+ATOM   1263  NH2 ARG A 168     -28.547  11.172  13.586  0.42  6.56           N 0
+ATOM   1363   CE MET A 182     -27.266   8.922  14.820  0.00  0.00           C 0
+ATOM   1264   CZ ARG A 168     -28.016  11.266  12.375  0.00  0.00           C 0
+ATOM   1361   CG MET A 182     -24.719   8.477  13.750  0.00  0.00           C 0
+ATOM   1257   CB ARG A 168     -24.594  13.109  11.594  0.00  0.00           C 0
+ATOM   1253   OG SER A 167     -22.641  12.289  16.375  0.00  0.00           O 0
+ATOM   1252    O SER A 167     -21.672  11.328  13.430  0.00  0.00           O 0
+ATOM   1362   SD MET A 182     -25.719   8.086  15.242  0.00  0.00           S 0
+ATOM   1261   NE ARG A 168     -27.516  12.422  11.969  0.39  5.47           N 0
+ATOM   1239   CA GLY A 165     -24.078  17.375  12.484  0.00  0.00           C 0
+ATOM   1235    O THR A 164     -25.781  17.750  10.305  0.70  2.14           O 0
+ATOM   1260   CD ARG A 168     -26.891  12.656  10.664  0.00  0.00           C 0
+ATOM   1247   OG SER A 166     -23.156  16.203  17.422  0.00  0.00           O 0
+ATOM   1242    N SER A 166     -23.016  17.094  14.711  0.00  0.00           N 0
+ATOM   1248    N SER A 167     -21.734  14.586  14.938  0.00  0.00           N 0
+ATOM   1254    N ARG A 168     -22.438  13.367  12.742  0.00  0.00           N 0
+TER
+END

@@ -1,0 +1,38 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    31:
+HEADER 0  - Pocket Score                      : -0.0635
+HEADER 1  - Drug Score                        : 0.0538
+HEADER 2  - Number of alpha spheres           :    20
+HEADER 3  - Mean alpha-sphere radius          : 3.6114
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.5133
+HEADER 5  - Mean B-factor of pocket residues  : 0.8518
+HEADER 6  - Hydrophobicity Score              : 62.6000
+HEADER 7  - Polarity Score                    :     1
+HEADER 8  - Amino Acid based volume Score     : 5.2000
+HEADER 9  - Pocket volume (Monte Carlo)       : 192.3399
+HEADER 10 - Pocket volume (convex hull)       : 6.0801
+HEADER 11 - Charge Score                      :     0
+HEADER 12 - Local hydrophobic density Score   : 19.0000
+HEADER 13 - Number of apolar alpha sphere     :    20
+HEADER 14 - Proportion of apolar alpha sphere : 1.0000
+ATOM   1904   OH TYR A 256       4.832  -3.018  -9.742  0.00  0.00           O 0
+ATOM   1905   CZ TYR A 256       5.953  -2.350 -10.180  0.00  0.00           C 0
+ATOM   1902  CE1 TYR A 256       5.820  -1.143 -10.836  0.00  0.00           C 0
+ATOM   2448   CG PRO A 330       7.180   2.428  -3.631  0.00  0.00           C 0
+ATOM   2446   CB PRO A 330       6.625   1.426  -2.670  0.00  0.00           C 0
+ATOM   1903  CE2 TYR A 256       7.207  -2.893  -9.953  0.00  0.00           C 0
+ATOM   1572  CD2 PHE A 210       8.008   2.750  -8.977  0.00  0.00           C 0
+ATOM   1900  CD1 TYR A 256       6.957  -0.473 -11.273  0.00  0.00           C 0
+ATOM   1901  CD2 TYR A 256       8.336  -2.215 -10.398  0.00  0.00           C 0
+ATOM   1899   CG TYR A 256       8.227  -0.999 -11.062  0.00  0.00           C 0
+ATOM   1574  CE2 PHE A 210       8.820   2.652  -7.852  0.00  0.00           C 0
+ATOM   2243  CD1 ILE A 303       5.949   5.617  -6.641  0.00  0.00           C 0
+ATOM   1807   CB LEU A 244      12.727  -1.829  -9.445  0.00  0.00           C 0
+ATOM   1811  CD2 LEU A 244      13.164  -0.896  -7.152  0.00  0.00           C 0
+ATOM   1897   CB TYR A 256       9.461  -0.267 -11.547  0.00  0.00           C 0
+ATOM   1810  CD1 LEU A 244      13.133   0.627  -9.148  0.00  0.00           C 0
+TER
+END

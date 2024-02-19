@@ -1,32 +1,37 @@
 ## import basic libraries
 import os
-import sys
 from subprocess import call
 import os.path as p
-from shutil import copy, move
+from shutil import copy
 import pandas as pd
-import multiprocessing as mp
-import argpass
-from tqdm import tqdm
 import subprocess
+import yaml
+
 ## pocketDock modules
 from pdbUtils import *
-
-
 #########################################################################################################################
-def choose_model_selection_mode(modelSelectionMode):
-    if modelSelectionMode == "best":
-        exhaustiveness = 16
-        numModes = 1
-    elif modelSelectionMode == "broad":
-        exhaustiveness = 16
-        numModes = 10
-    elif modelSelectionMode == "balenced":
-        exhaustiveness = 8
-        numModes = 8
-    else:
-        return None, None
-    return exhaustiveness, numModes
+def gen_docking_sequence(ligandOrdersCsv, protDir, ligandDir):
+    # load ligandOrdersCsv into df
+    ligandOrdersDf = pd.read_csv(ligandOrdersCsv)
+    dockingSequence = {}
+    for index, row in ligandOrdersDf.iterrows():
+        protId = row["ID"]
+        protPdb = p.join(protDir, f"{protId}.pdb")
+        if not p.isfile(protPdb):
+            #print(f"No prot pdb for {protId}")
+            continue
+        ligId = row["Cofactor"]
+        ligPdb = p.join(ligandDir, f"{ligId}.pdb")
+        if not p.isfile(ligPdb):
+            #print(f"No lig pdb for {ligId}")
+            continue
+        pocketTag = row["Pocket_Tag"]
+        tmpDict = {"protPdb":protPdb,
+                   "ligPdb": ligPdb,
+                   "pocketTag": pocketTag}
+        dockingSequence.update({index:tmpDict})
+    return dockingSequence
+
 #########################################################################################################################
 def process_vina_results(outDir,dockedPdbqt,receptorPdbqt,flex=False):
     # read output pdbqt file into a list of dataframes
@@ -106,17 +111,23 @@ def run_vina(outDir,configFile):
         call(["vina","--config",configFile],stdout=logFile)
 #########################################################################################################################
 ## writes a config file for a Vina docking simulation
-def write_vina_config(outDir,receptorPdbqt,ligandPdbqt,boxCenter,boxSize,flexPdbqt=None,
-                        exhaustiveness = 16, numModes = 10, cpus=2, energyRange = 5, seed = 42, flex=False):
+def write_vina_config(outDir,receptorPdbqt,ligPdbqt,boxCenter,boxSize,flexPdbqt=None,
+                       dockingInfo, seed = 42, flex=False):
+    # unpack dockingInfo
+    exhaustiveness = dockingInfo["exhaustiveness"]
+    numModes        = dockingInfo["numModes"]
+
+
+
     vinaConfigFile=p.join(outDir,f"vina_conf.txt")
     with open(vinaConfigFile,"w") as outFile:
         if flex:
             outFile.write(f"receptor = {receptorPdbqt}\n")
             outFile.write(f"flex = {flexPdbqt}\n\n")
-            outFile.write(f"ligand = {ligandPdbqt}\n\n")
+            outFile.write(f"ligand = {ligPdbqt}\n\n")
         else:
             outFile.write(f"receptor = {receptorPdbqt}\n")
-            outFile.write(f"ligand = {ligandPdbqt}\n\n")
+            outFile.write(f"ligand = {ligPdbqt}\n\n")
 
         outFile.write(f"center_x = {str(boxCenter[0])}\n")
         outFile.write(f"center_y = {str(boxCenter[1])}\n")
@@ -128,7 +139,6 @@ def write_vina_config(outDir,receptorPdbqt,ligandPdbqt,boxCenter,boxSize,flexPdb
 
         outFile.write(f"exhaustiveness = {str(exhaustiveness)}\n")
         outFile.write(f"num_modes = {str(numModes)}\n")
-        outFile.write(f"energy_range = {str(energyRange)}\n\n")
         outFile.write(f"seed = {str(seed)}\n\n")
 
         if not flex:
@@ -204,50 +214,95 @@ def pdb_to_pdbqt(name, pdbFile, outDir, util24Dir, mglToolsDir,jobType,flexRes=N
         return rigidPdbqt, flexPdbqt
     
     elif jobType == "ligand":
-        ligandPdbqt = p.join(outDir,f"{name}.pdbqt")
-        call(["python2.7",prepligandPy,"-l",pdbFile,"-o",ligandPdbqt],
+        ligPdbqt = p.join(outDir,f"{name}.pdbqt")
+        call(["python2.7",prepligandPy,"-l",pdbFile,"-o",ligPdbqt],
              env=env,stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        return ligandPdbqt
+        return ligPdbqt
     
     #########################################################################################################################
-def set_up_directory(fileName,protDir,ligandDir,outDir,ordersDict):
-    fileData = p.splitext(fileName)
-    protPdb = p.join(protDir,fileName)
-    protName = fileData[0]
+def set_up_directory(outDir,dockDetails):
+    # read protein pdb file, get name and make new dir for docking, copy over protein pdb
+    protPdb = dockDetails["protPdb"]
+    ligPdb = dockDetails["ligPdb"]
+
+    protName = p.splitext(p.basename(protPdb))[0]
+    ligandName = p.splitext(p.basename(ligPdb))[0]
+
     runDir = p.join(outDir,protName)
     os.makedirs(runDir,exist_ok=True)
     copy(protPdb,runDir)
+    # read ligand pdb and copy to new run directory
+    copy(ligPdb,runDir)
+
+    # change location of protPdb to one in runDir (just in case!)
     protPdb = p.join(runDir,f"{protName}.pdb")
+    # change location of ligPdb to one in runDir (just in case!)
+    ligPdb = p.join(runDir,f"{ligandName}.pdb")
 
-    # identify ligand 
-    ligandName = ordersDict[protName]
-    ligandPdb = p.join(ligandDir,f"{ligandName}.pdb")
-    copy(ligandPdb,runDir)
-    ligandPdb = p.join(runDir,f"{ligandName}.pdb")
-
-    return protName, protPdb, ligandPdb, ligandName, runDir
+    return protName, protPdb, ligPdb, ligandName, runDir
 
 
 #########################################################################################################################
 
-def run_fpocket(name,runDir,pdbFile):
-   # print("----->\tRunning Fpocket!")
-    os.chdir(runDir)
+def run_fpocket(runDir,pdbFile, pocketTag = False):
+    proteinName = p.splitext(p.basename(pdbFile))[0]
+
+    pocketDir = p.join(runDir,proteinName)
+    os.makedirs(pocketDir,exist_ok=True)
+    pocketPdb = p.join(pocketDir,f"{proteinName}.pdb")
+    copy(pdbFile,pocketPdb)
+
+    os.chdir(pocketDir)
+    ## Run FPocket
     minSphereSize = "3.0"
     maxSphereSize = "6.0"
-    call(["fpocket","-f",pdbFile,"-m",minSphereSize,"-M",maxSphereSize],
-         stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    fpocketOutDir = p.join(runDir,f"{name}_out","pockets")
-    ## ASSUMPTION == LARGEST POCKET IS OUR BINDING POCKET ## Not really true!
-    largestPocketPdb = p.join(fpocketOutDir,"pocket1_atm.pdb")
-    ## ERROR Handling
-    if not p.isfile(largestPocketPdb):
-        #print("--X-->\tFpocket Failed!")
-        return
-    largestPocketDf = pdb2df(largestPocketPdb)
-
-    boxCenter = [largestPocketDf["X"].mean(), largestPocketDf["Y"].mean(),largestPocketDf["Z"].mean()]
-    pocketResidues = largestPocketDf["RES_ID"].unique().tolist()
-
-    #print("----->\tFpocket Success!")
+    subprocess.call(["fpocket","-f",pocketPdb,"-m",minSphereSize,"-M",maxSphereSize],
+                    stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    # Read FPocket results into a dictionary, via  yaml file
+    fpocketOutDir = p.join(pocketDir,f"{proteinName}_out")
+    fpocketPdbDir = p.join(fpocketOutDir, "pockets")
+    fpocketInfo = p.join(fpocketOutDir,f"{proteinName}_info.txt")
+    if not p.isfile(fpocketInfo):
+        return None, None
+    info = fpocket_info_to_dict(fpocketInfo,fpocketOutDir)
+    # find correct pocket to dock into
+    targetDf = False
+    ## if pocket specified, find that pocket
+    if pocketTag:   
+        tag = pocketTag.split(":")
+        for pocketId in info:
+            if info[pocketId]["Score"] < 0.15:
+                break
+            pocketNumber = pocketId.split()[1]
+            pocketPdb = p.join(fpocketPdbDir, f"pocket{pocketNumber}_atm.pdb")
+            pocketDf = pdb2df(pocketPdb)
+            if any((pocketDf["CHAIN_ID"]    == tag[0]) & 
+                (pocketDf["RES_NAME"]    == tag[1]) & 
+                (pocketDf["RES_ID"]      == tag[2])):
+                targetDf = pocketDf
+                break
+    ## if pocket not specified, or specified pocket can't be found, use the largest pocket
+    if not pocketTag or not targetDf:
+        largestPocketPdb = p.join(fpocketPdbDir, f"pocket1_atm.pdb")
+        targetDf = pdb2df(largestPocketPdb)
+    # set boxCenter to center of taget pocket
+    boxCenter = [targetDf["X"].mean(), targetDf["Y"].mean(),targetDf["Z"].mean()]
+    # get residues in target pocket
+    pocketResidues = targetDf["RES_ID"].unique().tolist()
     return boxCenter, pocketResidues
+
+
+
+########################################################################################
+def fpocket_info_to_dict(infoFile, fpocketOutDir):
+    with open(infoFile,"r") as  txtFile:
+        txt = txtFile.read()
+    yamlData = txt.replace("\t", " "*2)
+    with open(p.join(fpocketOutDir,"info.yaml"),"w") as yamlFile:
+        yamlFile.write(yamlData)
+
+    with open(p.join(fpocketOutDir,"info.yaml"),"r") as yamlFile:
+        info = yaml.safe_load(yamlFile) 
+
+    return info
+

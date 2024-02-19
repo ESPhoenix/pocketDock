@@ -1,0 +1,38 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket     8:
+HEADER 0  - Pocket Score                      : 0.1372
+HEADER 1  - Drug Score                        : 0.0179
+HEADER 2  - Number of alpha spheres           :    19
+HEADER 3  - Mean alpha-sphere radius          : 3.2524
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.3942
+HEADER 5  - Mean B-factor of pocket residues  : 0.3695
+HEADER 6  - Hydrophobicity Score              : 55.5000
+HEADER 7  - Polarity Score                    :     3
+HEADER 8  - Amino Acid based volume Score     : 4.8000
+HEADER 9  - Pocket volume (Monte Carlo)       : 83.0741
+HEADER 10 - Pocket volume (convex hull)       : 3.9184
+HEADER 11 - Charge Score                      :     0
+HEADER 12 - Local hydrophobic density Score   : 14.0000
+HEADER 13 - Number of apolar alpha sphere     :    15
+HEADER 14 - Proportion of apolar alpha sphere : 0.7895
+ATOM   2044    N MET A 277      13.875   6.125 -22.859  0.00  0.00           N 0
+ATOM   2049   CG MET A 277      12.328   4.059 -21.125  0.00  0.00           C 0
+ATOM   2036   CB ARG A 276      12.750   8.977 -23.328  0.00  0.00           C 0
+ATOM   2020    O ALA A 273      11.555   5.168 -23.609  0.00  0.00           O 0
+ATOM   1990    O ASP A 269       8.609   8.266 -22.234  0.72  1.07           O 0
+ATOM   2038   CG ARG A 276      13.156   9.719 -22.062  0.00  0.00           C 0
+ATOM   1582  CD1 LEU A 211       9.273   5.723 -18.281  0.00  0.00           C 0
+ATOM   1989   CB ASP A 269       9.195  10.188 -19.672  0.00  0.00           C 0
+ATOM   2070  CD1 LEU A 280      14.844   8.438 -18.641  0.00  0.00           C 0
+ATOM   1911  CG1 VAL A 257      12.969   3.553 -16.406  0.00  0.00           C 0
+ATOM   1924  CG2 VAL A 259      12.695   7.656 -15.211  0.00  0.00           C 0
+ATOM   1993  OD2 ASP A 269      10.586  11.281 -18.078  0.00  0.00           O 0
+ATOM   1991   CG ASP A 269      10.289  11.164 -19.281  0.00  0.00           C 0
+ATOM   1563   OH TYR A 209      10.312  10.734 -16.375  0.00  0.00           O 0
+ATOM   2081  CE2 PHE A 281      15.938   3.896 -17.578  0.00  0.00           C 0
+ATOM   2045   CA MET A 277      14.484   5.066 -22.062  0.00  0.00           C 0
+TER
+END

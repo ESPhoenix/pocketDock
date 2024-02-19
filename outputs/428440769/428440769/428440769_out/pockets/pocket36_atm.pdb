@@ -1,0 +1,39 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    36:
+HEADER 0  - Pocket Score                      : -0.0348
+HEADER 1  - Drug Score                        : 0.0013
+HEADER 2  - Number of alpha spheres           :    22
+HEADER 3  - Mean alpha-sphere radius          : 3.5690
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.5741
+HEADER 5  - Mean B-factor of pocket residues  : 0.8842
+HEADER 6  - Hydrophobicity Score              : 35.8571
+HEADER 7  - Polarity Score                    :     3
+HEADER 8  - Amino Acid based volume Score     : 4.1429
+HEADER 9  - Pocket volume (Monte Carlo)       : 154.7838
+HEADER 10 - Pocket volume (convex hull)       : 6.7653
+HEADER 11 - Charge Score                      :     1
+HEADER 12 - Local hydrophobic density Score   : 9.0000
+HEADER 13 - Number of apolar alpha sphere     :    10
+HEADER 14 - Proportion of apolar alpha sphere : 0.4545
+ATOM   1403   CG MET A 181      -0.512  -0.580   8.852  0.00  0.00           C 0
+ATOM   1997    N GLY A 259       2.654  -5.234   8.125  0.51  1.09           N 0
+ATOM   1988  NE1 TRP A 257      -2.061  -3.602   6.754  0.00  0.00           N 0
+ATOM   1404   SD MET A 181      -0.762   0.091   7.164  0.00  0.00           S 0
+ATOM   1998   CA GLY A 259       3.455  -5.121   6.914  0.00  0.00           C 0
+ATOM   1390    O GLY A 179       2.936  -3.691  10.297  0.37  2.14           O 0
+ATOM   2014   CG ARG A 261       8.188  -1.160   6.203  0.00  0.00           C 0
+ATOM   2019   CZ ARG A 261       6.398   0.523   8.422  0.00  0.00           C 0
+ATOM   2016   NE ARG A 261       7.125   0.761   7.332  0.00  0.00           N 0
+ATOM   1664   CB SER A 216       2.980   1.079   9.891  0.00  0.00           C 0
+ATOM   2018  NH2 ARG A 261       5.262   1.174   8.609  0.59  4.37           N 0
+ATOM   1388   CA GLY A 179       4.844  -2.430  10.992  0.00  0.00           C 0
+ATOM   2001    N ILE A 260       5.652  -5.805   6.285  0.68  2.19           N 0
+ATOM   1999    C GLY A 259       4.945  -5.098   7.188  0.00  0.00           C 0
+ATOM   2005    O ILE A 260       7.590  -5.141   4.250  0.00  0.00           O 0
+ATOM   2003    C ILE A 260       7.797  -4.988   5.457  0.00  0.00           C 0
+ATOM   2000    O GLY A 259       5.391  -4.520   8.180  0.00  0.00           O 0
+TER
+END

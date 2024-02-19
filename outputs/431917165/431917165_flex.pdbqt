@@ -1,0 +1,117 @@
+BEGIN_RES TRP A 240
+REMARK  2 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: CA   and  CB  
+REMARK    2  A    between atoms: CB   and  CG  
+ROOT
+ATOM      1  CA  TRP A 240       3.633 -14.883 -11.219  1.00 92.69     0.191 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  CB  TRP A 240       2.188 -14.383 -11.305  1.00 92.69     0.062 C 
+BRANCH   2   3
+ATOM      3  CG  TRP A 240       1.424 -14.484 -10.023  1.00 92.69     0.001 A 
+ATOM      4  CD1 TRP A 240       1.013 -13.453  -9.227  1.00 92.69     0.095 A 
+ATOM      5  NE1 TRP A 240       0.342 -13.945  -8.125  1.00 92.69    -0.244 NA
+ATOM      6  CE2 TRP A 240       0.311 -15.312  -8.203  1.00 92.69     0.081 A 
+ATOM      7  CD2 TRP A 240       0.984 -15.688  -9.383  1.00 92.69     0.015 A 
+ATOM      8  CZ2 TRP A 240      -0.252 -16.250  -7.332  1.00 92.69     0.019 A 
+ATOM      9  CE3 TRP A 240       1.093 -17.047  -9.703  1.00 92.69     0.001 A 
+ATOM     10  CZ3 TRP A 240       0.532 -17.984  -8.836  1.00 92.69     0.000 A 
+ATOM     11  CH2 TRP A 240      -0.131 -17.578  -7.664  1.00 92.69     0.002 A 
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+END_RES TRP A 240
+BEGIN_RES ARG A 244
+REMARK  4 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    3  A    between atoms: CA   and  CB  
+REMARK    4  A    between atoms: CB   and  CG  
+REMARK    5  A    between atoms: CG   and  CD  
+REMARK    6  A    between atoms: CD   and  NE  
+REMARK       I    between atoms: NE   and  CZ  
+ROOT
+ATOM     12  CA  ARG A 244       8.617 -21.484 -18.328  1.00 51.28     0.186 C 
+ENDROOT
+BRANCH  12  13
+ATOM     13  CB  ARG A 244      10.102 -21.641 -17.984  1.00 51.28     0.036 C 
+BRANCH  13  14
+ATOM     14  CG  ARG A 244      10.867 -20.328 -17.984  1.00 51.28     0.029 C 
+BRANCH  14  15
+ATOM     15  CD  ARG A 244      12.367 -20.547 -17.859  1.00 51.28     0.145 C 
+BRANCH  15  16
+ATOM     16  NE  ARG A 244      13.102 -19.297 -17.844  1.00 51.28    -0.083 NA
+ATOM     17  CZ  ARG A 244      14.422 -19.188 -17.750  1.00 51.28     0.782 C 
+ATOM     18  NH1 ARG A 244      15.188 -20.266 -17.656  1.00 51.28     0.063 N 
+ATOM     19  NH2 ARG A 244      14.992 -17.984 -17.734  1.00 51.28     0.063 N 
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+END_RES ARG A 244
+BEGIN_RES PHE A 248
+REMARK  2 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    7  A    between atoms: CA   and  CB  
+REMARK    8  A    between atoms: CB   and  CG  
+ROOT
+ATOM     20  CA  PHE A 248       2.742 -25.297 -11.961  1.00 44.22     0.191 C 
+ENDROOT
+BRANCH  20  21
+ATOM     21  CB  PHE A 248       1.472 -25.531 -11.133  1.00 44.22     0.060 C 
+BRANCH  21  22
+ATOM     22  CG  PHE A 248       1.148 -24.422 -10.180  1.00 44.22    -0.020 A 
+ATOM     23  CD1 PHE A 248       1.613 -24.438  -8.875  1.00 44.22    -0.004 A 
+ATOM     24  CE1 PHE A 248       1.315 -23.406  -7.988  1.00 44.22    -0.000 A 
+ATOM     25  CZ  PHE A 248       0.545 -22.344  -8.414  1.00 44.22    -0.000 A 
+ATOM     26  CE2 PHE A 248       0.077 -22.297  -9.719  1.00 44.22    -0.000 A 
+ATOM     27  CD2 PHE A 248       0.379 -23.328 -10.594  1.00 44.22    -0.004 A 
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+END_RES PHE A 248
+BEGIN_RES ARG A 255
+REMARK  4 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    9  A    between atoms: CA   and  CB  
+REMARK   10  A    between atoms: CB   and  CG  
+REMARK   11  A    between atoms: CG   and  CD  
+REMARK   12  A    between atoms: CD   and  NE  
+REMARK       I    between atoms: NE   and  CZ  
+ROOT
+ATOM     28  CA  ARG A 255      15.625 -22.406  -6.621  1.00 55.19     0.186 C 
+ENDROOT
+BRANCH  28  29
+ATOM     29  CB  ARG A 255      14.594 -21.750  -7.547  1.00 55.19     0.036 C 
+BRANCH  29  30
+ATOM     30  CG  ARG A 255      13.875 -22.734  -8.453  1.00 55.19     0.029 C 
+BRANCH  30  31
+ATOM     31  CD  ARG A 255      12.930 -22.031  -9.414  1.00 55.19     0.145 C 
+BRANCH  31  32
+ATOM     32  NE  ARG A 255      13.195 -22.391 -10.805  1.00 55.19    -0.083 NA
+ATOM     33  CZ  ARG A 255      12.633 -21.812 -11.859  1.00 55.19     0.782 C 
+ATOM     34  NH1 ARG A 255      11.750 -20.844 -11.711  1.00 55.19     0.063 N 
+ATOM     35  NH2 ARG A 255      12.945 -22.234 -13.078  1.00 55.19     0.063 N 
+ENDBRANCH  31  32
+ENDBRANCH  30  31
+ENDBRANCH  29  30
+ENDBRANCH  28  29
+END_RES ARG A 255
+BEGIN_RES PHE A 305
+REMARK  2 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK   13  A    between atoms: CA   and  CB  
+REMARK   14  A    between atoms: CB   and  CG  
+ROOT
+ATOM     36  CA  PHE A 305       1.030 -16.453   0.538  1.00 98.19     0.191 C 
+ENDROOT
+BRANCH  36  37
+ATOM     37  CB  PHE A 305       1.207 -15.422  -0.576  1.00 98.19     0.060 C 
+BRANCH  37  38
+ATOM     38  CG  PHE A 305       1.336 -16.016  -1.949  1.00 98.19    -0.020 A 
+ATOM     39  CD1 PHE A 305       2.498 -16.688  -2.328  1.00 98.19    -0.004 A 
+ATOM     40  CE1 PHE A 305       2.619 -17.234  -3.600  1.00 98.19    -0.000 A 
+ATOM     41  CZ  PHE A 305       1.572 -17.141  -4.500  1.00 98.19    -0.000 A 
+ATOM     42  CE2 PHE A 305       0.408 -16.484  -4.137  1.00 98.19    -0.000 A 
+ATOM     43  CD2 PHE A 305       0.294 -15.922  -2.863  1.00 98.19    -0.004 A 
+ENDBRANCH  37  38
+ENDBRANCH  36  37
+END_RES PHE A 305

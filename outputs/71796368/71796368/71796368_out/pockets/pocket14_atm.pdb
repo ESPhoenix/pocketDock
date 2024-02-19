@@ -1,0 +1,43 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    14:
+HEADER 0  - Pocket Score                      : 0.0299
+HEADER 1  - Drug Score                        : 0.0009
+HEADER 2  - Number of alpha spheres           :    30
+HEADER 3  - Mean alpha-sphere radius          : 3.9461
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.5530
+HEADER 5  - Mean B-factor of pocket residues  : 0.9521
+HEADER 6  - Hydrophobicity Score              : 43.2500
+HEADER 7  - Polarity Score                    :     4
+HEADER 8  - Amino Acid based volume Score     : 4.0000
+HEADER 9  - Pocket volume (Monte Carlo)       : 302.3303
+HEADER 10 - Pocket volume (convex hull)       : 21.7421
+HEADER 11 - Charge Score                      :     0
+HEADER 12 - Local hydrophobic density Score   : 4.6667
+HEADER 13 - Number of apolar alpha sphere     :     6
+HEADER 14 - Proportion of apolar alpha sphere : 0.2000
+ATOM    249   CB SER A  33       1.041 -10.391  -2.689  0.00  0.00           C 0
+ATOM    239    O PHE A  32       2.604  -7.750  -3.463  0.54  7.50           O 0
+ATOM    322  CD1 LEU A  43       0.619  -8.992   1.440  0.00  0.00           C 0
+ATOM    234   OG SER A  31       5.598  -6.625   1.690  0.00  0.00           O 0
+ATOM     55   CE MET A   6      11.891 -10.742   0.340  0.00  0.00           C 0
+ATOM     73  CD1 PHE A   9       9.680 -10.250  -4.730  0.00  0.00           C 0
+ATOM     75  CE1 PHE A   9       8.367 -10.586  -5.051  0.00  0.00           C 0
+ATOM    235    N PHE A  32       3.289  -5.852  -1.513  0.00  0.00           N 0
+ATOM    231    C SER A  31       3.768  -5.500  -0.442  0.00  0.00           C 0
+ATOM    237    C PHE A  32       1.732  -7.340  -2.691  0.00  0.00           C 0
+ATOM    228  OD1 ASN A  30       8.719  -3.000  -1.464  0.00  0.00           O 0
+ATOM    230   CA SER A  31       5.281  -5.336  -0.339  0.00  0.00           C 0
+ATOM    232   CB SER A  31       5.703  -5.328   1.131  0.00  0.00           C 0
+ATOM    225    O ASN A  30       6.152  -5.121  -3.016  0.59  2.14           O 0
+ATOM     88  CG2 THR A  11       9.023  -6.977  -5.527  0.00  0.00           C 0
+ATOM    227  ND2 ASN A  30      10.008  -3.391  -3.262  0.48  4.37           N 0
+ATOM     51   CB MET A   6      14.562  -8.875   0.211  0.00  0.00           C 0
+ATOM    226   CG ASN A  30       8.859  -3.051  -2.688  0.00  0.00           C 0
+ATOM     52    O MET A   6      14.289  -8.734  -2.961  0.00  0.00           O 0
+ATOM     70   CB PHE A   9      12.164 -10.625  -4.883  0.00  0.00           C 0
+ATOM     71    O PHE A   9      12.062  -7.988  -6.004  0.19  2.14           O 0
+TER
+END

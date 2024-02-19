@@ -1,0 +1,41 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    40:
+HEADER 0  - Pocket Score                      : -0.0467
+HEADER 1  - Drug Score                        : 0.0003
+HEADER 2  - Number of alpha spheres           :    17
+HEADER 3  - Mean alpha-sphere radius          : 3.4270
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.6232
+HEADER 5  - Mean B-factor of pocket residues  : 0.9296
+HEADER 6  - Hydrophobicity Score              : 17.0000
+HEADER 7  - Polarity Score                    :     3
+HEADER 8  - Amino Acid based volume Score     : 4.2857
+HEADER 9  - Pocket volume (Monte Carlo)       : 175.6599
+HEADER 10 - Pocket volume (convex hull)       : 5.9759
+HEADER 11 - Charge Score                      :     0
+HEADER 12 - Local hydrophobic density Score   : 1.0000
+HEADER 13 - Number of apolar alpha sphere     :     2
+HEADER 14 - Proportion of apolar alpha sphere : 0.1176
+ATOM   1478  ND2 ASN A 190     -15.180  14.672   5.023  0.00  0.00           N 0
+ATOM   1463    O ALA A 188     -13.906  11.602   9.789  0.68  5.36           O 0
+ATOM    620  OE2 GLU A  78     -12.219  14.617   7.598  0.00  0.00           O 0
+ATOM    627   CD PRO A  79     -15.570  16.781  10.023  0.00  0.00           C 0
+ATOM   1466    C LEU A 189     -12.328  11.281   6.277  0.00  0.00           C 0
+ATOM   1479  OD1 ASN A 190     -15.438  12.750   3.898  0.50  5.36           O 0
+ATOM   1477   CG ASN A 190     -14.727  13.695   4.246  0.00  0.00           C 0
+ATOM   1472    N ASN A 190     -12.336  12.484   5.645  0.00  0.00           N 0
+ATOM   1453   CG ARG A 187     -13.680   7.531   5.168  0.00  0.00           C 0
+ATOM   1451   CB ARG A 187     -14.641   6.746   6.047  0.00  0.00           C 0
+ATOM   1468    O LEU A 189     -12.516  10.203   5.707  0.00  0.00           O 0
+ATOM   1454   CD ARG A 187     -14.281   7.828   3.801  0.00  0.00           C 0
+ATOM   1459    N ALA A 188     -14.383   8.125   9.086  0.68  5.47           N 0
+ATOM   1450    C ARG A 187     -13.727   7.664   8.188  0.00  0.00           C 0
+ATOM   1461    C ALA A 188     -13.672  10.461   9.383  0.00  0.00           C 0
+ATOM   1464    N LEU A 189     -12.766  10.250   8.461  0.00  0.00           N 0
+ATOM   1460   CA ALA A 188     -14.383   9.258  10.000  0.00  0.00           C 0
+ATOM    637  CE2 PHE A  80     -17.281  12.156  12.281  0.00  0.00           C 0
+ATOM    635  CD2 PHE A  80     -15.938  12.422  12.492  0.00  0.00           C 0
+TER
+END

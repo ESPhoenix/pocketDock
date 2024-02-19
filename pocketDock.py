@@ -31,80 +31,58 @@ def read_inputs():
 def main():
     pathInfo, dockingInfo  = read_inputs()
     protDir = pathInfo["protDir"]
+    ligandDir = pathInfo["ligandDir"]
     outDir = pathInfo["outDir"]
-    ligandOrdersCsv = pathInfo["liagndOrdersCsv"]
+    ligandOrdersCsv = pathInfo["ligandOrdersCsv"]
     # disable copy warnings
     pd.set_option('mode.chained_assignment', None)
-
-    exhausiveness, numModes = choose_model_selection_mode(dockingInfo["modelSelectionMode"])
-    if not exhausiveness:
-        print("Options for modelSelectionMode are \"best\", \"broad\", or \"balenced\"")
-        exit()
-
     # make outDir
     os.makedirs(outDir,exist_ok=True)    
-    # read ligand orders csv file into a dictionary
-    ordersDf = pd.read_csv(ligandOrdersCsv)
-    ordersDf["ID"] = ordersDf["ID"].astype(str)
-    ordersDict = ordersDf.set_index('ID')['Ligand'].to_dict()
 
+    # gererate a seqence of docking runs 
+    dockingSequence = gen_docking_sequence(ligandOrdersCsv, protDir, ligandDir)
+    run_paralell(pathInfo, dockingInfo, dockingSequence)
 
-
-    pdbFiles =[]
-    # loop through receptor PDB files
-    for fileName in os.listdir(protDir):
-        # Extract file name, skip if not a PDB file
-        fileData = p.splitext(fileName)
-        if not fileData[1] == ".pdb":
-            continue
-        pdbFiles.append(fileName)
-
-    # run_paralell(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,
-    #              mglToolsDir, exhausiveness, numModes,maxFlexRes,nCoresPerRun)
-
-    run_serial(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,
-    mglToolsDir, exhausiveness, numModes,maxFlexRes,nCoresPerRun)
+    #run_serial(pathInfo, dockingInfo, dockingSequence)
 #########################################################################################################################
 #########################################################################################################################
-def run_serial(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,
-               mglToolsDir, exhausiveness, numModes, maxFlexRes,nCoresPerRun):
+def run_serial(pathInfo, dockingInfo, dockingSequence):
     # for testing 
-    for fileName in pdbFiles:
-        docking_protocol(fileName,protDir, ligandDir,outDir,ordersDict,util24Dir,
-                         mglToolsDir,exhausiveness, numModes, maxFlexRes,nCoresPerRun)
+    for dockId in dockingSequence:
+        docking_protocol(pathInfo, dockingInfo, dockDetails = dockingSequence[dockId])
 
 
 #########################################################################################################################
-def run_paralell(pdbFiles,protDir, ligandDir,outDir,ordersDict,util24Dir,
-                 mglToolsDir, exhausiveness, numModes,maxFlexRes,nCoresPerRun):
-    num_cores = mp.cpu_count()
-    paralellCores= round(num_cores / 2)
+def run_paralell(pathInfo, dockingInfo, dockingSequence):
+    paralellCores= dockingInfo["totalCpus"]
 
+    dockingDetailsList = []
+    for dockId in dockingSequence:
+        dockingDetailsList.append(dockingSequence[dockId])
     with mp.Pool(processes=paralellCores) as pool:
         pool.starmap(docking_protocol,
-                     tqdm([(fileName,protDir, ligandDir,outDir,ordersDict,util24Dir,
-                            mglToolsDir,exhausiveness, numModes,maxFlexRes,nCoresPerRun) for fileName in pdbFiles],
-                                total=len(pdbFiles)))
-
-
-    # Close the pool to release resources
-    pool.close()
-    pool.join()
-
+                     tqdm([(pathInfo, dockingInfo, dockDetails) for dockDetails in dockingDetailsList],
+                                total=len(dockingSequence)))
 
 #########################################################################################################################
 
-def docking_protocol(fileName,protDir, ligandDir,outDir,ordersDict,util24Dir,
-                     mglToolsDir,exhausiveness, numModes, maxFlexRes,nCoresPerRun):
+def docking_protocol(pathInfo, dockingInfo, dockDetails):
+    ## unpack path Info
+    outDir      = pathInfo["outDir"]
+    mglToolsDir = pathInfo["mglToolsDir"]
+    util24Dir   = pathInfo["util24Dir"]
+
+    ## unpack general docking parameters
+    maxFlexRes      = dockingInfo["maxFlexRes"]
+    exhaustiveness  = dockingInfo["exhaustiveness"]
+    numModes        = dockingInfo["numModes"]
+    nCoresPerRun    = dockingInfo["nCoresPerRun"]
+    
     # set up run directory and output key variables
-    protName, protPdb, ligandPdb, ligandName, runDir = set_up_directory(fileName=fileName,
-                                                                            protDir=protDir,
-                                                                            ligandDir = ligandDir,
-                                                                            outDir=outDir,
-                                                                            ordersDict=ordersDict)  
+    protName, protPdb, ligPdb, ligandName, runDir = set_up_directory(outDir=outDir,
+                                                                            dockDetails=dockDetails)  
     # Use fpocket to identify largest pocket, return center of pocket as [X,Y,Z] coords and Fpocket residues
-    boxCenter, pocketResidues       =   run_fpocket(name=protName,
-                                                        runDir=runDir,
+    boxCenter, pocketResidues       =   run_fpocket(runDir=runDir,
                                                         pdbFile=protPdb)
 
     flexibeResidues =                   select_flexible_residues(protName=protName,
@@ -129,8 +107,8 @@ def docking_protocol(fileName,protDir, ligandDir,outDir,ordersDict,util24Dir,
                                                         flexRes=flexibeResidues)
 
     # Convert ligand PDB to PDBQT files
-    ligandPdbqt                     =   pdb_to_pdbqt(name = ligandName,
-                                                        pdbFile=ligandPdb,
+    ligPdbqt                     =   pdb_to_pdbqt(name = ligandName,
+                                                        pdbFile=ligPdb,
                                                         outDir = runDir,
                                                         util24Dir = util24Dir,
                                                         mglToolsDir  = mglToolsDir,
@@ -141,10 +119,10 @@ def docking_protocol(fileName,protDir, ligandDir,outDir,ordersDict,util24Dir,
                                                             receptorPdbqt = rigidPdbqt,
                                                             flexPdbqt = flexPdbqt,
                                                             flex=True,
-                                                            ligandPdbqt = ligandPdbqt,
+                                                            ligPdbqt = ligPdbqt,
                                                             boxCenter = boxCenter,
                                                             boxSize = 30,
-                                                            exhaustiveness=exhausiveness,
+                                                            exhaustiveness=exhaustiveness,
                                                             numModes=numModes,
                                                             cpus=str(nCoresPerRun))
 

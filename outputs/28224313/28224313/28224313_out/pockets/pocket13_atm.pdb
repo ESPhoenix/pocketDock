@@ -1,0 +1,38 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    13:
+HEADER 0  - Pocket Score                      : 0.0172
+HEADER 1  - Drug Score                        : 0.0005
+HEADER 2  - Number of alpha spheres           :    17
+HEADER 3  - Mean alpha-sphere radius          : 3.5341
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.5122
+HEADER 5  - Mean B-factor of pocket residues  : 0.9955
+HEADER 6  - Hydrophobicity Score              : 21.4000
+HEADER 7  - Polarity Score                    :     3
+HEADER 8  - Amino Acid based volume Score     : 5.2000
+HEADER 9  - Pocket volume (Monte Carlo)       : 223.0269
+HEADER 10 - Pocket volume (convex hull)       : 11.2619
+HEADER 11 - Charge Score                      :     1
+HEADER 12 - Local hydrophobic density Score   : 9.0000
+HEADER 13 - Number of apolar alpha sphere     :    10
+HEADER 14 - Proportion of apolar alpha sphere : 0.5882
+ATOM    927  CG1 VAL A 122     -15.461  -2.801   1.404  0.00  0.00           C 0
+ATOM   1036   CD ARG A 136     -17.188   2.088   1.811  0.00  0.00           C 0
+ATOM   1037   NE ARG A 136     -17.875   1.159   0.911  0.00  0.00           N 0
+ATOM   1038  NH1 ARG A 136     -19.766   0.950   2.217  0.39  5.47           N 0
+ATOM   1040   CZ ARG A 136     -19.078   0.640   1.124  0.00  0.00           C 0
+ATOM   1039  NH2 ARG A 136     -19.594  -0.196   0.239  0.74  4.37           N 0
+ATOM    913   NZ LYS A 120     -18.109  -2.639   7.578  0.00  0.00           N 0
+ATOM    911   CD LYS A 120     -15.977  -1.633   6.766  0.00  0.00           C 0
+ATOM   1055  OE1 GLU A 138     -16.312   1.846   6.734  0.00  0.00           O 0
+ATOM    925   CB VAL A 122     -15.148  -4.082   0.632  0.00  0.00           C 0
+ATOM    923   CA VAL A 122     -14.477  -5.125   1.555  0.00  0.00           C 0
+ATOM    926    O VAL A 122     -15.281  -7.230   0.717  0.00  0.00           O 0
+ATOM    912   CE LYS A 120     -16.688  -2.896   7.238  0.00  0.00           C 0
+ATOM    918    O ILE A 121     -13.727  -4.961   4.191  0.00  0.00           O 0
+ATOM   1033   CB ARG A 136     -14.898   1.104   1.454  0.00  0.00           C 0
+ATOM    908   CB LYS A 120     -13.812  -0.635   5.961  0.00  0.00           C 0
+TER
+END

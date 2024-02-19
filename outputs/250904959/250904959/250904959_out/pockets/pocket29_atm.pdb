@@ -1,0 +1,39 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    29:
+HEADER 0  - Pocket Score                      : -0.0740
+HEADER 1  - Drug Score                        : 0.0001
+HEADER 2  - Number of alpha spheres           :    27
+HEADER 3  - Mean alpha-sphere radius          : 3.4818
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.5274
+HEADER 5  - Mean B-factor of pocket residues  : 0.6398
+HEADER 6  - Hydrophobicity Score              : 5.0000
+HEADER 7  - Polarity Score                    :     3
+HEADER 8  - Amino Acid based volume Score     : 2.4286
+HEADER 9  - Pocket volume (Monte Carlo)       : 174.7856
+HEADER 10 - Pocket volume (convex hull)       : 11.3152
+HEADER 11 - Charge Score                      :     1
+HEADER 12 - Local hydrophobic density Score   : 3.0000
+HEADER 13 - Number of apolar alpha sphere     :     4
+HEADER 14 - Proportion of apolar alpha sphere : 0.1481
+ATOM   1620  OG1 THR A 217      10.562  -0.834   8.797  0.00  0.00           O 0
+ATOM   1618    O THR A 217      12.281   1.396   9.312  0.00  0.00           O 0
+ATOM   1977   CA GLY A 266      10.367  -3.303  14.000  0.00  0.00           C 0
+ATOM   1691  NH2 ARG A 227      15.359   1.159   9.984  0.50  6.56           N 0
+ATOM   1979    O GLY A 266       9.266  -2.416  12.070  0.60  2.14           O 0
+ATOM   1976    N GLY A 266      10.078  -3.621  15.391  0.37  5.47           N 0
+ATOM   1627    N GLY A 219      12.203   3.363  14.023  0.65  5.47           N 0
+ATOM   1628   CA GLY A 219      11.758   3.764  15.344  0.00  0.00           C 0
+ATOM   1622   CA SER A 218      12.094   3.035  11.656  0.00  0.00           C 0
+ATOM   1626   OG SER A 218      14.141   4.297  11.969  0.48  3.21           O 0
+ATOM   1978    C GLY A 266       9.219  -2.609  13.289  0.00  0.00           C 0
+ATOM   1623    C SER A 218      11.531   3.566  12.969  0.00  0.00           C 0
+ATOM   1984    O ALA A 267       7.797   0.638  14.227  0.45  4.29           O 0
+ATOM   1980    N ALA A 267       8.164  -2.105  14.195  0.00  0.00           N 0
+ATOM   1616    C THR A 217      11.188   1.826   9.672  0.00  0.00           C 0
+ATOM   1621    N SER A 218      11.023   2.744  10.703  0.00  0.00           N 0
+ATOM   1985    N GLY A 268       7.648   0.516  12.531  0.00  0.00           N 0
+TER
+END

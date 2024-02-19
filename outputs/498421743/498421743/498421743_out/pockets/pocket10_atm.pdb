@@ -1,0 +1,41 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    10:
+HEADER 0  - Pocket Score                      : 0.1467
+HEADER 1  - Drug Score                        : 0.0001
+HEADER 2  - Number of alpha spheres           :    26
+HEADER 3  - Mean alpha-sphere radius          : 3.6378
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.5750
+HEADER 5  - Mean B-factor of pocket residues  : 0.8443
+HEADER 6  - Hydrophobicity Score              : 23.2857
+HEADER 7  - Polarity Score                    :     4
+HEADER 8  - Amino Acid based volume Score     : 3.0000
+HEADER 9  - Pocket volume (Monte Carlo)       : 184.1615
+HEADER 10 - Pocket volume (convex hull)       : 8.8081
+HEADER 11 - Charge Score                      :     1
+HEADER 12 - Local hydrophobic density Score   : 1.0000
+HEADER 13 - Number of apolar alpha sphere     :     2
+HEADER 14 - Proportion of apolar alpha sphere : 0.0769
+ATOM    733   CA VAL A  93      15.414   3.719   9.250  0.00  0.00           C 0
+ATOM    732    N VAL A  93      15.273   4.059   7.844  0.63  4.37           N 0
+ATOM    748  NE2 HIS A  94      17.688  -1.212  10.695  0.77  3.28           N 0
+ATOM    745  CD2 HIS A  94      16.672  -0.295  10.836  0.00  0.00           C 0
+ATOM    717    O VAL A  91      15.469   2.941   3.658  0.19  7.50           O 0
+ATOM   1005    N SER A 128      18.922  -0.761   1.122  0.61  2.19           N 0
+ATOM    718  CG1 VAL A  91      14.562   0.129   5.414  0.00  0.00           C 0
+ATOM    716   CB VAL A  91      14.273   0.196   3.916  0.00  0.00           C 0
+ATOM   1008   CB SER A 128      21.172   0.110   1.636  0.00  0.00           C 0
+ATOM   1010   OG SER A 128      20.938   1.401   1.103  0.00  0.00           O 0
+ATOM   1021    O ASN A 130      16.969  -2.732   5.219  0.59  1.07           O 0
+ATOM   1003   CB ALA A 127      16.359  -2.488   2.000  0.00  0.00           C 0
+ATOM   1011    N SER A 129      20.438  -2.754   2.385  0.63  1.09           N 0
+ATOM    744   CG HIS A  94      15.516  -0.922  10.516  0.00  0.00           C 0
+ATOM    746  ND1 HIS A  94      15.859  -2.215  10.180  0.00  0.00           N 0
+ATOM    739    N HIS A  94      14.398   1.459   8.930  0.76  1.09           N 0
+ATOM   1024  OD1 ASN A 130      19.250  -2.750   7.172  0.00  0.00           O 0
+ATOM   1016   OG SER A 129      21.969  -3.020   4.789  0.67  1.07           O 0
+ATOM    747  CE1 HIS A  94      17.172  -2.363  10.305  0.00  0.00           C 0
+TER
+END

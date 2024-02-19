@@ -1,0 +1,21 @@
+receptor = /home/esp/scriptDevelopment/pocketDock/outputs/71796368/71796368_rigid.pdbqt
+flex = /home/esp/scriptDevelopment/pocketDock/outputs/71796368/71796368_flex.pdbqt
+
+ligand = /home/esp/scriptDevelopment/pocketDock/outputs/71796368/FMN.pdbqt
+
+center_x = 7.104533333333333
+center_y = -1.742933333333333
+center_z = 1.3391777777777778
+
+size_x = 30
+size_y = 30
+size_z = 30
+
+exhaustiveness = 16
+num_modes = 1
+energy_range = 5
+
+seed = 42
+
+out = /home/esp/scriptDevelopment/pocketDock/outputs/71796368/binding_poses.pdbqt
+cpu = 1

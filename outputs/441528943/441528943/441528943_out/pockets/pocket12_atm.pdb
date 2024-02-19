@@ -1,0 +1,39 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    12:
+HEADER 0  - Pocket Score                      : 0.0442
+HEADER 1  - Drug Score                        : 0.0058
+HEADER 2  - Number of alpha spheres           :    21
+HEADER 3  - Mean alpha-sphere radius          : 3.7458
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.5998
+HEADER 5  - Mean B-factor of pocket residues  : 0.9313
+HEADER 6  - Hydrophobicity Score              : 33.0000
+HEADER 7  - Polarity Score                    :     2
+HEADER 8  - Amino Acid based volume Score     : 4.3333
+HEADER 9  - Pocket volume (Monte Carlo)       : 144.0786
+HEADER 10 - Pocket volume (convex hull)       : 3.0724
+HEADER 11 - Charge Score                      :     0
+HEADER 12 - Local hydrophobic density Score   : 16.0000
+HEADER 13 - Number of apolar alpha sphere     :    17
+HEADER 14 - Proportion of apolar alpha sphere : 0.8095
+ATOM    203   CE LYS A  29     -21.797   4.949  22.406  0.00  0.00           C 0
+ATOM    949   CB PHE A 123     -16.797   1.044  20.781  0.00  0.00           C 0
+ATOM     43  CE1 PHE A   5     -20.516   2.488  19.672  0.00  0.00           C 0
+ATOM    201   CG LYS A  29     -20.094   6.352  21.203  0.00  0.00           C 0
+ATOM    951   CG PHE A 123     -17.453  -0.164  21.391  0.00  0.00           C 0
+ATOM    953  CD2 PHE A 123     -17.141  -0.546  22.688  0.00  0.00           C 0
+ATOM    955  CE2 PHE A 123     -17.750  -1.662  23.266  0.00  0.00           C 0
+ATOM    197   CA LYS A  29     -18.344   7.840  20.078  0.00  0.00           C 0
+ATOM    205    N VAL A  30     -17.203   6.238  18.594  0.00  0.00           N 0
+ATOM    940    O GLY A 121     -13.828   4.977  22.094  0.36  8.57           O 0
+ATOM    209    O VAL A  30     -16.469   3.471  18.406  0.62  1.07           O 0
+ATOM    946    N PHE A 123     -14.688   2.125  20.109  0.00  0.00           N 0
+ATOM     45   CZ PHE A   5     -21.375   1.430  19.438  0.00  0.00           C 0
+ATOM     13    O ASP A   2     -24.891   1.229  21.859  0.00  0.00           O 0
+ATOM    954  CE1 PHE A 123     -18.969  -2.037  21.234  0.00  0.00           C 0
+ATOM    956   CZ PHE A 123     -18.656  -2.406  22.531  0.00  0.00           C 0
+ATOM    952  CD1 PHE A 123     -18.359  -0.918  20.672  0.00  0.00           C 0
+TER
+END

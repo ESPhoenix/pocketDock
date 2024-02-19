@@ -1,0 +1,46 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    38:
+HEADER 0  - Pocket Score                      : -0.3051
+HEADER 1  - Drug Score                        : 0.0001
+HEADER 2  - Number of alpha spheres           :    35
+HEADER 3  - Mean alpha-sphere radius          : 3.8774
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.4394
+HEADER 5  - Mean B-factor of pocket residues  : 0.5547
+HEADER 6  - Hydrophobicity Score              : -6.4000
+HEADER 7  - Polarity Score                    :     7
+HEADER 8  - Amino Acid based volume Score     : 4.0000
+HEADER 9  - Pocket volume (Monte Carlo)       : 467.1996
+HEADER 10 - Pocket volume (convex hull)       : 58.0202
+HEADER 11 - Charge Score                      :     0
+HEADER 12 - Local hydrophobic density Score   : 6.0000
+HEADER 13 - Number of apolar alpha sphere     :     7
+HEADER 14 - Proportion of apolar alpha sphere : 0.2000
+ATOM   1983   CB ALA A 267       5.793  -1.848  14.781  0.00  0.00           C 0
+ATOM   1981   CA ALA A 267       6.887  -1.534  13.766  0.00  0.00           C 0
+ATOM   1483  NH1 ARG A 197       5.902  -4.859   7.809  0.00  0.00           N 0
+ATOM   1867  OE1 GLU A 250       3.621  -1.646   9.664  0.00  0.00           O 0
+ATOM   1620  OG1 THR A 217      10.562  -0.834   8.797  0.00  0.00           O 0
+ATOM   1499  OE2 GLU A 199      10.352  -6.637   6.344  0.52  2.14           O 0
+ATOM   1481   CD ARG A 197       7.566  -3.475   5.969  0.00  0.00           C 0
+ATOM   1494   CB GLU A 199      11.961  -4.496   5.824  0.00  0.00           C 0
+ATOM   1966   CD ARG A 264       3.900  -7.941  14.695  0.00  0.00           C 0
+ATOM   1884  NH1 ARG A 252       0.927  -3.361  14.797  0.00  0.00           N 0
+ATOM   1968  NH1 ARG A 264       1.935  -9.133  13.023  0.00  0.00           N 0
+ATOM   1484  NH2 ARG A 197       4.137  -3.498   7.273  0.11  3.28           N 0
+ATOM    119  OD2 ASP A  16      -1.309  -5.562   8.273  0.00  0.00           O 0
+ATOM    115   CB ASP A  16      -2.439  -6.164  10.281  0.00  0.00           C 0
+ATOM   1979    O GLY A 266       9.266  -2.416  12.070  0.60  2.14           O 0
+ATOM   1495    O GLU A 199      14.875  -3.621   6.406  0.69  7.50           O 0
+ATOM   1868  OE2 GLU A 250       5.418  -1.039   8.547  0.75  2.14           O 0
+ATOM   1619  CG2 THR A 217       8.250  -0.321   8.352  0.00  0.00           C 0
+ATOM   1975    O ALA A 265       9.594  -5.703  14.984  0.83  5.36           O 0
+ATOM   1977   CA GLY A 266      10.367  -3.303  14.000  0.00  0.00           C 0
+ATOM   1963   CB ARG A 264       5.516  -6.445  15.922  0.00  0.00           C 0
+ATOM   1980    N ALA A 267       8.164  -2.105  14.195  0.00  0.00           N 0
+ATOM   1964    O ARG A 264       7.492  -4.180  16.719  0.00  0.00           O 0
+ATOM   1978    C GLY A 266       9.219  -2.609  13.289  0.00  0.00           C 0
+TER
+END

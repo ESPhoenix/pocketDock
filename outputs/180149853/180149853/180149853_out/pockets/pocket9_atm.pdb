@@ -1,0 +1,43 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket     9:
+HEADER 0  - Pocket Score                      : 0.0590
+HEADER 1  - Drug Score                        : 0.0001
+HEADER 2  - Number of alpha spheres           :    21
+HEADER 3  - Mean alpha-sphere radius          : 3.6345
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.6683
+HEADER 5  - Mean B-factor of pocket residues  : 0.9613
+HEADER 6  - Hydrophobicity Score              : 11.1429
+HEADER 7  - Polarity Score                    :     6
+HEADER 8  - Amino Acid based volume Score     : 4.8571
+HEADER 9  - Pocket volume (Monte Carlo)       : 283.9863
+HEADER 10 - Pocket volume (convex hull)       : 28.5549
+HEADER 11 - Charge Score                      :     1
+HEADER 12 - Local hydrophobic density Score   : 0.0000
+HEADER 13 - Number of apolar alpha sphere     :     1
+HEADER 14 - Proportion of apolar alpha sphere : 0.0476
+ATOM    719   CA LYS A  92      -8.000  14.414  -8.203  0.00  0.00           C 0
+ATOM    745   CA ASN A  95      -3.391  15.609  -9.461  0.00  0.00           C 0
+ATOM    751  OD1 ASN A  95      -3.475  16.422 -12.156  0.21  6.43           O 0
+ATOM    722    O LYS A  92      -6.738  16.453  -8.117  0.55  4.29           O 0
+ATOM    723   CG LYS A  92      -9.922  15.852  -9.102  0.00  0.00           C 0
+ATOM    718    N LYS A  92      -7.695  13.164  -7.512  0.80  1.09           N 0
+ATOM    775   NZ LYS A  98      -9.055   7.949  -9.578  0.00  0.00           N 0
+ATOM    756    O LEU A  96      -4.078  11.281 -10.445  0.00  0.00           O 0
+ATOM    707   CB TRP A  91      -7.000  10.234  -7.523  0.00  0.00           C 0
+ATOM    694  OD2 ASP A  89     -11.797  11.562  -7.539  0.66  8.57           O 0
+ATOM    693  OD1 ASP A  89     -10.016  11.242  -6.301  0.61  1.07           O 0
+ATOM    708    O TRP A  91      -5.531  13.234  -7.898  0.00  0.00           O 0
+ATOM    765  CG2 THR A  97      -2.287   9.141 -14.648  0.00  0.00           C 0
+ATOM    761   CA THR A  97      -2.553   9.703 -12.195  0.00  0.00           C 0
+ATOM    767    N LYS A  98      -3.896   7.707 -11.992  0.00  0.00           N 0
+ATOM    766  OG1 THR A  97      -1.549  11.258 -13.758  0.72  7.50           O 0
+ATOM    770   CB LYS A  98      -5.520   5.879 -11.727  0.00  0.00           C 0
+ATOM    772   CG LYS A  98      -6.172   6.398 -10.453  0.00  0.00           C 0
+ATOM    773   CD LYS A  98      -7.652   6.055 -10.406  0.00  0.00           C 0
+ATOM    721   CB LYS A  92      -9.516  14.609  -8.312  0.00  0.00           C 0
+ATOM    706    C TRP A  91      -6.523  12.695  -7.406  0.00  0.00           C 0
+TER
+END

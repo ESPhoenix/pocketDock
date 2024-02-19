@@ -1,0 +1,35 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    14:
+HEADER 0  - Pocket Score                      : 0.0646
+HEADER 1  - Drug Score                        : 0.0002
+HEADER 2  - Number of alpha spheres           :    15
+HEADER 3  - Mean alpha-sphere radius          : 3.4802
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.5401
+HEADER 5  - Mean B-factor of pocket residues  : 0.9222
+HEADER 6  - Hydrophobicity Score              : 16.6000
+HEADER 7  - Polarity Score                    :     2
+HEADER 8  - Amino Acid based volume Score     : 3.8000
+HEADER 9  - Pocket volume (Monte Carlo)       : 126.9950
+HEADER 10 - Pocket volume (convex hull)       : 1.0796
+HEADER 11 - Charge Score                      :     0
+HEADER 12 - Local hydrophobic density Score   : 0.0000
+HEADER 13 - Number of apolar alpha sphere     :     0
+HEADER 14 - Proportion of apolar alpha sphere : 0.0000
+ATOM   1787   NE ARG A 240      10.250   3.127 -11.008  0.00  0.00           N 0
+ATOM   1795    O ASP A 241      10.961   8.797  -9.594  0.00  0.00           O 0
+ATOM   1821    O GLY A 244       6.328   7.391  -8.773  0.29  4.29           O 0
+ATOM   1789  NH2 ARG A 240       8.406   3.154  -9.648  0.56  5.47           N 0
+ATOM   1791    N ASP A 241      12.172   8.227 -12.258  0.61  1.09           N 0
+ATOM   1783   CB ARG A 240      12.391   5.078 -11.789  0.00  0.00           C 0
+ATOM   1820    C GLY A 244       7.141   8.250  -8.422  0.00  0.00           C 0
+ATOM   1825   CB VAL A 245       8.719   6.375  -5.895  0.00  0.00           C 0
+ATOM   1822    N VAL A 245       7.777   8.258  -7.215  0.00  0.00           N 0
+ATOM   1759  CG1 VAL A 235      12.914   6.020  -8.328  0.00  0.00           C 0
+ATOM   1790   CZ ARG A 240       9.625   2.719  -9.906  0.00  0.00           C 0
+ATOM   1819   CA GLY A 244       7.516   9.383  -9.359  0.00  0.00           C 0
+ATOM   1794   CB ASP A 241      10.664  10.172 -12.219  0.00  0.00           C 0
+TER
+END

@@ -1,0 +1,103 @@
+HETATM    1  N1  FMN     0       2.118  -2.493   0.531  0.00  0.00           N  
+HETATM    2  C2  FMN     0       2.713  -3.638   0.206  0.00  0.00           C  
+HETATM    3  O2  FMN     0       2.122  -4.677   0.445  0.00  0.00           O  
+HETATM    4  N3  FMN     0       3.921  -3.721  -0.368  0.00  0.00           N  
+HETATM    5  C4  FMN     0       4.636  -2.610  -0.664  0.00  0.00           C  
+HETATM    6  O4  FMN     0       5.732  -2.682  -1.185  0.00  0.00           O  
+HETATM    7  C4A FMN     0       4.027  -1.305  -0.325  0.00  0.00           C  
+HETATM    8  N5  FMN     0       4.631  -0.170  -0.566  0.00  0.00           N  
+HETATM    9  C5A FMN     0       4.051   0.995  -0.246  0.00  0.00           C  
+HETATM   10  C6  FMN     0       4.718   2.206  -0.514  0.00  0.00           C  
+HETATM   11  C7  FMN     0       4.131   3.392  -0.190  0.00  0.00           C  
+HETATM   12  C7M FMN     0       4.850   4.683  -0.480  0.00  0.00           C  
+HETATM   13  C8  FMN     0       2.874   3.423   0.405  0.00  0.00           C  
+HETATM   14  C8M FMN     0       2.246   4.748   0.752  0.00  0.00           C  
+HETATM   15  C9  FMN     0       2.197   2.255   0.678  0.00  0.00           C  
+HETATM   16  C9A FMN     0       2.774   1.029   0.359  0.00  0.00           C  
+HETATM   17  N10 FMN     0       2.101  -0.144   0.631  0.00  0.00           N  
+HETATM   18  C10 FMN     0       2.695  -1.325   0.304  0.00  0.00           C  
+HETATM   19  C1' FMN     0       0.777  -0.119   1.258  0.00  0.00           C  
+HETATM   20  C2' FMN     0      -0.300  -0.060   0.173  0.00  0.00           C  
+HETATM   21  O2' FMN     0      -0.122   1.121  -0.611  0.00  0.00           O  
+HETATM   22  C3' FMN     0      -1.683  -0.035   0.827  0.00  0.00           C  
+HETATM   23  O3' FMN     0      -1.860  -1.217   1.611  0.00  0.00           O  
+HETATM   24  C4' FMN     0      -2.760   0.024  -0.258  0.00  0.00           C  
+HETATM   25  O4' FMN     0      -2.582   1.206  -1.042  0.00  0.00           O  
+HETATM   26  C5' FMN     0      -4.142   0.049   0.397  0.00  0.00           C  
+HETATM   27  O5' FMN     0      -5.149  -0.013  -0.615  0.00  0.00           O  
+HETATM   28  P   FMN     0      -6.725  -0.007  -0.285  0.00  0.00           P  
+HETATM   29  O1P FMN     0      -7.053   1.180   0.536  0.00  0.00           O  
+HETATM   30  O2P FMN     0      -7.561   0.045  -1.660  0.00  0.00           O  
+HETATM   31  O3P FMN     0      -7.109  -1.344   0.526  0.00  0.00           O  
+HETATM   32  HN3 FMN     0       4.291  -4.593  -0.577  0.00  0.00           H  
+HETATM   33  H6  FMN     0       5.695   2.195  -0.975  0.00  0.00           H  
+HETATM   34 HM71 FMN     0       4.585   5.031  -1.479  0.00  0.00           H  
+HETATM   35 HM72 FMN     0       4.560   5.434   0.255  0.00  0.00           H  
+HETATM   36 HM73 FMN     0       5.927   4.520  -0.427  0.00  0.00           H  
+HETATM   37 HM81 FMN     0       1.656   5.103  -0.093  0.00  0.00           H  
+HETATM   38 HM82 FMN     0       1.599   4.627   1.622  0.00  0.00           H  
+HETATM   39 HM83 FMN     0       3.028   5.473   0.979  0.00  0.00           H  
+HETATM   40  H9  FMN     0       1.222   2.290   1.141  0.00  0.00           H  
+HETATM   41 H1'1 FMN     0       0.642  -1.021   1.856  0.00  0.00           H  
+HETATM   42 H1'2 FMN     0       0.695   0.758   1.899  0.00  0.00           H  
+HETATM   43  H2' FMN     0      -0.218  -0.938  -0.469  0.00  0.00           H  
+HETATM   44 HO2' FMN     0      -0.183   1.942  -0.104  0.00  0.00           H  
+HETATM   45  H3' FMN     0      -1.765   0.842   1.469  0.00  0.00           H  
+HETATM   46 HO3' FMN     0      -1.800  -2.038   1.104  0.00  0.00           H  
+HETATM   47  H4' FMN     0      -2.677  -0.853  -0.900  0.00  0.00           H  
+HETATM   48 HO4' FMN     0      -2.642   2.027  -0.535  0.00  0.00           H  
+HETATM   49 H5'1 FMN     0      -4.244  -0.807   1.064  0.00  0.00           H  
+HETATM   50 H5'2 FMN     0      -4.257   0.971   0.967  0.00  0.00           H  
+HETATM   51 HOP2 FMN     0      -8.520   0.051  -1.537  0.00  0.00           H  
+CONECT    1    2   18
+CONECT    2    1    3    4
+CONECT    3    2
+CONECT    4    2    5   32
+CONECT    5    4    6    7
+CONECT    6    5
+CONECT    7    5    8   18
+CONECT    8    7    9
+CONECT    9    8   10   16
+CONECT   10    9   11   33
+CONECT   11   10   12   13
+CONECT   12   11   34   35   36
+CONECT   13   11   14   15
+CONECT   14   13   37   38   39
+CONECT   15   13   16   40
+CONECT   16    9   15   17
+CONECT   17   16   18   19
+CONECT   18    1    7   17
+CONECT   19   17   20   41   42
+CONECT   20   19   21   22   43
+CONECT   21   20   44
+CONECT   22   20   23   24   45
+CONECT   23   22   46
+CONECT   24   22   25   26   47
+CONECT   25   24   48
+CONECT   26   24   27   49   50
+CONECT   27   26   28
+CONECT   28   27   29   30   31
+CONECT   29   28
+CONECT   30   28   51
+CONECT   31   28
+CONECT   32    4
+CONECT   33   10
+CONECT   34   12
+CONECT   35   12
+CONECT   36   12
+CONECT   37   14
+CONECT   38   14
+CONECT   39   14
+CONECT   40   15
+CONECT   41   19
+CONECT   42   19
+CONECT   43   20
+CONECT   44   21
+CONECT   45   22
+CONECT   46   23
+CONECT   47   24
+CONECT   48   25
+CONECT   49   26
+CONECT   50   26
+CONECT   51   30
+END

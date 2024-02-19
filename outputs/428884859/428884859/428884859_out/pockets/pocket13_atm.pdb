@@ -1,0 +1,34 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    13:
+HEADER 0  - Pocket Score                      : 0.0504
+HEADER 1  - Drug Score                        : 0.0007
+HEADER 2  - Number of alpha spheres           :    15
+HEADER 3  - Mean alpha-sphere radius          : 3.5025
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.4318
+HEADER 5  - Mean B-factor of pocket residues  : 0.7522
+HEADER 6  - Hydrophobicity Score              : 53.4000
+HEADER 7  - Polarity Score                    :     4
+HEADER 8  - Amino Acid based volume Score     : 5.8000
+HEADER 9  - Pocket volume (Monte Carlo)       : 142.2069
+HEADER 10 - Pocket volume (convex hull)       : 2.3634
+HEADER 11 - Charge Score                      :    -1
+HEADER 12 - Local hydrophobic density Score   : 5.0000
+HEADER 13 - Number of apolar alpha sphere     :     6
+HEADER 14 - Proportion of apolar alpha sphere : 0.4000
+ATOM    744    O GLU A  92      -7.023  -2.520  14.031  0.00  0.00           O 0
+ATOM   1074  CE1 TYR A 131     -11.273  -2.229  14.734  0.00  0.00           C 0
+ATOM    747  OE1 GLU A  92      -9.172  -4.902  15.305  0.00  0.00           O 0
+ATOM    772  CD1 TRP A  96      -9.000   0.899  15.883  0.00  0.00           C 0
+ATOM    750   CA ALA A  93      -4.844  -2.594  15.797  0.00  0.00           C 0
+ATOM    753    O ALA A  93      -5.418  -0.405  16.594  0.00  0.00           O 0
+ATOM    776  NE1 TRP A  96      -8.242   1.106  17.016  0.40  1.09           N 0
+ATOM   1090  CZ2 TRP A 132     -10.188  -3.072  19.953  0.00  0.00           C 0
+ATOM    752   CB ALA A  93      -3.500  -2.936  16.438  0.00  0.00           C 0
+ATOM   1089  CH2 TRP A 132     -10.320  -4.426  19.797  0.00  0.00           C 0
+ATOM    748  OE2 GLU A  92      -7.141  -5.730  15.430  0.36  6.43           O 0
+ATOM   1086  CE2 TRP A 132     -11.344  -2.297  19.859  0.00  0.00           C 0
+TER
+END

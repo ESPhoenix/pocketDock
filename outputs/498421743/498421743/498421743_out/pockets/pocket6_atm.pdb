@@ -1,0 +1,39 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket     6:
+HEADER 0  - Pocket Score                      : 0.2044
+HEADER 1  - Drug Score                        : 0.0003
+HEADER 2  - Number of alpha spheres           :    22
+HEADER 3  - Mean alpha-sphere radius          : 3.2189
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.4490
+HEADER 5  - Mean B-factor of pocket residues  : 0.9815
+HEADER 6  - Hydrophobicity Score              : 46.1250
+HEADER 7  - Polarity Score                    :     4
+HEADER 8  - Amino Acid based volume Score     : 4.7500
+HEADER 9  - Pocket volume (Monte Carlo)       : 78.3194
+HEADER 10 - Pocket volume (convex hull)       : 3.8988
+HEADER 11 - Charge Score                      :     0
+HEADER 12 - Local hydrophobic density Score   : 0.0000
+HEADER 13 - Number of apolar alpha sphere     :     1
+HEADER 14 - Proportion of apolar alpha sphere : 0.0455
+ATOM   1140  OG1 THR A 144      -3.607  -7.180   4.609  0.00  0.00           O 0
+ATOM   1106  CE2 TYR A 140      -0.466  -9.938   3.453  0.00  0.00           C 0
+ATOM   1107   OH TYR A 140      -1.956 -11.242   4.785  0.62  2.14           O 0
+ATOM   1182    N VAL A 150      -3.402  -8.969  -0.618  0.66  3.28           N 0
+ATOM   1186    O VAL A 150      -1.381 -11.156  -0.691  0.00  0.00           O 0
+ATOM   1561   CG LEU A 197      -7.930  -9.953   3.459  0.00  0.00           C 0
+ATOM   1551   CB ILE A 196      -4.836 -11.766   7.699  0.00  0.00           C 0
+ATOM   1554  CG2 ILE A 196      -4.531 -10.297   8.000  0.00  0.00           C 0
+ATOM   1537  OD1 ASP A 194      -6.516 -13.070   4.734  0.00  0.00           O 0
+ATOM   1169    O ILE A 148      -5.945  -7.180   0.728  0.00  0.00           O 0
+ATOM   1556    N LEU A 197      -7.648 -11.219   6.469  0.00  0.00           N 0
+ATOM   1538  OD2 ASP A 194      -5.070 -13.500   3.139  0.65  2.14           O 0
+ATOM   1179   CD LYS A 149      -5.520 -12.227  -0.501  0.00  0.00           C 0
+ATOM   1181   NZ LYS A 149      -4.750 -14.172   0.866  0.58  3.28           N 0
+ATOM   1139  CG2 THR A 144      -5.754  -7.367   5.684  0.00  0.00           C 0
+ATOM   1562  CD1 LEU A 197      -8.008 -10.609   2.086  0.00  0.00           C 0
+ATOM   1174   CA LYS A 149      -5.711  -9.195  -1.145  0.00  0.00           C 0
+TER
+END

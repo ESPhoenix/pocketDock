@@ -1,0 +1,38 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    24:
+HEADER 0  - Pocket Score                      : 0.0297
+HEADER 1  - Drug Score                        : 0.0001
+HEADER 2  - Number of alpha spheres           :    18
+HEADER 3  - Mean alpha-sphere radius          : 3.7371
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.5351
+HEADER 5  - Mean B-factor of pocket residues  : 0.9058
+HEADER 6  - Hydrophobicity Score              : 47.8750
+HEADER 7  - Polarity Score                    :     3
+HEADER 8  - Amino Acid based volume Score     : 4.7500
+HEADER 9  - Pocket volume (Monte Carlo)       : 190.0506
+HEADER 10 - Pocket volume (convex hull)       : 9.6924
+HEADER 11 - Charge Score                      :     1
+HEADER 12 - Local hydrophobic density Score   : 5.0000
+HEADER 13 - Number of apolar alpha sphere     :     6
+HEADER 14 - Proportion of apolar alpha sphere : 0.3333
+ATOM   1759   OH TYR A 221     -16.578   1.150   0.076  0.00  0.00           O 0
+ATOM   1886  CG1 VAL A 236     -17.453  -6.660   1.112  0.00  0.00           C 0
+ATOM   1815   SD MET A 227     -18.109  -2.576   3.441  0.00  0.00           S 0
+ATOM   1800  OD1 ASN A 225     -20.844  -0.192  -1.318  0.00  0.00           O 0
+ATOM   1885    O VAL A 236     -18.391  -8.109  -1.583  0.50  7.50           O 0
+ATOM   1797    O ASN A 225     -22.297  -3.801   1.074  0.59  6.43           O 0
+ATOM   1796   CB ASN A 225     -21.297  -1.161   0.824  0.00  0.00           C 0
+ATOM   1814   CG MET A 227     -19.547  -3.719   3.361  0.00  0.00           C 0
+ATOM    913    O MET A 114     -13.047  -1.811   1.128  0.26  2.14           O 0
+ATOM    905    O LEU A 113     -14.719  -0.422   3.432  0.00  0.00           O 0
+ATOM   1798   CG ASN A 225     -20.953  -0.012  -0.104  0.00  0.00           C 0
+ATOM    939   CB ALA A 117     -13.688  -4.699  -0.355  0.00  0.00           C 0
+ATOM   1816   CE MET A 227     -16.828  -3.703   4.074  0.00  0.00           C 0
+ATOM    921    O ARG A 115     -12.875   0.331  -2.027  0.32  6.43           O 0
+ATOM    940    O ALA A 117     -13.078  -4.812  -3.410  0.41  5.36           O 0
+ATOM    936    N ALA A 117     -12.039  -3.164  -1.331  0.00  0.00           N 0
+TER
+END

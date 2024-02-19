@@ -1,0 +1,35 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    30:
+HEADER 0  - Pocket Score                      : 0.0474
+HEADER 1  - Drug Score                        : 0.0003
+HEADER 2  - Number of alpha spheres           :    15
+HEADER 3  - Mean alpha-sphere radius          : 3.5250
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.5333
+HEADER 5  - Mean B-factor of pocket residues  : 0.9137
+HEADER 6  - Hydrophobicity Score              : 22.8333
+HEADER 7  - Polarity Score                    :     2
+HEADER 8  - Amino Acid based volume Score     : 3.8333
+HEADER 9  - Pocket volume (Monte Carlo)       : 134.4550
+HEADER 10 - Pocket volume (convex hull)       : 2.6997
+HEADER 11 - Charge Score                      :    -1
+HEADER 12 - Local hydrophobic density Score   : 4.0000
+HEADER 13 - Number of apolar alpha sphere     :     5
+HEADER 14 - Proportion of apolar alpha sphere : 0.3333
+ATOM   1370    N GLY A 176       7.980 -18.578 -22.047  0.00  0.00           N 0
+ATOM   1379    N PHE A 178      10.516 -22.281 -20.078  0.00  0.00           N 0
+ATOM   1382   CB PHE A 178       9.680 -23.656 -18.219  0.00  0.00           C 0
+ATOM   1383    O PHE A 178       8.320 -24.250 -20.734  0.62  4.29           O 0
+ATOM   1371   CA GLY A 176       8.125 -19.812 -22.781  0.00  0.00           C 0
+ATOM   1374    N ALA A 177      10.266 -19.984 -21.562  0.50  1.09           N 0
+ATOM   1357    O ASP A 174      10.422 -17.094 -20.547  0.00  0.00           O 0
+ATOM   1672   CD PRO A 213       8.938 -16.734 -16.281  0.00  0.00           C 0
+ATOM   1671   CG PRO A 213       7.906 -15.961 -17.047  0.00  0.00           C 0
+ATOM   1386  CD2 PHE A 178      10.273 -21.766 -16.688  0.00  0.00           C 0
+ATOM   1670    O PRO A 213       5.855 -17.047 -14.578  0.00  0.00           O 0
+ATOM   1377   CB ALA A 177      12.305 -19.703 -20.234  0.00  0.00           C 0
+ATOM   1342   CB TRP A 173      12.664 -16.984 -16.891  0.00  0.00           C 0
+TER
+END

@@ -1,0 +1,38 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    39:
+HEADER 0  - Pocket Score                      : 0.0479
+HEADER 1  - Drug Score                        : 0.0004
+HEADER 2  - Number of alpha spheres           :    15
+HEADER 3  - Mean alpha-sphere radius          : 3.5428
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.6844
+HEADER 5  - Mean B-factor of pocket residues  : 0.8367
+HEADER 6  - Hydrophobicity Score              : -30.0000
+HEADER 7  - Polarity Score                    :     3
+HEADER 8  - Amino Acid based volume Score     : 3.6667
+HEADER 9  - Pocket volume (Monte Carlo)       : 142.4445
+HEADER 10 - Pocket volume (convex hull)       : 3.3362
+HEADER 11 - Charge Score                      :    -2
+HEADER 12 - Local hydrophobic density Score   : 3.0000
+HEADER 13 - Number of apolar alpha sphere     :     4
+HEADER 14 - Proportion of apolar alpha sphere : 0.2667
+ATOM   2199   CB GLU A 273      20.781  32.938  -7.711  0.00  0.00           C 0
+ATOM   2201   CG GLU A 273      20.031  34.250  -7.496  0.00  0.00           C 0
+ATOM   2204  OE2 GLU A 273      21.625  34.656  -5.777  0.67  6.43           O 0
+ATOM   2210   CG GLU A 274      23.984  33.844 -11.797  0.00  0.00           C 0
+ATOM   2202   CD GLU A 273      20.609  35.094  -6.363  0.00  0.00           C 0
+ATOM   2175   CB ASN A 270      26.375  32.094  -7.051  0.00  0.00           C 0
+ATOM   2179  OD1 ASN A 270      25.844  33.312  -5.062  0.73  5.36           O 0
+ATOM   2177   CG ASN A 270      26.719  32.844  -5.785  0.00  0.00           C 0
+ATOM   2212  OE1 GLU A 274      26.328  34.281 -11.641  0.00  0.00           O 0
+ATOM   2178  ND2 ASN A 270      28.016  32.969  -5.504  0.69  7.66           N 0
+ATOM   2176    O ASN A 270      23.812  31.969  -9.156  0.62  1.07           O 0
+ATOM   2173   CA ASN A 270      24.938  31.594  -7.070  0.00  0.00           C 0
+ATOM   2205    N GLU A 274      21.344  32.562 -10.750  0.00  0.00           N 0
+ATOM   2206   CA GLU A 274      21.547  33.094 -12.094  0.00  0.00           C 0
+ATOM   2200    O GLU A 273      19.219  33.250 -10.602  0.63  2.14           O 0
+ATOM   2198    C GLU A 273      20.203  32.656 -10.133  0.00  0.00           C 0
+TER
+END

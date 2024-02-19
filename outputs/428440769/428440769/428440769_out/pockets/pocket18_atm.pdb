@@ -1,0 +1,36 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    18:
+HEADER 0  - Pocket Score                      : 0.0162
+HEADER 1  - Drug Score                        : 0.0028
+HEADER 2  - Number of alpha spheres           :    17
+HEADER 3  - Mean alpha-sphere radius          : 3.4124
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.4689
+HEADER 5  - Mean B-factor of pocket residues  : 0.9216
+HEADER 6  - Hydrophobicity Score              : 40.1667
+HEADER 7  - Polarity Score                    :     1
+HEADER 8  - Amino Acid based volume Score     : 3.3333
+HEADER 9  - Pocket volume (Monte Carlo)       : 126.6227
+HEADER 10 - Pocket volume (convex hull)       : 2.1669
+HEADER 11 - Charge Score                      :    -1
+HEADER 12 - Local hydrophobic density Score   : 8.0000
+HEADER 13 - Number of apolar alpha sphere     :     9
+HEADER 14 - Proportion of apolar alpha sphere : 0.5294
+ATOM   2809   SG CYS A 362     -19.359  -7.074   1.106  0.00  0.00           S 0
+ATOM   3089   SG CYS A 398     -19.703  -8.914   6.555  0.00  0.00           S 0
+ATOM   3114    N CYS A 403     -20.844 -12.445   2.686  0.52  1.09           N 0
+ATOM   3117   CB CYS A 403     -19.719 -11.133   0.941  0.00  0.00           C 0
+ATOM   3119   SG CYS A 403     -18.234 -10.883   1.942  0.00  0.00           S 0
+ATOM   2824   SG CYS A 364     -20.500  -5.457   5.734  0.00  0.00           S 0
+ATOM   2810    N GLU A 363     -22.938  -6.770   1.359  0.00  0.00           N 0
+ATOM   2818  OE2 GLU A 363     -24.438  -8.586   2.588  0.60  1.07           O 0
+ATOM   3110   CB VAL A 402     -23.234 -11.859   4.652  0.00  0.00           C 0
+ATOM   3113  CG2 VAL A 402     -23.781 -11.641   6.059  0.00  0.00           C 0
+ATOM   2819    N CYS A 364     -21.719  -4.820   2.824  0.00  0.00           N 0
+ATOM   2813   CB GLU A 363     -24.719  -5.879   2.801  0.00  0.00           C 0
+ATOM   3087   CB CYS A 398     -19.984  -8.516   8.297  0.00  0.00           C 0
+ATOM   2805   CA CYS A 362     -21.656  -8.102  -0.120  0.00  0.00           C 0
+TER
+END

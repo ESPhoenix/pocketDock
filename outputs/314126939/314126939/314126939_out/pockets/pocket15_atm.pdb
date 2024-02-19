@@ -1,0 +1,42 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    15:
+HEADER 0  - Pocket Score                      : 0.1170
+HEADER 1  - Drug Score                        : 0.0009
+HEADER 2  - Number of alpha spheres           :    21
+HEADER 3  - Mean alpha-sphere radius          : 3.7178
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.6212
+HEADER 5  - Mean B-factor of pocket residues  : 0.9169
+HEADER 6  - Hydrophobicity Score              : 2.6250
+HEADER 7  - Polarity Score                    :     4
+HEADER 8  - Amino Acid based volume Score     : 4.2500
+HEADER 9  - Pocket volume (Monte Carlo)       : 307.4714
+HEADER 10 - Pocket volume (convex hull)       : 20.4249
+HEADER 11 - Charge Score                      :     0
+HEADER 12 - Local hydrophobic density Score   : 4.2222
+HEADER 13 - Number of apolar alpha sphere     :     9
+HEADER 14 - Proportion of apolar alpha sphere : 0.4286
+ATOM   3434   CA ILE A 436      17.766  -9.891  -3.264  0.00  0.00           C 0
+ATOM   3472   CB PRO A 441      14.695 -12.117  -7.723  0.00  0.00           C 0
+ATOM   3439  CG2 ILE A 436      15.977  -9.430  -4.996  0.00  0.00           C 0
+ATOM   3437    O ILE A 436      19.203  -8.812  -4.855  0.57  7.50           O 0
+ATOM   3492  NH1 ARG A 443      14.883 -15.133  -6.070  0.00  0.00           N 0
+ATOM   3428    O GLU A 435      19.547 -11.570  -2.086  0.00  0.00           O 0
+ATOM   3493  NH2 ARG A 443      13.633 -14.164  -4.410  0.69  6.56           N 0
+ATOM   3429   CG GLU A 435      16.906 -12.562   0.184  0.00  0.00           C 0
+ATOM   2167  ND2 ASN A 272      13.766 -17.828  -4.250  0.00  0.00           N 0
+ATOM   3438  CG1 ILE A 436      15.492 -11.000  -3.076  0.00  0.00           C 0
+ATOM   3456    O GLN A 439      15.961  -6.949  -7.281  0.63  1.07           O 0
+ATOM   3455   CB GLN A 439      17.422  -5.074  -9.648  0.00  0.00           C 0
+ATOM   3452    N GLN A 439      17.297  -4.578  -7.242  0.75  1.09           N 0
+ATOM   3451   CD PRO A 438      20.219  -4.031  -5.297  0.00  0.00           C 0
+ATOM   3457   CG GLN A 439      18.234  -3.832  -9.969  0.00  0.00           C 0
+ATOM   3465    O LEU A 440      15.602  -8.781 -10.117  0.00  0.00           O 0
+ATOM   3458   CD GLN A 439      19.188  -4.039 -11.141  0.00  0.00           C 0
+ATOM   3450   CG PRO A 438      20.078  -2.807  -6.152  0.00  0.00           C 0
+ATOM   3459  NE2 GLN A 439      20.125  -3.123 -11.312  0.54  6.56           N 0
+ATOM   3470   CA PRO A 441      15.164 -11.172  -8.836  0.00  0.00           C 0
+TER
+END

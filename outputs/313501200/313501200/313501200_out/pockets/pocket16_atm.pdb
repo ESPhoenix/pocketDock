@@ -1,0 +1,36 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    16:
+HEADER 0  - Pocket Score                      : -0.0037
+HEADER 1  - Drug Score                        : 0.0000
+HEADER 2  - Number of alpha spheres           :    20
+HEADER 3  - Mean alpha-sphere radius          : 3.7875
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.4857
+HEADER 5  - Mean B-factor of pocket residues  : 0.8171
+HEADER 6  - Hydrophobicity Score              : -36.7500
+HEADER 7  - Polarity Score                    :     4
+HEADER 8  - Amino Acid based volume Score     : 4.7500
+HEADER 9  - Pocket volume (Monte Carlo)       : 208.7416
+HEADER 10 - Pocket volume (convex hull)       : 4.7193
+HEADER 11 - Charge Score                      :     0
+HEADER 12 - Local hydrophobic density Score   : 1.0000
+HEADER 13 - Number of apolar alpha sphere     :     2
+HEADER 14 - Proportion of apolar alpha sphere : 0.1000
+ATOM    390  OD2 ASP A  53      -2.648 -13.039   3.229  0.00  0.00           O 0
+ATOM    408  NH1 ARG A  55      -3.615 -19.078   2.740  0.00  0.00           N 0
+ATOM    959   CB ASP A 130      -0.588 -14.133   7.727  0.00  0.00           C 0
+ATOM    963  OD2 ASP A 130      -2.641 -13.250   8.547  0.23  7.50           O 0
+ATOM    410   CZ ARG A  55      -2.332 -19.375   2.924  0.00  0.00           C 0
+ATOM    409  NH2 ARG A  55      -1.986 -20.234   3.867  0.00  0.00           N 0
+ATOM    407   NE ARG A  55      -1.393 -18.812   2.172  0.00  0.00           N 0
+ATOM    406   CD ARG A  55      -1.649 -17.844   1.106  0.00  0.00           C 0
+ATOM    957   CA ASP A 130       0.893 -13.758   7.641  0.00  0.00           C 0
+ATOM    960    O ASP A 130       0.633 -12.844   5.438  0.71  1.07           O 0
+ATOM    389  OD1 ASP A  53      -1.152 -13.812   1.826  0.82  2.14           O 0
+ATOM    397   CD LYS A  54       4.438 -14.727   5.047  0.00  0.00           C 0
+ATOM    394   CB LYS A  54       3.156 -14.383   2.906  0.00  0.00           C 0
+ATOM    405   CG ARG A  55      -0.386 -17.094   0.709  0.00  0.00           C 0
+TER
+END

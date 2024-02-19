@@ -1,0 +1,39 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    28:
+HEADER 0  - Pocket Score                      : 0.0599
+HEADER 1  - Drug Score                        : 0.0005
+HEADER 2  - Number of alpha spheres           :    20
+HEADER 3  - Mean alpha-sphere radius          : 3.7961
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.5391
+HEADER 5  - Mean B-factor of pocket residues  : 0.8439
+HEADER 6  - Hydrophobicity Score              : 42.2500
+HEADER 7  - Polarity Score                    :     4
+HEADER 8  - Amino Acid based volume Score     : 4.2500
+HEADER 9  - Pocket volume (Monte Carlo)       : 191.0469
+HEADER 10 - Pocket volume (convex hull)       : 8.0776
+HEADER 11 - Charge Score                      :    -1
+HEADER 12 - Local hydrophobic density Score   : 9.0000
+HEADER 13 - Number of apolar alpha sphere     :    10
+HEADER 14 - Proportion of apolar alpha sphere : 0.5000
+ATOM   2434  CD2 TYR A 306     -23.047   1.409  13.992  0.00  0.00           C 0
+ATOM   2872   OH TYR A 365     -16.312   0.865  17.750  0.00  0.00           O 0
+ATOM   2419  CG2 ILE A 304     -16.750   4.293  15.180  0.00  0.00           C 0
+ATOM   2430   CB TYR A 306     -22.734   3.910  14.086  0.00  0.00           C 0
+ATOM   2417    O ILE A 304     -18.766   6.812  16.562  0.00  0.00           O 0
+ATOM   2392    O ASP A 301     -17.016   5.422  19.781  0.00  0.00           O 0
+ATOM   2871  CE2 TYR A 365     -16.141  -1.038  16.328  0.00  0.00           C 0
+ATOM   2814    O SER A 357     -20.766  -3.557  14.055  0.00  0.00           O 0
+ATOM   2460  CD1 LEU A 309     -17.281   2.002  12.945  0.00  0.00           C 0
+ATOM   2837  CG1 VAL A 360     -20.812  -0.167  10.945  0.00  0.00           C 0
+ATOM   2840   CA GLY A 361     -17.328  -2.471  12.859  0.00  0.00           C 0
+ATOM   2839    N GLY A 361     -18.562  -2.816  12.164  0.00  0.00           N 0
+ATOM   2416   CB ILE A 304     -16.141   5.086  16.344  0.00  0.00           C 0
+ATOM   2813   CB SER A 357     -23.500  -3.002  15.625  0.00  0.00           C 0
+ATOM   2436  CE2 TYR A 306     -23.688   0.267  13.539  0.00  0.00           C 0
+ATOM   2428   CA TYR A 306     -21.516   4.309  13.250  0.00  0.00           C 0
+ATOM   2427    N TYR A 306     -20.875   5.496  13.805  0.63  1.09           N 0
+TER
+END

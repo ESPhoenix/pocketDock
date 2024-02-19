@@ -1,0 +1,41 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    25:
+HEADER 0  - Pocket Score                      : 0.0113
+HEADER 1  - Drug Score                        : 0.0005
+HEADER 2  - Number of alpha spheres           :    19
+HEADER 3  - Mean alpha-sphere radius          : 3.6703
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.6325
+HEADER 5  - Mean B-factor of pocket residues  : 0.9928
+HEADER 6  - Hydrophobicity Score              : -1.0000
+HEADER 7  - Polarity Score                    :     4
+HEADER 8  - Amino Acid based volume Score     : 4.6000
+HEADER 9  - Pocket volume (Monte Carlo)       : 232.3547
+HEADER 10 - Pocket volume (convex hull)       : 13.7790
+HEADER 11 - Charge Score                      :    -1
+HEADER 12 - Local hydrophobic density Score   : 6.0000
+HEADER 13 - Number of apolar alpha sphere     :     7
+HEADER 14 - Proportion of apolar alpha sphere : 0.3684
+ATOM   2084   CG GLU A 261      26.688  11.594 -16.141  0.00  0.00           C 0
+ATOM   2044   CD GLU A 256      28.016  12.688  -9.938  0.00  0.00           C 0
+ATOM   2046  OE2 GLU A 256      27.031  13.359  -9.555  0.50  5.36           O 0
+ATOM   2043   CG GLU A 256      27.766  11.508 -10.859  0.00  0.00           C 0
+ATOM   2086  OE1 GLU A 261      28.281  10.734 -14.570  0.00  0.00           O 0
+ATOM   2045  OE1 GLU A 256      29.188  12.945  -9.594  0.00  0.00           O 0
+ATOM   2009  OD1 ASN A 252      19.812  14.914 -13.531  0.62  3.21           O 0
+ATOM   2036  CG2 ILE A 255      22.922  10.195 -15.227  0.00  0.00           C 0
+ATOM   2006    O ASN A 252      22.859  12.109 -11.234  0.55  1.07           O 0
+ATOM   2320  NH2 ARG A 290      20.141  13.547 -17.266  0.00  0.00           N 0
+ATOM   2037  CD1 ILE A 255      19.891  10.914 -15.133  0.00  0.00           C 0
+ATOM   2041   CB GLU A 256      26.281  11.234 -11.094  0.00  0.00           C 0
+ATOM   2080   CA GLU A 261      25.297  10.734 -18.109  0.00  0.00           C 0
+ATOM   2082   CB GLU A 261      26.547  11.508 -17.656  0.00  0.00           C 0
+ATOM   2083    O GLU A 261      24.344  11.664 -20.094  0.48  2.14           O 0
+ATOM   2038    N GLU A 256      24.562   9.844 -12.180  0.00  0.00           N 0
+ATOM   2005   CB ASN A 252      20.953  14.773 -11.430  0.00  0.00           C 0
+ATOM   2003   CA ASN A 252      20.766  13.258 -11.445  0.00  0.00           C 0
+ATOM   2033   CB ILE A 255      22.016  10.023 -14.000  0.00  0.00           C 0
+TER
+END

@@ -1,0 +1,37 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    23:
+HEADER 0  - Pocket Score                      : 0.0317
+HEADER 1  - Drug Score                        : 0.0011
+HEADER 2  - Number of alpha spheres           :    17
+HEADER 3  - Mean alpha-sphere radius          : 3.5454
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.5521
+HEADER 5  - Mean B-factor of pocket residues  : 0.9405
+HEADER 6  - Hydrophobicity Score              : 9.5000
+HEADER 7  - Polarity Score                    :     5
+HEADER 8  - Amino Acid based volume Score     : 5.1667
+HEADER 9  - Pocket volume (Monte Carlo)       : 214.7041
+HEADER 10 - Pocket volume (convex hull)       : 18.9630
+HEADER 11 - Charge Score                      :     1
+HEADER 12 - Local hydrophobic density Score   : 8.0000
+HEADER 13 - Number of apolar alpha sphere     :     9
+HEADER 14 - Proportion of apolar alpha sphere : 0.5294
+ATOM   1602   CG LYS A 202     -15.078 -11.133  11.617  0.00  0.00           C 0
+ATOM   1626   CD LYS A 205     -19.875  -7.477  10.633  0.00  0.00           C 0
+ATOM   1636  OD1 ASN A 206     -18.094  -7.090  16.094  0.00  0.00           O 0
+ATOM   1601    O LYS A 202     -15.398  -6.984  13.406  0.00  0.00           O 0
+ATOM   1628   NZ LYS A 205     -21.781  -8.992  10.094  0.59  4.37           N 0
+ATOM   1844    O GLU A 231     -19.047 -13.094   8.820  0.67  7.50           O 0
+ATOM   1593  CE1 TYR A 201     -17.562  -9.055   7.523  0.00  0.00           C 0
+ATOM   1625   CG LYS A 205     -19.484  -6.094  11.141  0.00  0.00           C 0
+ATOM   1659  CD1 ILE A 209     -21.891  -5.449  14.414  0.00  0.00           C 0
+ATOM   1627   CE LYS A 205     -21.391  -7.660  10.641  0.00  0.00           C 0
+ATOM   1600   CB LYS A 202     -14.461  -9.961  12.367  0.00  0.00           C 0
+ATOM   1635  ND2 ASN A 206     -15.969  -7.492  16.703  0.00  0.00           N 0
+ATOM   1603   CD LYS A 202     -14.742 -12.461  12.281  0.00  0.00           C 0
+ATOM   1598   CA LYS A 202     -14.766  -8.602  11.750  0.00  0.00           C 0
+ATOM   1623   CB LYS A 205     -17.969  -5.914  11.133  0.00  0.00           C 0
+TER
+END

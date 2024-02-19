@@ -1,0 +1,42 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    12:
+HEADER 0  - Pocket Score                      : 0.0443
+HEADER 1  - Drug Score                        : 0.0007
+HEADER 2  - Number of alpha spheres           :    17
+HEADER 3  - Mean alpha-sphere radius          : 3.4863
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.5651
+HEADER 5  - Mean B-factor of pocket residues  : 0.9392
+HEADER 6  - Hydrophobicity Score              : -10.0000
+HEADER 7  - Polarity Score                    :     5
+HEADER 8  - Amino Acid based volume Score     : 4.3750
+HEADER 9  - Pocket volume (Monte Carlo)       : 206.4037
+HEADER 10 - Pocket volume (convex hull)       : 14.0982
+HEADER 11 - Charge Score                      :     2
+HEADER 12 - Local hydrophobic density Score   : 1.3333
+HEADER 13 - Number of apolar alpha sphere     :     3
+HEADER 14 - Proportion of apolar alpha sphere : 0.1765
+ATOM   1554    N GLY A 205      21.281  -7.109  -8.844  0.00  0.00           N 0
+ATOM   1489    O ASN A 197      17.547  -6.152 -12.148  0.42  6.43           O 0
+ATOM   1506    O ARG A 199      22.328  -4.766 -11.438  0.47  5.36           O 0
+ATOM   1555   CA GLY A 205      22.016  -8.359  -8.852  0.00  0.00           C 0
+ATOM   1494   CA LYS A 198      19.016  -4.789 -14.203  0.00  0.00           C 0
+ATOM   1496   CB LYS A 198      18.828  -4.656 -15.711  0.00  0.00           C 0
+ATOM   1497    O LYS A 198      21.281  -4.074 -14.508  0.71  8.57           O 0
+ATOM   1499   CD LYS A 198      17.438  -6.750 -15.906  0.00  0.00           C 0
+ATOM   1469   CG PRO A 194      15.250 -11.039  -9.945  0.00  0.00           C 0
+ATOM   1557    O GLY A 205      20.453  -9.820  -7.797  0.59  2.14           O 0
+ATOM   2006  OE2 GLU A 258      20.672 -13.500  -7.375  0.71  4.29           O 0
+ATOM   2011    O VAL A 259      15.984 -14.195 -10.383  0.72  1.07           O 0
+ATOM   1467   CB PRO A 194      15.562 -10.555 -11.328  0.00  0.00           C 0
+ATOM   1598   CD ARG A 210      17.062  -8.242  -7.500  0.00  0.00           C 0
+ATOM   1465   CA PRO A 194      15.016  -9.125 -11.375  0.00  0.00           C 0
+ATOM   1495    C LYS A 198      20.297  -4.082 -13.773  0.00  0.00           C 0
+ATOM   1501   NZ LYS A 198      16.031  -8.805 -16.047  0.00  0.00           N 0
+ATOM   1468    O PRO A 194      15.070  -8.508 -13.688  0.00  0.00           O 0
+ATOM   1602   CZ ARG A 210      16.000 -10.461  -7.250  0.00  0.00           C 0
+ATOM   1601  NH2 ARG A 210      15.938 -11.625  -6.613  0.00  0.00           N 0
+TER
+END

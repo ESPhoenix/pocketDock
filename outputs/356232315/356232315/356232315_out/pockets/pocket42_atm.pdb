@@ -1,0 +1,38 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    42:
+HEADER 0  - Pocket Score                      : -0.0564
+HEADER 1  - Drug Score                        : 0.0006
+HEADER 2  - Number of alpha spheres           :    18
+HEADER 3  - Mean alpha-sphere radius          : 3.6516
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.7331
+HEADER 5  - Mean B-factor of pocket residues  : 0.9915
+HEADER 6  - Hydrophobicity Score              : 14.3333
+HEADER 7  - Polarity Score                    :     2
+HEADER 8  - Amino Acid based volume Score     : 5.0000
+HEADER 9  - Pocket volume (Monte Carlo)       : 239.1634
+HEADER 10 - Pocket volume (convex hull)       : 5.9147
+HEADER 11 - Charge Score                      :     0
+HEADER 12 - Local hydrophobic density Score   : 8.0000
+HEADER 13 - Number of apolar alpha sphere     :     9
+HEADER 14 - Proportion of apolar alpha sphere : 0.5000
+ATOM   2044   CD GLU A 256      28.016  12.688  -9.938  0.00  0.00           C 0
+ATOM   2047    N LEU A 257      25.906   8.234 -10.273  0.70  1.09           N 0
+ATOM   2014    O LYS A 253      23.844   9.758  -8.891  0.57  2.14           O 0
+ATOM   2043   CG GLU A 256      27.766  11.508 -10.859  0.00  0.00           C 0
+ATOM   2041   CB GLU A 256      26.281  11.234 -11.094  0.00  0.00           C 0
+ATOM   2046  OE2 GLU A 256      27.031  13.359  -9.555  0.50  5.36           O 0
+ATOM   2013   CB LYS A 253      22.328  12.008  -7.031  0.00  0.00           C 0
+ATOM   2011   CA LYS A 253      22.672  11.820  -8.516  0.00  0.00           C 0
+ATOM   2015   CG LYS A 253      22.672  13.391  -6.492  0.00  0.00           C 0
+ATOM   2048   CA LEU A 257      26.359   7.078  -9.508  0.00  0.00           C 0
+ATOM   2053  CD1 LEU A 257      27.031   5.812  -6.777  0.00  0.00           C 0
+ATOM   2050   CB LEU A 257      25.359   6.742  -8.398  0.00  0.00           C 0
+ATOM   2045  OE1 GLU A 256      29.188  12.945  -9.594  0.00  0.00           O 0
+ATOM   2042    O GLU A 256      27.641   8.258 -11.727  0.10  6.43           O 0
+ATOM   2040    C GLU A 256      26.594   8.758 -11.297  0.00  0.00           C 0
+ATOM   2051    O LEU A 257      27.484   5.090 -10.227  0.33  3.21           O 0
+TER
+END

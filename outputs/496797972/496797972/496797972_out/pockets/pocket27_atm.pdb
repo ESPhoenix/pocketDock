@@ -1,0 +1,38 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    27:
+HEADER 0  - Pocket Score                      : -0.0211
+HEADER 1  - Drug Score                        : 0.0001
+HEADER 2  - Number of alpha spheres           :    18
+HEADER 3  - Mean alpha-sphere radius          : 3.8894
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.5846
+HEADER 5  - Mean B-factor of pocket residues  : 0.6232
+HEADER 6  - Hydrophobicity Score              : -8.8750
+HEADER 7  - Polarity Score                    :     3
+HEADER 8  - Amino Acid based volume Score     : 3.1250
+HEADER 9  - Pocket volume (Monte Carlo)       : 192.3575
+HEADER 10 - Pocket volume (convex hull)       : 5.5157
+HEADER 11 - Charge Score                      :     1
+HEADER 12 - Local hydrophobic density Score   : 0.0000
+HEADER 13 - Number of apolar alpha sphere     :     0
+HEADER 14 - Proportion of apolar alpha sphere : 0.0000
+ATOM   1860   CA GLY A 251       6.742 -16.469 -15.047  0.00  0.00           C 0
+ATOM   1862    O GLY A 251       7.523 -14.711 -16.453  0.56  3.21           O 0
+ATOM   1834   NE ARG A 247      11.359 -16.812 -13.008  0.00  0.00           N 0
+ATOM   1836  NH2 ARG A 247      11.484 -19.078 -13.273  0.35  6.56           N 0
+ATOM   1676  ND1 HIS A 223      13.586 -19.344 -19.734  0.00  0.00           N 0
+ATOM   1670   CA HIS A 223      12.820 -16.188 -20.156  0.00  0.00           C 0
+ATOM   1672   CB HIS A 223      12.914 -17.359 -21.125  0.00  0.00           C 0
+ATOM   1627    O PRO A 217       5.930 -16.797 -20.281  0.00  0.00           O 0
+ATOM   1668    O ALA A 222      11.992 -13.992 -18.703  0.00  0.00           O 0
+ATOM   1666    C ALA A 222      11.453 -14.234 -19.781  0.00  0.00           C 0
+ATOM   1642    O ASP A 219       8.281 -14.680 -23.047  0.00  0.00           O 0
+ATOM   1650    O PRO A 220      11.680 -14.906 -24.562  0.22  3.21           O 0
+ATOM   1647   CA PRO A 220       9.484 -15.000 -25.500  0.00  0.00           C 0
+ATOM   1692   CB ALA A 226      13.281 -15.195 -15.891  0.00  0.00           C 0
+ATOM   1669    N HIS A 223      11.820 -15.219 -20.594  0.00  0.00           N 0
+ATOM   1667   CB ALA A 222       8.984 -13.891 -20.000  0.00  0.00           C 0
+TER
+END

@@ -1,0 +1,38 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    46:
+HEADER 0  - Pocket Score                      : -0.0677
+HEADER 1  - Drug Score                        : 0.0091
+HEADER 2  - Number of alpha spheres           :    19
+HEADER 3  - Mean alpha-sphere radius          : 3.5034
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.4804
+HEADER 5  - Mean B-factor of pocket residues  : 0.8873
+HEADER 6  - Hydrophobicity Score              : 44.6667
+HEADER 7  - Polarity Score                    :     2
+HEADER 8  - Amino Acid based volume Score     : 4.6667
+HEADER 9  - Pocket volume (Monte Carlo)       : 153.2356
+HEADER 10 - Pocket volume (convex hull)       : 5.5991
+HEADER 11 - Charge Score                      :    -1
+HEADER 12 - Local hydrophobic density Score   : 13.8667
+HEADER 13 - Number of apolar alpha sphere     :    15
+HEADER 14 - Proportion of apolar alpha sphere : 0.7895
+ATOM   1744   CG LEU A 227       2.916 -12.031   7.781  0.00  0.00           C 0
+ATOM   1724   CA ASP A 225       7.277 -14.555   6.922  0.00  0.00           C 0
+ATOM   1727    O ASP A 225       5.488 -15.031   8.453  0.59  2.14           O 0
+ATOM   1745  CD1 LEU A 227       1.882 -12.461   6.742  0.00  0.00           C 0
+ATOM   1746  CD2 LEU A 227       3.516 -10.680   7.418  0.00  0.00           C 0
+ATOM   1255  CH2 TRP A 160       6.312 -11.508   1.515  0.00  0.00           C 0
+ATOM   1256  CZ2 TRP A 160       6.867 -12.531   2.242  0.00  0.00           C 0
+ATOM   2006  CG1 ILE A 260       6.840  -8.234   7.348  0.00  0.00           C 0
+ATOM   2008  CD1 ILE A 260       7.254  -9.695   7.285  0.00  0.00           C 0
+ATOM   2001    N ILE A 260       5.652  -5.805   6.285  0.68  2.19           N 0
+ATOM   1243  CG2 VAL A 159       9.383  -9.312   2.639  0.00  0.00           C 0
+ATOM   2005    O ILE A 260       7.590  -5.141   4.250  0.00  0.00           O 0
+ATOM   1257  CZ3 TRP A 160       6.988 -10.922   0.431  0.00  0.00           C 0
+ATOM   1720    O PRO A 224       7.586 -11.969   6.090  0.00  0.00           O 0
+ATOM   1729  OD1 ASP A 225       7.383 -15.625   4.230  0.00  0.00           O 0
+ATOM   2004   CB ILE A 260       7.609  -7.328   6.383  0.00  0.00           C 0
+TER
+END

@@ -1,0 +1,35 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    24:
+HEADER 0  - Pocket Score                      : 0.0626
+HEADER 1  - Drug Score                        : 0.0002
+HEADER 2  - Number of alpha spheres           :    18
+HEADER 3  - Mean alpha-sphere radius          : 3.1617
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.4172
+HEADER 5  - Mean B-factor of pocket residues  : 0.9864
+HEADER 6  - Hydrophobicity Score              : 9.8571
+HEADER 7  - Polarity Score                    :     5
+HEADER 8  - Amino Acid based volume Score     : 4.2857
+HEADER 9  - Pocket volume (Monte Carlo)       : 37.6437
+HEADER 10 - Pocket volume (convex hull)       : 0.2741
+HEADER 11 - Charge Score                      :     0
+HEADER 12 - Local hydrophobic density Score   : 2.0000
+HEADER 13 - Number of apolar alpha sphere     :     3
+HEADER 14 - Proportion of apolar alpha sphere : 0.1667
+ATOM    965    C LEU A 123     -16.203  -0.148   3.760  0.00  0.00           C 0
+ATOM   1795   CG PRO A 226     -11.992   0.232   6.629  0.00  0.00           C 0
+ATOM    966   CB LEU A 123     -14.516   1.662   3.375  0.00  0.00           C 0
+ATOM    971    N SER A 124     -17.266   0.365   4.422  0.00  0.00           N 0
+ATOM   1796   CD PRO A 226     -12.266   0.972   7.906  0.00  0.00           C 0
+ATOM    967    O LEU A 123     -15.781  -1.280   4.012  0.68  1.07           O 0
+ATOM    972   CA SER A 124     -18.000  -0.455   5.375  0.00  0.00           C 0
+ATOM   1776    O ARG A 224     -15.227   0.864  10.023  0.57  1.07           O 0
+ATOM    976   OG SER A 124     -18.547   1.354   6.898  0.32  1.07           O 0
+ATOM   1755   OG SER A 221     -16.531  -2.369   9.359  0.00  0.00           O 0
+ATOM   1389  NE1 TRP A 176     -16.578   3.922   7.031  0.00  0.00           N 0
+ATOM    995   CB ASP A 127     -15.227  -3.678   6.258  0.00  0.00           C 0
+ATOM   1387  CE2 TRP A 176     -15.242   4.199   7.102  0.00  0.00           C 0
+TER
+END

@@ -1,0 +1,36 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    25:
+HEADER 0  - Pocket Score                      : -0.0414
+HEADER 1  - Drug Score                        : 0.0021
+HEADER 2  - Number of alpha spheres           :    18
+HEADER 3  - Mean alpha-sphere radius          : 3.4629
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.4504
+HEADER 5  - Mean B-factor of pocket residues  : 0.6633
+HEADER 6  - Hydrophobicity Score              : 18.6000
+HEADER 7  - Polarity Score                    :     3
+HEADER 8  - Amino Acid based volume Score     : 5.4000
+HEADER 9  - Pocket volume (Monte Carlo)       : 159.2889
+HEADER 10 - Pocket volume (convex hull)       : 2.6821
+HEADER 11 - Charge Score                      :     1
+HEADER 12 - Local hydrophobic density Score   : 9.0000
+HEADER 13 - Number of apolar alpha sphere     :    10
+HEADER 14 - Proportion of apolar alpha sphere : 0.5556
+ATOM    104   NE ARG A  13      26.047  -6.754 -16.875  0.47  1.09           N 0
+ATOM    227   CA VAL A  29      29.688  -1.994 -17.484  0.00  0.00           C 0
+ATOM    231  CG1 VAL A  29      30.766  -1.988 -15.203  0.00  0.00           C 0
+ATOM    232  CG2 VAL A  29      31.359  -3.781 -16.859  0.00  0.00           C 0
+ATOM    107   CZ ARG A  13      26.656  -7.914 -16.641  0.00  0.00           C 0
+ATOM    106  NH2 ARG A  13      27.438  -8.445 -17.562  0.35  5.47           N 0
+ATOM    105  NH1 ARG A  13      26.484  -8.547 -15.484  0.00  0.00           N 0
+ATOM    103   CD ARG A  13      25.156  -6.074 -15.930  0.00  0.00           C 0
+ATOM    102   CG ARG A  13      24.281  -5.043 -16.625  0.00  0.00           C 0
+ATOM    219    O ARG A  28      27.688  -2.029 -19.562  0.00  0.00           O 0
+ATOM    211    O ASP A  27      28.344  -5.062 -20.156  0.55  2.14           O 0
+ATOM    250  CE1 PHE A  31      25.547  -0.839 -14.844  0.00  0.00           C 0
+ATOM    230    O VAL A  29      28.531  -0.279 -16.266  0.00  0.00           O 0
+ATOM    248  CD1 PHE A  31      25.516  -0.480 -16.188  0.00  0.00           C 0
+TER
+END

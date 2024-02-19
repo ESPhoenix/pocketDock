@@ -1,0 +1,13 @@
+pathInfo:
+  protDir: "/home/esp/dataset_generation/flavin_dataset/04_3d_structure_generation/Alphafold/01_50_percent_similarity/fixed_folds/All_folds"
+  ligandDir: "/home/esp/scriptDevelopment/pocketDock/ligands"
+  outDir: "/home/esp/scriptDevelopment/pocketDock/outputs"
+  mglToolsDir: "/home/esp/bin/mgltools_x86_64Linux2_1.5.7/MGLToolsPckgs"
+  util24Dir: "/home/esp/bin/mgltools_x86_64Linux2_1.5.7/MGLToolsPckgs/AutoDockTools/Utilities24"
+  ligandOrdersCsv: "/home/esp/scriptDevelopment/pocketDock/cofactor_predictions.csv"
+dockingInfo:
+  maxFlexRes: 5
+  nCoresPerRun: 1
+  totalCpus: 24
+  exhaustiveness: 16
+  numModes: 1

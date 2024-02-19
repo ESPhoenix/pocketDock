@@ -1,0 +1,37 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    48:
+HEADER 0  - Pocket Score                      : -0.0231
+HEADER 1  - Drug Score                        : 0.0002
+HEADER 2  - Number of alpha spheres           :    20
+HEADER 3  - Mean alpha-sphere radius          : 3.7448
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.5590
+HEADER 5  - Mean B-factor of pocket residues  : 0.9719
+HEADER 6  - Hydrophobicity Score              : -20.5000
+HEADER 7  - Polarity Score                    :     4
+HEADER 8  - Amino Acid based volume Score     : 4.5000
+HEADER 9  - Pocket volume (Monte Carlo)       : 186.5824
+HEADER 10 - Pocket volume (convex hull)       : 4.6795
+HEADER 11 - Charge Score                      :     1
+HEADER 12 - Local hydrophobic density Score   : 5.0000
+HEADER 13 - Number of apolar alpha sphere     :     6
+HEADER 14 - Proportion of apolar alpha sphere : 0.3000
+ATOM   1191   CE LYS A 151     -12.602  18.172  25.875  0.00  0.00           C 0
+ATOM   1245  OE1 GLU A 158     -16.609  10.977  25.531  0.82  1.07           O 0
+ATOM   1213   CD LYS A 154     -13.117  10.594  26.812  0.00  0.00           C 0
+ATOM   1215   NZ LYS A 154     -14.297  10.578  29.016  0.00  0.00           N 0
+ATOM   1214   CE LYS A 154     -14.328  10.109  27.594  0.00  0.00           C 0
+ATOM   1185   CA LYS A 151      -9.562  14.227  24.906  0.00  0.00           C 0
+ATOM   1210   CB LYS A 154     -11.977  10.664  24.578  0.00  0.00           C 0
+ATOM   1188    O LYS A 151     -11.102  13.805  23.109  0.62  1.07           O 0
+ATOM   1189   CG LYS A 151     -11.117  16.203  25.375  0.00  0.00           C 0
+ATOM   1246  OE2 GLU A 158     -17.375  12.164  23.844  0.00  0.00           O 0
+ATOM   1212   CG LYS A 154     -13.156  10.125  25.375  0.00  0.00           C 0
+ATOM   1216    N SER A 155     -12.961  11.984  21.953  0.00  0.00           N 0
+ATOM   1217   CA SER A 155     -14.023  12.633  21.172  0.00  0.00           C 0
+ATOM   1219   CB SER A 155     -13.641  14.078  20.859  0.00  0.00           C 0
+ATOM   1221   OG SER A 155     -14.695  14.734  20.188  0.00  0.00           O 0
+TER
+END

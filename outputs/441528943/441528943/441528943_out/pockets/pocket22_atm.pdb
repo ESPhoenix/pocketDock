@@ -1,0 +1,36 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    22:
+HEADER 0  - Pocket Score                      : 0.0073
+HEADER 1  - Drug Score                        : 0.0004
+HEADER 2  - Number of alpha spheres           :    17
+HEADER 3  - Mean alpha-sphere radius          : 3.4966
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.5108
+HEADER 5  - Mean B-factor of pocket residues  : 0.9367
+HEADER 6  - Hydrophobicity Score              : 66.1250
+HEADER 7  - Polarity Score                    :     3
+HEADER 8  - Amino Acid based volume Score     : 5.7500
+HEADER 9  - Pocket volume (Monte Carlo)       : 167.6765
+HEADER 10 - Pocket volume (convex hull)       : 5.4211
+HEADER 11 - Charge Score                      :     2
+HEADER 12 - Local hydrophobic density Score   : 8.0000
+HEADER 13 - Number of apolar alpha sphere     :     9
+HEADER 14 - Proportion of apolar alpha sphere : 0.5294
+ATOM   2065  CD1 LEU A 269      16.719 -13.516  -4.238  0.00  0.00           C 0
+ATOM    586  CZ2 TRP A  77      17.062  -9.945  -6.660  0.00  0.00           C 0
+ATOM   1623  CD1 ILE A 212      15.305  -9.023  -3.959  0.00  0.00           C 0
+ATOM    563  NH1 ARG A  75      19.516  -7.973  -3.484  0.00  0.00           N 0
+ATOM   1549  CD1 PHE A 202      17.250 -10.438  -0.470  0.00  0.00           C 0
+ATOM   1551  CE1 PHE A 202      16.250 -11.289  -0.927  0.00  0.00           C 0
+ATOM    585  CH2 TRP A  77      16.547 -11.219  -6.660  0.00  0.00           C 0
+ATOM   2033    O VAL A 265      17.688 -15.898  -7.324  0.30  4.29           O 0
+ATOM    645   NZ LYS A  84      19.406 -10.188  -8.516  0.41  5.47           N 0
+ATOM   2066  CD2 LEU A 269      18.719 -14.242  -2.900  0.00  0.00           C 0
+ATOM    644   CE LYS A  84      19.625 -11.172  -9.617  0.00  0.00           C 0
+ATOM   2064   CG LEU A 269      17.484 -14.711  -3.650  0.00  0.00           C 0
+ATOM   1539    O LEU A 201      21.234 -12.234  -0.643  0.00  0.00           O 0
+ATOM   2034  CG1 VAL A 265      17.969 -13.992  -9.641  0.00  0.00           C 0
+TER
+END

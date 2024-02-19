@@ -1,0 +1,38 @@
+HEADER
+HEADER This is a pdb format file writen by the programm fpocket.                 
+HEADER It represents the atoms contacted by the voronoi vertices of the pocket.  
+HEADER                                                                           
+HEADER Information about the pocket    33:
+HEADER 0  - Pocket Score                      : -0.0643
+HEADER 1  - Drug Score                        : 0.0003
+HEADER 2  - Number of alpha spheres           :    16
+HEADER 3  - Mean alpha-sphere radius          : 3.4657
+HEADER 4  - Mean alpha-sphere Solvent Acc.    : 0.6483
+HEADER 5  - Mean B-factor of pocket residues  : 0.8109
+HEADER 6  - Hydrophobicity Score              : -30.4000
+HEADER 7  - Polarity Score                    :     4
+HEADER 8  - Amino Acid based volume Score     : 3.4000
+HEADER 9  - Pocket volume (Monte Carlo)       : 132.6253
+HEADER 10 - Pocket volume (convex hull)       : 5.1076
+HEADER 11 - Charge Score                      :    -1
+HEADER 12 - Local hydrophobic density Score   : 3.0000
+HEADER 13 - Number of apolar alpha sphere     :     4
+HEADER 14 - Proportion of apolar alpha sphere : 0.2500
+ATOM   2620   CA ASP A 355     -20.672   2.344  24.219  0.00  0.00           C 0
+ATOM   2621    C ASP A 355     -20.016   3.717  24.109  0.00  0.00           C 0
+ATOM   2616    O PRO A 354     -20.781   0.840  21.875  0.00  0.00           O 0
+ATOM   2623    O ASP A 355     -20.625   4.734  24.438  0.00  0.00           O 0
+ATOM   2641  CD2 HIS A 357     -18.531   3.018  18.859  0.00  0.00           C 0
+ATOM   2635    N HIS A 357     -17.578   5.305  21.188  0.51  2.19           N 0
+ATOM   2627    N ASN A 356     -18.703   3.676  23.641  0.74  1.09           N 0
+ATOM   2643  CE1 HIS A 357     -20.328   3.193  17.641  0.00  0.00           C 0
+ATOM   2642  ND1 HIS A 357     -19.766   4.391  17.703  0.74  8.75           N 0
+ATOM   2644  NE2 HIS A 357     -19.594   2.344  18.328  0.70  7.66           N 0
+ATOM   2628   CA ASN A 356     -17.984   4.941  23.562  0.00  0.00           C 0
+ATOM   2634  OD1 ASN A 356     -16.656   7.355  23.984  0.66  4.29           O 0
+ATOM   2640   CG HIS A 357     -18.625   4.312  18.469  0.00  0.00           C 0
+ATOM   2645    N GLU A 358     -16.016   7.410  20.625  0.00  0.00           N 0
+ATOM   2650   CG GLU A 358     -16.781  10.383  20.359  0.00  0.00           C 0
+ATOM   2638   CB HIS A 357     -17.766   5.496  18.750  0.00  0.00           C 0
+TER
+END
