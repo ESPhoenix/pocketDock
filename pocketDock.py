@@ -39,11 +39,15 @@ def main():
     # make outDir
     os.makedirs(outDir,exist_ok=True)    
 
+
+    # pre-prepare ligand pdbqt files
+    gen_ligand_pdbqts(ligandOrdersCsv, ligandDir)
+
     # gererate a seqence of docking runs 
     dockingSequence = gen_docking_sequence(ligandOrdersCsv, protDir, ligandDir)
     run_paralell(pathInfo, dockingInfo, dockingSequence)
 
-    #run_serial(pathInfo, dockingInfo, dockingSequence)
+    # run_serial(pathInfo, dockingInfo, dockingSequence)
 #########################################################################################################################
 #########################################################################################################################
 def run_serial(pathInfo, dockingInfo, dockingSequence):
@@ -69,17 +73,13 @@ def run_paralell(pathInfo, dockingInfo, dockingSequence):
 def docking_protocol(pathInfo, dockingInfo, dockDetails):
     ## unpack path Info
     outDir      = pathInfo["outDir"]
-    mglToolsDir = pathInfo["mglToolsDir"]
-    util24Dir   = pathInfo["util24Dir"]
 
     ## unpack general docking parameters
     maxFlexRes      = dockingInfo["maxFlexRes"]
-    exhaustiveness  = dockingInfo["exhaustiveness"]
-    numModes        = dockingInfo["numModes"]
-    nCoresPerRun    = dockingInfo["nCoresPerRun"]
-    
+
     # set up run directory and output key variables
-    protName, protPdb, ligPdb, ligandName, runDir = set_up_directory(outDir=outDir,
+    protName, protPdb, ligPdbqt, ligandName, runDir = set_up_directory(outDir=outDir,
+                                                                       pathInfo=pathInfo,
                                                                             dockDetails=dockDetails)  
     # Use fpocket to identify largest pocket, return center of pocket as [X,Y,Z] coords and Fpocket residues
     boxCenter, pocketResidues       =   run_fpocket(runDir=runDir,
@@ -89,30 +89,10 @@ def docking_protocol(pathInfo, dockingInfo, dockDetails):
                                                                     protPdb=protPdb,
                                                                     flexResList=pocketResidues,
                                                                     maxFlexRes=maxFlexRes)
-
-    protPdbqt                      =   pdb_to_pdbqt(name = protName,
-                                                        pdbFile=protPdb,
-                                                        outDir = runDir,
-                                                        util24Dir = util24Dir,
-                                                        mglToolsDir  = mglToolsDir,
-                                                        jobType = "rigid")
-
-    # Convert protein PDB to rigid and flexible PDBQT files
-    rigidPdbqt, flexPdbqt                        =   pdb_to_pdbqt(name = protName,
-                                                        pdbFile=protPdbqt,
-                                                        outDir = runDir,
-                                                        util24Dir = util24Dir,
-                                                        mglToolsDir  = mglToolsDir,
-                                                        jobType = "flex",
-                                                        flexRes=flexibeResidues)
-
-    # Convert ligand PDB to PDBQT files
-    ligPdbqt                     =   pdb_to_pdbqt(name = ligandName,
-                                                        pdbFile=ligPdb,
-                                                        outDir = runDir,
-                                                        util24Dir = util24Dir,
-                                                        mglToolsDir  = mglToolsDir,
-                                                        jobType = "ligand")
+    
+    rigidPdbqt, flexPdbqt           = gen_flex_pdbqts(protPdb = protPdb,
+                                            flexibeResidues = flexibeResidues,
+                                            outDir = runDir)
 
     # Write a config file for vina
     vinaConfig, dockedPdbqt         =   write_vina_config(outDir = runDir,
@@ -122,9 +102,8 @@ def docking_protocol(pathInfo, dockingInfo, dockDetails):
                                                             ligPdbqt = ligPdbqt,
                                                             boxCenter = boxCenter,
                                                             boxSize = 30,
-                                                            exhaustiveness=exhaustiveness,
-                                                            numModes=numModes,
-                                                            cpus=str(nCoresPerRun))
+                                                            dockingInfo=dockingInfo)
+                                                            
 
     # Run vina docking
     run_vina(outDir = runDir,
@@ -132,7 +111,8 @@ def docking_protocol(pathInfo, dockingInfo, dockDetails):
     # split docking results PDBQT file into separate PDB files
     process_vina_results(outDir = runDir,
                             receptorPdbqt = protPdb,
-                            dockedPdbqt = dockedPdbqt)
+                            dockedPdbqt = dockedPdbqt,
+                            dockDetails = dockDetails)
 
 
 #########################################################################################################################
