@@ -134,33 +134,3 @@ def pdbqt2df(pdbqtFile):
     return df
 
 #########################################################################################################################
-
-def pdb_to_pdbqt(name, pdbFile, outDir, util24Dir, mglToolsDir,jobType,flexRes=None):
-    env = os.environ.copy()
-    env["PYTHONPATH"] = mglToolsDir
-    os.chdir(outDir)
-    prepReceptorPy = p.join(util24Dir, "prepare_receptor4.py")
-    prepligandPy = p.join(util24Dir,"prepare_ligand4.py")
-    prepFlexReceptorPy = p.join(util24Dir,"prepare_flexreceptor4.py")
-
-    if jobType == "rigid":
-        protPdbqt = p.join(outDir,"{}.pdbqt".format(name))
-        call(["python2.7",prepReceptorPy,"-r",pdbFile,"-o",protPdbqt],
-             env=env,stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        return protPdbqt
-
-    elif jobType == "flex":
-        if flexRes == None:
-            #print(f"--X-->\tNo Flexible residues supplied for {name}")
-            return
-        rigidPdbqt = p.join(outDir,f"{name}_rigid.pdbqt")
-        flexPdbqt = p.join(outDir,f"{name}_flex.pdbqt")
-        call(["python2.7",prepFlexReceptorPy,"-r",pdbFile,"-s",flexRes,"-g",rigidPdbqt,"-x",flexPdbqt],
-             env=env,stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        return rigidPdbqt, flexPdbqt
-    
-    elif jobType == "ligand":
-        ligandPdbqt = p.join(outDir,f"{name}.pdbqt")
-        call(["python2.7",prepligandPy,"-l",pdbFile,"-o",ligandPdbqt],
-             env=env,stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        return ligandPdbqt

@@ -1,41 +1,99 @@
 ## import basic libraries
 import os
-import sys
 from subprocess import call
 import os.path as p
-from shutil import copy, move
+from shutil import copy
 import pandas as pd
-import multiprocessing as mp
-import argpass
-from tqdm import tqdm
 import subprocess
+import yaml
+
 ## pocketDock modules
 from pdbUtils import *
+#########################################################################################################################
+def gen_flex_pdbqts(protPdb,flexibeResidues, outDir):
+    name = p.splitext(p.basename(protPdb))[0]
+    # load pdbfile into df
+    protDf = pdb2df(protPdb)
+    flexIndexes = []
+    dfsToConcat = []
+    for chainId in flexibeResidues:
+        chainDf = protDf[(protDf["CHAIN_ID"] == chainId) & 
+                         (protDf["RES_ID"].isin(flexibeResidues[chainId])) &
+                         (~protDf["ATOM_NAME"].isin(["CA","C","O","N"]))]
+        chainIndexes = chainDf.index.to_list()
+        flexIndexes += chainIndexes
+        dfsToConcat.append(chainDf)
+    
+    flexDf = pd.concat(dfsToConcat, axis = 0)
+    rigidDf = protDf.drop(index=flexIndexes)
 
+    flexPdb = p.join(outDir,f"{name}_flex.pdb")
+    rigidPdb = p.join(outDir,f"{name}_rigid.pdb")
+    df2Pdb(flexDf,flexPdb)
+    df2Pdb(rigidDf,rigidPdb)
+    pdb_to_pdbqt(flexPdb, outDir, jobType="flex")
+    pdb_to_pdbqt(rigidPdb, outDir, jobType="rigid")
+    flexPdbqt = p.join(outDir,f"{name}_flex.pdbqt")
+    rigidPdbqt = p.join(outDir,f"{name}_rigid.pdbqt")
+
+    return rigidPdbqt, flexPdbqt
 
 #########################################################################################################################
-def choose_model_selection_mode(modelSelectionMode):
-    if modelSelectionMode == "best":
-        exhaustiveness = 16
-        numModes = 1
-    elif modelSelectionMode == "broad":
-        exhaustiveness = 16
-        numModes = 10
-    elif modelSelectionMode == "balenced":
-        exhaustiveness = 8
-        numModes = 8
-    else:
-        return None, None
-    return exhaustiveness, numModes
+def gen_ligand_pdbqts(ligandOrdersCsv, ligandDir):
+    ligandOrdersDf = pd.read_csv(ligandOrdersCsv)
+    ligands = ligandOrdersDf["Ligand"].unique()
+    for ligand in ligands:
+        ligPdb = p.join(ligandDir, f"{ligand}.pdb")
+        if not p.isfile(ligPdb):
+            print(f"{ligPdb} not found, skipping...")
+            continue
+        pdb_to_pdbqt(ligPdb, ligandDir, jobType="ligand")
 #########################################################################################################################
-def process_vina_results(outDir,dockedPdbqt,receptorPdbqt,flex=False):
+def pdb_to_pdbqt(inPdb, outDir, jobType):
+    name = p.splitext(p.basename(inPdb))[0]
+    outPdbqt = p.join(outDir, f"{name}.pdbqt")
+    if jobType == "flex":
+        obabelCommand = ["obabel", "-i","pdb", inPdb, "-o", "pdbqt", "-O", outPdbqt, "-xs"]
+    elif jobType == "rigid":
+        obabelCommand = ["obabel", "-i","pdb", inPdb, "-o", "pdbqt", "-O", outPdbqt, "-xr"]
+    elif jobType == "ligand":
+        obabelCommand = ["obabel", "-i","pdb", inPdb, "-o", "pdbqt", "-O", outPdbqt]
+    call(obabelCommand, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    return outPdbqt
+#########################################################################################################################
+def gen_docking_sequence(ligandOrdersCsv, protDir, ligandDir):
+    # load ligandOrdersCsv into df
+    ligandOrdersDf = pd.read_csv(ligandOrdersCsv)
+    dockingSequence = {}
+    for index, row in ligandOrdersDf.iterrows():
+        protId = row["ID"]
+        protPdb = p.join(protDir, f"{protId}.pdb")
+        if not p.isfile(protPdb):
+            #print(f"No prot pdb for {protId}")
+            continue
+        ligId = row["Ligand"]
+        ligPdb = p.join(ligandDir, f"{ligId}.pdb")
+        if not p.isfile(ligPdb):
+            #print(f"No lig pdb for {ligId}")
+            continue
+        pocketTag = row["Pocket_Tag"]
+        tmpDict = {"protPdb":protPdb,
+                   "ligPdb": ligPdb,
+                   "pocketTag": pocketTag}
+        dockingSequence.update({index:tmpDict})
+    return dockingSequence
+
+#########################################################################################################################
+def process_vina_results(outDir,dockedPdbqt,receptorPdbqt,dockDetails):
     # read output pdbqt file into a list of dataframes
     dockingDfList = read_docking_results(dockedPdbqt)
     receptorDf = pdbqt2df(receptorPdbqt)
-    
-    splice_docking_results(dockingDfList, receptorDf,outDir)
+    protName = p.splitext(p.basename(dockDetails["protPdb"]))[0]
+    ligName = p.splitext(p.basename(dockDetails["ligPdb"]))[0]
+    nameTag = f"{protName}_{ligName}"
+    splice_docking_results(dockingDfList, receptorDf, outDir, nameTag)
 #########################################################################################################################
-def splice_docking_results(dockingDfList, receptorDf, outDir):
+def splice_docking_results(dockingDfList, receptorDf, outDir, nameTag):
     finalPdbDir = p.join(outDir,"final_docked_pdbs")
     os.makedirs(finalPdbDir,exist_ok=True)
     ## loop over each pose in dockingDfList
@@ -65,7 +123,7 @@ def splice_docking_results(dockingDfList, receptorDf, outDir):
         # re-do atom numbers
         wholeDf.loc[:,"ATOM_ID"] = range(1,len(wholeDf)+1)
         # save as pdb file
-        saveFile = p.join(finalPdbDir, f"docked_pose_{str(poseNumber)}.pdb")
+        saveFile = p.join(finalPdbDir, f"{nameTag}_{str(poseNumber)}.pdb")
         df2Pdb(df=wholeDf,outFile=saveFile)
 #########################################################################################################################
 def read_docking_results(dockedPdbqt):
@@ -106,17 +164,22 @@ def run_vina(outDir,configFile):
         call(["vina","--config",configFile],stdout=logFile)
 #########################################################################################################################
 ## writes a config file for a Vina docking simulation
-def write_vina_config(outDir,receptorPdbqt,ligandPdbqt,boxCenter,boxSize,flexPdbqt=None,
-                        exhaustiveness = 16, numModes = 10, cpus=2, energyRange = 5, seed = 42, flex=False):
+def write_vina_config(outDir,receptorPdbqt,ligPdbqt,boxCenter,boxSize, dockingInfo, flexPdbqt=None,
+                        seed = 42, flex=False):
+    # unpack dockingInfo
+    exhaustiveness  = dockingInfo["exhaustiveness"]
+    numModes        = dockingInfo["numModes"]
+    cpus            = str(dockingInfo["nCoresPerRun"])
+
     vinaConfigFile=p.join(outDir,f"vina_conf.txt")
     with open(vinaConfigFile,"w") as outFile:
         if flex:
             outFile.write(f"receptor = {receptorPdbqt}\n")
             outFile.write(f"flex = {flexPdbqt}\n\n")
-            outFile.write(f"ligand = {ligandPdbqt}\n\n")
+            outFile.write(f"ligand = {ligPdbqt}\n\n")
         else:
             outFile.write(f"receptor = {receptorPdbqt}\n")
-            outFile.write(f"ligand = {ligandPdbqt}\n\n")
+            outFile.write(f"ligand = {ligPdbqt}\n\n")
 
         outFile.write(f"center_x = {str(boxCenter[0])}\n")
         outFile.write(f"center_y = {str(boxCenter[1])}\n")
@@ -128,7 +191,6 @@ def write_vina_config(outDir,receptorPdbqt,ligandPdbqt,boxCenter,boxSize,flexPdb
 
         outFile.write(f"exhaustiveness = {str(exhaustiveness)}\n")
         outFile.write(f"num_modes = {str(numModes)}\n")
-        outFile.write(f"energy_range = {str(energyRange)}\n\n")
         outFile.write(f"seed = {str(seed)}\n\n")
 
         if not flex:
@@ -162,92 +224,104 @@ def select_flexible_residues(protName,protPdb,flexResList,maxFlexRes):
     # get a list of unique CHAIN IDs
     uniqueChains = flexDf.drop_duplicates(subset=["CHAIN_ID"])["CHAIN_ID"].tolist()
     # generate MGLTools compatable flexible residues
-    flexResidues=[]
+    flexResidues={}
     for chain in uniqueChains:
-        chainBlock=[]
+        chainResidues=[]
         for _, row in flexDf.iterrows():
             if row["CHAIN_ID"]==chain:
-                resName = row["RES_NAME"]
-                resSeq = row["RES_ID"]
-                selection=f"{resName}{resSeq}"
-                chainBlock.append(selection)
-        chainBlock="_".join(chainBlock)
-        chainBlock=f"{protName}:{chain}:{chainBlock}"
-        flexResidues.append(chainBlock)
+                resId = row["RES_ID"]
+                chainResidues.append(resId)
+        flexResidues.update({chain:chainResidues})
     
-    flexResidues=",".join(flexResidues)
     return flexResidues    
-#########################################################################################################################
 
-def pdb_to_pdbqt(name, pdbFile, outDir, util24Dir, mglToolsDir,jobType,flexRes=None):
-    env = os.environ.copy()
-    env["PYTHONPATH"] = mglToolsDir
-    os.chdir(outDir)
-    prepReceptorPy = p.join(util24Dir, "prepare_receptor4.py")
-    prepligandPy = p.join(util24Dir,"prepare_ligand4.py")
-    prepFlexReceptorPy = p.join(util24Dir,"prepare_flexreceptor4.py")
-
-    if jobType == "rigid":
-        protPdbqt = p.join(outDir,"{}.pdbqt".format(name))
-        call(["python2.7",prepReceptorPy,"-r",pdbFile,"-o",protPdbqt],
-             env=env,stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        return protPdbqt
-
-    elif jobType == "flex":
-        if flexRes == None:
-            #print(f"--X-->\tNo Flexible residues supplied for {name}")
-            return
-        rigidPdbqt = p.join(outDir,f"{name}_rigid.pdbqt")
-        flexPdbqt = p.join(outDir,f"{name}_flex.pdbqt")
-        call(["python2.7",prepFlexReceptorPy,"-r",pdbFile,"-s",flexRes,"-g",rigidPdbqt,"-x",flexPdbqt],
-             env=env,stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        return rigidPdbqt, flexPdbqt
-    
-    elif jobType == "ligand":
-        ligandPdbqt = p.join(outDir,f"{name}.pdbqt")
-        call(["python2.7",prepligandPy,"-l",pdbFile,"-o",ligandPdbqt],
-             env=env,stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        return ligandPdbqt
-    
     #########################################################################################################################
-def set_up_directory(fileName,protDir,ligandDir,outDir,ordersDict):
-    fileData = p.splitext(fileName)
-    protPdb = p.join(protDir,fileName)
-    protName = fileData[0]
+def set_up_directory(outDir, pathInfo, dockDetails):
+    # read protein pdb file, get name and make new dir for docking, copy over protein pdb
+    protPdb = dockDetails["protPdb"]
+    ligPdb = dockDetails["ligPdb"]
+    ligandDir = pathInfo["ligandDir"]
+
+    protName = p.splitext(p.basename(protPdb))[0]
+    ligandName = p.splitext(p.basename(ligPdb))[0]
+
+
     runDir = p.join(outDir,protName)
     os.makedirs(runDir,exist_ok=True)
     copy(protPdb,runDir)
+    # read ligand pdb and copy to new run directory
+    ligPdbqt = p.join(ligandDir, f"{ligandName}.pdbqt")
+    copy(ligPdbqt,runDir)
+
+    # change location of protPdb to one in runDir (just in case!)
     protPdb = p.join(runDir,f"{protName}.pdb")
+    # change location of ligPdb to one in runDir (just in case!)
+    ligPdb = p.join(runDir,f"{ligandName}.pdb")
 
-    # identify ligand 
-    ligandName = ordersDict[protName]
-    ligandPdb = p.join(ligandDir,f"{ligandName}.pdb")
-    copy(ligandPdb,runDir)
-    ligandPdb = p.join(runDir,f"{ligandName}.pdb")
-
-    return protName, protPdb, ligandPdb, ligandName, runDir
+    return protName, protPdb, ligPdbqt, ligandName, runDir
 
 
 #########################################################################################################################
 
-def run_fpocket(name,runDir,pdbFile):
-   # print("----->\tRunning Fpocket!")
-    os.chdir(runDir)
+def run_fpocket(runDir,pdbFile, pocketTag = False):
+    proteinName = p.splitext(p.basename(pdbFile))[0]
+
+    pocketDir = p.join(runDir,proteinName)
+    os.makedirs(pocketDir,exist_ok=True)
+    pocketPdb = p.join(pocketDir,f"{proteinName}.pdb")
+    copy(pdbFile,pocketPdb)
+
+    os.chdir(pocketDir)
+    ## Run FPocket
     minSphereSize = "3.0"
     maxSphereSize = "6.0"
-    call(["fpocket","-f",pdbFile,"-m",minSphereSize,"-M",maxSphereSize],
-         stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    fpocketOutDir = p.join(runDir,f"{name}_out","pockets")
-    ## ASSUMPTION == LARGEST POCKET IS OUR BINDING POCKET ## Not really true!
-    largestPocketPdb = p.join(fpocketOutDir,"pocket1_atm.pdb")
-    ## ERROR Handling
-    if not p.isfile(largestPocketPdb):
-        #print("--X-->\tFpocket Failed!")
-        return
-    largestPocketDf = pdb2df(largestPocketPdb)
-
-    boxCenter = [largestPocketDf["X"].mean(), largestPocketDf["Y"].mean(),largestPocketDf["Z"].mean()]
-    pocketResidues = largestPocketDf["RES_ID"].unique().tolist()
-
-    #print("----->\tFpocket Success!")
+    subprocess.call(["fpocket","-f",pocketPdb,"-m",minSphereSize,"-M",maxSphereSize],
+                    stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    # Read FPocket results into a dictionary, via  yaml file
+    fpocketOutDir = p.join(pocketDir,f"{proteinName}_out")
+    fpocketPdbDir = p.join(fpocketOutDir, "pockets")
+    fpocketInfo = p.join(fpocketOutDir,f"{proteinName}_info.txt")
+    if not p.isfile(fpocketInfo):
+        return None, None
+    info = fpocket_info_to_dict(fpocketInfo,fpocketOutDir)
+    # find correct pocket to dock into
+    targetDf = False
+    ## if pocket specified, find that pocket
+    if pocketTag:   
+        tag = pocketTag.split(":")
+        for pocketId in info:
+            if info[pocketId]["Score"] < 0.15:
+                break
+            pocketNumber = pocketId.split()[1]
+            pocketPdb = p.join(fpocketPdbDir, f"pocket{pocketNumber}_atm.pdb")
+            pocketDf = pdb2df(pocketPdb)
+            if any((pocketDf["CHAIN_ID"]    == tag[0]) & 
+                (pocketDf["RES_NAME"]    == tag[1]) & 
+                (pocketDf["RES_ID"]      == tag[2])):
+                targetDf = pocketDf
+                break
+    ## if pocket not specified, or specified pocket can't be found, use the largest pocket
+    if not pocketTag or not targetDf:
+        largestPocketPdb = p.join(fpocketPdbDir, f"pocket1_atm.pdb")
+        targetDf = pdb2df(largestPocketPdb)
+    # set boxCenter to center of taget pocket
+    boxCenter = [targetDf["X"].mean(), targetDf["Y"].mean(),targetDf["Z"].mean()]
+    # get residues in target pocket
+    pocketResidues = targetDf["RES_ID"].unique().tolist()
     return boxCenter, pocketResidues
+
+
+
+########################################################################################
+def fpocket_info_to_dict(infoFile, fpocketOutDir):
+    with open(infoFile,"r") as  txtFile:
+        txt = txtFile.read()
+    yamlData = txt.replace("\t", " "*2)
+    with open(p.join(fpocketOutDir,"info.yaml"),"w") as yamlFile:
+        yamlFile.write(yamlData)
+
+    with open(p.join(fpocketOutDir,"info.yaml"),"r") as yamlFile:
+        info = yaml.safe_load(yamlFile) 
+
+    return info
+

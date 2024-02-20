@@ -10,46 +10,23 @@ Create a Python environment using Conda:
 conda create -n pocketDock37 python=3.7
 ```
 
-## Step 2: Install MGLTools
 
-Download MGLTools from [here](https://ccsb.scripps.edu/mgltools/downloads/).
-
-```bash
-cd /home/{username}/bin
-tar -xvzf mgltools_Linux-x86_64_1.5.7.tar.gz
-cd mgltools_Linux-x86_64_1.5.7
-chmod +x install.sh
-./install.sh
-```
-
-
-## Step 3: Add Python2 to your PATH in .bashrc (or .bash_profile):
-
-```bash
-export PATH="$PATH:/usr/bin/python2.7"
-source ~/.bashrc
-```
-
-Install Numpy for Python 2:
-
-```bash
-curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py
-python2.7 get-pip.py
-python2.7 -m pip install numpy
-```
-
-## Step 4: Install Python3 Libraries
+## Step 2: Install Python3 Libraries
 
 Install required Python3 libraries using pip and conda:
 
 ```bash
-pip3 install pytest-shutil
-pip3 install pandas
 conda config --add channels conda-forge
+conda config --set channel_priority strict
+conda install openbabel
 conda install fpocket
-pip3 install argpass
-pip3 install tqdm
-pip3 install vina
+conda install vina
+pip install pyyaml
+pip install argpass
+pip install tqdm
+pip install pytest-shutil
+pip install pandas
+pip install pyarrow
 ```
 
 ## Step 5: Create Config File

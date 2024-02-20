@@ -1,0 +1,11 @@
+pathInfo:
+  protDir: "/home/esp/scriptDevelopment/pocketDock/receptors"
+  ligandDir: "/home/esp/scriptDevelopment/pocketDock/ligands"
+  outDir: "/home/esp/scriptDevelopment/pocketDock/outputs"
+  ligandOrdersCsv: "/home/esp/scriptDevelopment/pocketDock/cofactor_predictions.csv"
+dockingInfo:
+  maxFlexRes: 5
+  nCoresPerRun: 2 
+  totalCpus: 24
+  exhaustiveness: 16
+  numModes: 1
