@@ -6,9 +6,32 @@ from shutil import copy, rmtree
 import pandas as pd
 import subprocess
 import yaml
-
+## ampal and isambard
+import ampal 
+import isambard.modelling as modelling
 ## pocketDock modules
 from pdbUtils import *
+#########################################################################################################################
+def pocket_residues_to_alainine(protName, pdbFile, residuesToAlanine, outDir):
+    residuesToAlanine = [int(res) for res in residuesToAlanine]
+
+    protDf = pdb2df(pdbFile)
+    firstResidue = int(protDf.iloc[0]["RES_ID"])
+
+    protAmpal = ampal.load_pdb(pdbFile)
+    seqlength = len(protAmpal.sequences[0])
+    newSequence = ''
+    for i in range(firstResidue,firstResidue+seqlength):
+        if i in residuesToAlanine:
+            newSequence+='A'
+        else:
+            newSequence+=protAmpal.sequences[0][i-firstResidue]
+    alaAmpal = modelling.pack_side_chains_scwrl(protAmpal,[newSequence])
+    alaPdbString = alaAmpal.make_pdb(ligands=False)
+    alaPdb = p.join(outDir,f"{protName}_pocketAla.pdb")
+    with open(alaPdb,"w") as file:
+        file.write(alaPdbString)
+    return alaPdb
 #########################################################################################################################
 def clean_up(cleanUpInfo, outDir):
     ## get all final docking pdb files and copy to single directory
@@ -65,36 +88,6 @@ def clean_up(cleanUpInfo, outDir):
                     continue
                 rmtree(runDir)
 
-
-
-#########################################################################################################################
-def gen_flex_pdbqts(protPdb,flexibeResidues, outDir):
-    name = p.splitext(p.basename(protPdb))[0]
-    # load pdbfile into df
-    protDf = pdb2df(protPdb)
-    flexIndexes = []
-    dfsToConcat = []
-    for chainId in flexibeResidues:
-        chainDf = protDf[(protDf["CHAIN_ID"] == chainId) & 
-                         (protDf["RES_ID"].isin(flexibeResidues[chainId])) &
-                         (~protDf["ATOM_NAME"].isin(["CA","C","O","N"]))]
-        chainIndexes = chainDf.index.to_list()
-        flexIndexes += chainIndexes
-        dfsToConcat.append(chainDf)
-    
-    flexDf = pd.concat(dfsToConcat, axis = 0)
-    rigidDf = protDf.drop(index=flexIndexes)
-
-    flexPdb = p.join(outDir,f"{name}_flex.pdb")
-    rigidPdb = p.join(outDir,f"{name}_rigid.pdb")
-    df2Pdb(flexDf,flexPdb)
-    df2Pdb(rigidDf,rigidPdb)
-    pdb_to_pdbqt(flexPdb, outDir, jobType="flex")
-    pdb_to_pdbqt(rigidPdb, outDir, jobType="rigid")
-    flexPdbqt = p.join(outDir,f"{name}_flex.pdbqt")
-    rigidPdbqt = p.join(outDir,f"{name}_rigid.pdbqt")
-
-    return rigidPdbqt, flexPdbqt
 
 #########################################################################################################################
 def gen_ligand_pdbqts(ligandOrdersCsv, ligandDir):
@@ -259,38 +252,7 @@ def write_vina_config(outDir,receptorPdbqt,ligPdbqt,boxCenter,boxSize, dockingIn
         outFile.write(f"cpu = {cpus}")
 
         return vinaConfigFile, dockedPdbqt
-#########################################################################################################################
-def select_flexible_residues(protName,protPdb,flexResList,maxFlexRes):
 
-    priorityFlexRes = ["TRP", "TYR", "PHE",         ## AROMATICS
-                       "ARG","LYS","HIS",           ## LARGE, POSITIVE
-                       "GLN","GLU","ASN","ASP",     ## NEGATIVE OR H-BONDING
-                       "MET","LEU","ILE","VAL",     ## LARGE, HYDROPHOBIC
-                       "SER","CYS","THR",           ## SMALL, PROTIC
-                       "ALA","PRO","GLY"]           ## SMALL, NO ROTATION IN SIDE CHAIN - NEVER GOING TO USE THESE
-    # load protein PDB as a DF
-    protDf = pdb2df(protPdb)
-    # reduce DF down to unique residues in flexResList (created from binding pocket)
-    flexDf = protDf[protDf["RES_ID"].isin(flexResList)]
-    flexDf.drop_duplicates(subset=["RES_ID"], inplace=True)
-    # sort by priorityFlexRes, get up to the maximum number of flexible residues 
-    flexDf.loc[:,'RES_NAME'] = pd.Categorical(flexDf['RES_NAME'], categories=priorityFlexRes, ordered=True)
-    flexDf = flexDf.sort_values(by="RES_NAME")
-    flexDf = flexDf.head(maxFlexRes)
-        
-    # get a list of unique CHAIN IDs
-    uniqueChains = flexDf.drop_duplicates(subset=["CHAIN_ID"])["CHAIN_ID"].tolist()
-    # generate MGLTools compatable flexible residues
-    flexResidues={}
-    for chain in uniqueChains:
-        chainResidues=[]
-        for _, row in flexDf.iterrows():
-            if row["CHAIN_ID"]==chain:
-                resId = row["RES_ID"]
-                chainResidues.append(resId)
-        flexResidues.update({chain:chainResidues})
-    
-    return flexResidues    
 
     #########################################################################################################################
 def set_up_directory(outDir, pathInfo, dockDetails):

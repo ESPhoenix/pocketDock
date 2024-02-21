@@ -10,7 +10,7 @@ from tqdm import tqdm
 import yaml
 ## pocketDock modules
 from pdbUtils import *
-from modules_pocketDock import *
+from modules_voidDock import *
 #########################################################################################################################
 # get inputs
 def read_inputs():
@@ -40,8 +40,6 @@ def main():
     # make outDir
     os.makedirs(outDir,exist_ok=True)    
 
-    clean_up(cleanUpInfo, outDir)
-    exit()
     # pre-prepare ligand pdbqt files
     gen_ligand_pdbqts(ligandOrdersCsv, ligandDir)
 
@@ -89,20 +87,20 @@ def docking_protocol(pathInfo, dockingInfo, dockDetails):
     boxCenter, pocketResidues       =   run_fpocket(runDir=runDir,
                                                         pdbFile=protPdb)
 
-    flexibeResidues =                   select_flexible_residues(protName=protName,
-                                                                    protPdb=protPdb,
-                                                                    flexResList=pocketResidues,
-                                                                    maxFlexRes=maxFlexRes)
+
+    alaPdb                          = pocket_residues_to_alainine(protName = protName,
+                                                                pdbFile = protPdb,
+                                                                residuesToAlanine = pocketResidues,
+                                                                outDir= runDir)
     
-    rigidPdbqt, flexPdbqt           = gen_flex_pdbqts(protPdb = protPdb,
-                                            flexibeResidues = flexibeResidues,
-                                            outDir = runDir)
+    alaPdbqt                        = pdb_to_pdbqt(inPdb=alaPdb,
+                                                    outDir=runDir,
+                                                    jobType="rigid")
 
     # Write a config file for vina
     vinaConfig, dockedPdbqt         =   write_vina_config(outDir = runDir,
-                                                            receptorPdbqt = rigidPdbqt,
-                                                            flexPdbqt = flexPdbqt,
-                                                            flex=True,
+                                                            receptorPdbqt = alaPdbqt,
+                                                            flex=False,
                                                             ligPdbqt = ligPdbqt,
                                                             boxCenter = boxCenter,
                                                             boxSize = 30,
