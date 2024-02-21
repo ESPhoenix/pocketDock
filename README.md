@@ -1,6 +1,6 @@
-# pocketDock
-Modified Vina docking procedure, with pocket detection - fully automated
-# PocketDock Installation Guide
+# voidDock
+Modified Vina docking procedure, with pocket detection and mutation of active site to alanine - fully automated
+# voidDock Installation Guide
 
 ## Step 1: Create Python Environment
 
