@@ -31,27 +31,31 @@ pip install pyarrow
 
 ## Step 5: Create Config File
 
-Create a Python script for the configuration file, e.g., `config_file.py`. Fill in the required paths:
+Create a Yaml file for the configuration file, e.g., `config_file.yaml`. Fill in the required paths, parameters for docking and options for post-docking clean-up:
 
-```python
-def inputs():
-    protDir = "path/to/pdb/files"
-    ligandDir = "path/to/ligand/files"
-    outDir = "path/to/desired/output/files"
-    mglToolsDir = "/home/{username}/bin/mgltools_x86_64Linux2_1.5.7/MGLToolsPckgs"
-    util24Dir = "/home/{username}/bin/mgltools_x86_64Linux2_1.5.7/MGLToolsPckgs/AutoDockTools/Utilities24"
-    vinaExe = "/home/{username}/bin/vina/vina_1.2.5_linux_x86_64"
-    ligandOrdersCsv = "path/to/ligands_for_binding.csv"
-
-    return protDir, ligandDir, outDir, mglToolsDir, util24Dir, vinaExe, ligandOrdersCsv
+```yaml
+pathInfo:
+  protDir: "/home/esp/scriptDevelopment/pocketDock/receptors"
+  ligandDir: "/home/esp/scriptDevelopment/pocketDock/ligands"
+  outDir: "/home/esp/scriptDevelopment/pocketDock/outputs"
+  ligandOrdersCsv: "/home/esp/scriptDevelopment/pocketDock/cofactor_predictions.csv"
+dockingInfo:
+  maxFlexRes: 5
+  nCoresPerRun: 2 
+  totalCpus: 24
+  exhaustiveness: 16
+  numModes: 1
+cleanUpInfo:
+  collateOutputs: True
+  genDockingReport: True
+  removeRunDirs: True
 ```
 
-## Step 6: Run PocketDock
+## Step 6: Run voidDock
 
 Run the PocketDock script with the provided configuration file:
 
 ```bash
-python pocketDock.py --config config_file.py
+python voidDock.py --config config_file.py
 ```
 
-**Note:** Replace `{username}` and update file paths accordingly in the above commands. Make sure to adjust permissions and paths based on your system configuration.
