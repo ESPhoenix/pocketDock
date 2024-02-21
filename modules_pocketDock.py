@@ -2,13 +2,71 @@
 import os
 from subprocess import call
 import os.path as p
-from shutil import copy
+from shutil import copy, rmtree
 import pandas as pd
 import subprocess
 import yaml
 
 ## pocketDock modules
 from pdbUtils import *
+#########################################################################################################################
+def clean_up(cleanUpInfo, outDir):
+    ## get all final docking pdb files and copy to single directory
+    if "collateOutputs" in cleanUpInfo:
+        if cleanUpInfo["collateOutputs"]:
+            collatedDir = p.join(outDir,"collated_docked_pdbs")
+            os.makedirs(collatedDir,exist_ok=True)
+            for dirName in os.listdir(outDir):
+                runDir = p.join(outDir, dirName)
+                if not p.isdir(runDir) or dirName == "collated_docked_pdbs":
+                    continue
+                pdbDir = p.join(runDir,"final_docked_pdbs")
+                if not p.isdir(pdbDir):
+                    continue
+                for file in os.listdir(pdbDir):
+                    if not p.splitext(file)[1] == ".pdb":
+                        continue
+                    pdbFile = p.join(pdbDir,file)
+                    copy(pdbFile, p.join(collatedDir, file))
+    ## create a csv file containing docking energies 
+    if "genDockingReport" in cleanUpInfo:
+        if cleanUpInfo["genDockingReport"]:
+            collatedDir = p.join(outDir,"collated_docked_pdbs")
+            index = 0
+            energyDict = {}
+            for dirName in os.listdir(outDir):
+                runDir = p.join(outDir, dirName)
+                if not p.isdir(runDir) or dirName == "collated_docked_pdbs":
+                    continue
+                bindingPosePdbqt = p.join(runDir,"binding_poses.pdbqt")
+                if not p.isfile(bindingPosePdbqt):
+                    continue
+                print(bindingPosePdbqt)
+                with open(bindingPosePdbqt,"r") as f:
+                    for line in f.readlines():
+                        if line.startswith("MODEL"):
+                            modelNumber = line.split()[1]
+                        if "VINA RESULT:" in line:
+                            bindingEnergy = float(line.split()[3])
+                tmpDict = {"ID" : dirName,
+                        "Binding Mode": modelNumber,
+                        "Binding Energy": bindingEnergy}
+                energyDict.update({index:tmpDict})
+                index += 1
+            reportDf = pd.DataFrame(energyDict).T
+            reportCsv = p.join(outDir,"docking_report.csv")
+            reportDf.to_csv(reportCsv)
+    ## delete run directories
+    if "removeRunDirs" in cleanUpInfo:
+        if cleanUpInfo["removeRunDirs"]:
+            for dirName in os.listdir(outDir):
+                runDir = p.join(outDir, dirName)
+                if not p.isdir(runDir) or dirName == "collated_docked_pdbs":
+                    continue
+                rmtree(runDir)
+
+
+
 #########################################################################################################################
 def gen_flex_pdbqts(protPdb,flexibeResidues, outDir):
     name = p.splitext(p.basename(protPdb))[0]
@@ -108,7 +166,6 @@ def splice_docking_results(dockingDfList, receptorDf, outDir, nameTag):
         dockedDf.loc[dockedDf["RES_ID"] == 0,"RES_ID"] = ligandResidueId
         ## chage HETATM to ATOM for dockedDf
         dockedDf.loc[:,"ATOM"] = "ATOM"
-
         # Concat docked and rigid DFs togeter - this is in a weird order
         wholeDisorderedDf = pd.concat([dockedDf,receptorDf],axis=0)
         # get a list of unique residue Ids
@@ -246,7 +303,7 @@ def set_up_directory(outDir, pathInfo, dockDetails):
     ligandName = p.splitext(p.basename(ligPdb))[0]
 
 
-    runDir = p.join(outDir,protName)
+    runDir = p.join(outDir,f"{protName}_{ligandName}")
     os.makedirs(runDir,exist_ok=True)
     copy(protPdb,runDir)
     # read ligand pdb and copy to new run directory
@@ -258,7 +315,7 @@ def set_up_directory(outDir, pathInfo, dockDetails):
     # change location of ligPdb to one in runDir (just in case!)
     ligPdb = p.join(runDir,f"{ligandName}.pdb")
 
-    return protName, protPdb, ligPdbqt, ligandName, runDir
+    return protName, protPdb, ligPdbqt, runDir
 
 
 #########################################################################################################################

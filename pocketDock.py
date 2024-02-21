@@ -25,11 +25,12 @@ def read_inputs():
         config = yaml.safe_load(yamlFile) 
     pathInfo = config["pathInfo"]
     dockingInfo = config["dockingInfo"]
-    return pathInfo,dockingInfo
+    cleanUpInfo = config["cleanUpInfo"]
+    return pathInfo, dockingInfo, cleanUpInfo
 #########################################################################################################################
 #########################################################################################################################
 def main():
-    pathInfo, dockingInfo  = read_inputs()
+    pathInfo, dockingInfo, cleanUpInfo  = read_inputs()
     protDir = pathInfo["protDir"]
     ligandDir = pathInfo["ligandDir"]
     outDir = pathInfo["outDir"]
@@ -39,15 +40,18 @@ def main():
     # make outDir
     os.makedirs(outDir,exist_ok=True)    
 
-
+    clean_up(cleanUpInfo, outDir)
+    exit()
     # pre-prepare ligand pdbqt files
     gen_ligand_pdbqts(ligandOrdersCsv, ligandDir)
 
     # gererate a seqence of docking runs 
     dockingSequence = gen_docking_sequence(ligandOrdersCsv, protDir, ligandDir)
+    # dock 
     run_paralell(pathInfo, dockingInfo, dockingSequence)
-
     # run_serial(pathInfo, dockingInfo, dockingSequence)
+    # collect output files into single directory
+    # clean_up(cleanUpInfo, outDir)
 #########################################################################################################################
 #########################################################################################################################
 def run_serial(pathInfo, dockingInfo, dockingSequence):
@@ -78,9 +82,9 @@ def docking_protocol(pathInfo, dockingInfo, dockDetails):
     maxFlexRes      = dockingInfo["maxFlexRes"]
 
     # set up run directory and output key variables
-    protName, protPdb, ligPdbqt, ligandName, runDir = set_up_directory(outDir=outDir,
-                                                                       pathInfo=pathInfo,
-                                                                            dockDetails=dockDetails)  
+    protName, protPdb, ligPdbqt, runDir = set_up_directory(outDir=outDir,
+                                                            pathInfo=pathInfo,
+                                                            dockDetails=dockDetails)  
     # Use fpocket to identify largest pocket, return center of pocket as [X,Y,Z] coords and Fpocket residues
     boxCenter, pocketResidues       =   run_fpocket(runDir=runDir,
                                                         pdbFile=protPdb)

@@ -1,0 +1,79 @@
+REMARK  Name = /home/esp/scriptDevelopment/pocketDock/ligands/FMN.pdb
+REMARK  13 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C7_11  and  C7M_12
+REMARK    2  A    between atoms: C8_13  and  C8M_14
+REMARK    3  A    between atoms: N10_17  and  C1'_19
+REMARK    4  A    between atoms: C1'_19  and  C2'_20
+REMARK    5  A    between atoms: C2'_20  and  O2'_21
+REMARK    6  A    between atoms: C2'_20  and  C3'_22
+REMARK    7  A    between atoms: C3'_22  and  O3'_23
+REMARK    8  A    between atoms: C3'_22  and  C4'_24
+REMARK    9  A    between atoms: C4'_24  and  O4'_25
+REMARK   10  A    between atoms: C4'_24  and  C5'_26
+REMARK   11  A    between atoms: C5'_26  and  O5'_27
+REMARK   12  A    between atoms: O5'_27  and  P_28
+REMARK   13  A    between atoms: P_28  and  O2P_30
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  N1  FMN     0       2.118  -2.493   0.531  0.00  0.00    +0.000 NA
+ATOM      2  C2  FMN     0       2.713  -3.638   0.206  0.00  0.00    +0.000 A 
+ATOM      3  O2  FMN     0       2.122  -4.677   0.445  0.00  0.00    +0.000 OA
+ATOM      4  N3  FMN     0       3.921  -3.721  -0.368  0.00  0.00    +0.000 N 
+ATOM      5  C4  FMN     0       4.636  -2.610  -0.664  0.00  0.00    +0.000 A 
+ATOM      6  O4  FMN     0       5.732  -2.682  -1.185  0.00  0.00    +0.000 OA
+ATOM      7  C4A FMN     0       4.027  -1.305  -0.325  0.00  0.00    +0.000 A 
+ATOM      8  N5  FMN     0       4.631  -0.170  -0.566  0.00  0.00    +0.000 NA
+ATOM      9  C5A FMN     0       4.051   0.995  -0.246  0.00  0.00    +0.000 C 
+ATOM     10  C6  FMN     0       4.718   2.206  -0.514  0.00  0.00    +0.000 C 
+ATOM     11  C7  FMN     0       4.131   3.392  -0.190  0.00  0.00    +0.000 C 
+ATOM     12  C7M FMN     0       4.850   4.683  -0.480  0.00  0.00    +0.000 C 
+ATOM     13  C8  FMN     0       2.874   3.423   0.405  0.00  0.00    +0.000 C 
+ATOM     14  C8M FMN     0       2.246   4.748   0.752  0.00  0.00    +0.000 C 
+ATOM     15  C9  FMN     0       2.197   2.255   0.678  0.00  0.00    +0.000 C 
+ATOM     16  C9A FMN     0       2.774   1.029   0.359  0.00  0.00    +0.000 C 
+ATOM     17  N10 FMN     0       2.101  -0.144   0.631  0.00  0.00    +0.000 N 
+ATOM     18  C10 FMN     0       2.695  -1.325   0.304  0.00  0.00    +0.000 A 
+ATOM     19  HN3 FMN     0       4.291  -4.593  -0.577  0.00  0.00    +0.000 HD
+ENDROOT
+BRANCH  17  20
+ATOM     20  C1' FMN     0       0.777  -0.119   1.258  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  C2' FMN     0      -0.300  -0.060   0.173  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  O2' FMN     0      -0.122   1.121  -0.611  0.00  0.00    +0.000 OA
+ATOM     23 HO2' FMN     0      -0.183   1.942  -0.104  0.00  0.00    +0.000 HD
+ENDBRANCH  21  22
+BRANCH  21  24
+ATOM     24  C3' FMN     0      -1.683  -0.035   0.827  0.00  0.00    +0.000 C 
+BRANCH  24  25
+ATOM     25  O3' FMN     0      -1.860  -1.217   1.611  0.00  0.00    +0.000 OA
+ATOM     26 HO3' FMN     0      -1.800  -2.038   1.104  0.00  0.00    +0.000 HD
+ENDBRANCH  24  25
+BRANCH  24  27
+ATOM     27  C4' FMN     0      -2.760   0.024  -0.258  0.00  0.00    +0.000 C 
+BRANCH  27  28
+ATOM     28  O4' FMN     0      -2.582   1.206  -1.042  0.00  0.00    +0.000 OA
+ATOM     29 HO4' FMN     0      -2.642   2.027  -0.535  0.00  0.00    +0.000 HD
+ENDBRANCH  27  28
+BRANCH  27  30
+ATOM     30  C5' FMN     0      -4.142   0.049   0.397  0.00  0.00    +0.000 C 
+BRANCH  30  31
+ATOM     31  O5' FMN     0      -5.149  -0.013  -0.615  0.00  0.00    +0.000 OA
+BRANCH  31  32
+ATOM     32  P   FMN     0      -6.725  -0.007  -0.285  0.00  0.00    +0.000 P 
+ATOM     33  O1P FMN     0      -7.053   1.180   0.536  0.00  0.00    +0.000 OA
+ATOM     34  O3P FMN     0      -7.109  -1.344   0.526  0.00  0.00    +0.000 OA
+BRANCH  32  35
+ATOM     35  O2P FMN     0      -7.561   0.045  -1.660  0.00  0.00    +0.000 OA
+ATOM     36 HOP2 FMN     0      -8.520   0.051  -1.537  0.00  0.00    +0.000 HD
+ENDBRANCH  32  35
+ENDBRANCH  31  32
+ENDBRANCH  30  31
+ENDBRANCH  27  30
+ENDBRANCH  24  27
+ENDBRANCH  21  24
+ENDBRANCH  20  21
+ENDBRANCH  17  20
+TORSDOF 11

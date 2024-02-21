@@ -9,3 +9,7 @@ dockingInfo:
   totalCpus: 24
   exhaustiveness: 16
   numModes: 1
+cleanUpInfo:
+  collateOutputs: True
+  genDockingReport: True
+  removeRunDirs: True
