@@ -40,8 +40,6 @@ def main():
     # make outDir
     os.makedirs(outDir,exist_ok=True)    
 
-    clean_up(cleanUpInfo, outDir)
-    exit()
     # pre-prepare ligand pdbqt files
     gen_ligand_pdbqts(ligandOrdersCsv, ligandDir)
 
@@ -51,7 +49,7 @@ def main():
     run_paralell(pathInfo, dockingInfo, dockingSequence)
     # run_serial(pathInfo, dockingInfo, dockingSequence)
     # collect output files into single directory
-    # clean_up(cleanUpInfo, outDir)
+    clean_up(cleanUpInfo, outDir)
 #########################################################################################################################
 #########################################################################################################################
 def run_serial(pathInfo, dockingInfo, dockingSequence):

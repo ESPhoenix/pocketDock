@@ -87,8 +87,8 @@ def gen_flex_pdbqts(protPdb,flexibeResidues, outDir):
 
     flexPdb = p.join(outDir,f"{name}_flex.pdb")
     rigidPdb = p.join(outDir,f"{name}_rigid.pdb")
-    df2Pdb(flexDf,flexPdb)
-    df2Pdb(rigidDf,rigidPdb)
+    df2pdb(flexDf,flexPdb)
+    df2pdb(rigidDf,rigidPdb)
     pdb_to_pdbqt(flexPdb, outDir, jobType="flex")
     pdb_to_pdbqt(rigidPdb, outDir, jobType="rigid")
     flexPdbqt = p.join(outDir,f"{name}_flex.pdbqt")
@@ -137,7 +137,8 @@ def gen_docking_sequence(ligandOrdersCsv, protDir, ligandDir):
         pocketTag = row["Pocket_Tag"]
         tmpDict = {"protPdb":protPdb,
                    "ligPdb": ligPdb,
-                   "pocketTag": pocketTag}
+                   "pocketTag": pocketTag,
+                   "runId": index}
         dockingSequence.update({index:tmpDict})
     return dockingSequence
 
@@ -148,7 +149,8 @@ def process_vina_results(outDir,dockedPdbqt,receptorPdbqt,dockDetails):
     receptorDf = pdbqt2df(receptorPdbqt)
     protName = p.splitext(p.basename(dockDetails["protPdb"]))[0]
     ligName = p.splitext(p.basename(dockDetails["ligPdb"]))[0]
-    nameTag = f"{protName}_{ligName}"
+    runId = dockDetails["runId"]
+    nameTag = f"{runId}_{protName}_{ligName}"
     splice_docking_results(dockingDfList, receptorDf, outDir, nameTag)
 #########################################################################################################################
 def splice_docking_results(dockingDfList, receptorDf, outDir, nameTag):
@@ -181,7 +183,7 @@ def splice_docking_results(dockingDfList, receptorDf, outDir, nameTag):
         wholeDf.loc[:,"ATOM_ID"] = range(1,len(wholeDf)+1)
         # save as pdb file
         saveFile = p.join(finalPdbDir, f"{nameTag}_{str(poseNumber)}.pdb")
-        df2Pdb(df=wholeDf,outFile=saveFile)
+        df2pdb(df=wholeDf,outFile=saveFile)
 #########################################################################################################################
 def read_docking_results(dockedPdbqt):
     # remove ROOT/BRANCH
@@ -227,6 +229,7 @@ def write_vina_config(outDir,receptorPdbqt,ligPdbqt,boxCenter,boxSize, dockingIn
     exhaustiveness  = dockingInfo["exhaustiveness"]
     numModes        = dockingInfo["numModes"]
     cpus            = str(dockingInfo["nCoresPerRun"])
+    # get unique runId from dockDetails
 
     vinaConfigFile=p.join(outDir,f"vina_conf.txt")
     with open(vinaConfigFile,"w") as outFile:
@@ -297,13 +300,15 @@ def set_up_directory(outDir, pathInfo, dockDetails):
     # read protein pdb file, get name and make new dir for docking, copy over protein pdb
     protPdb = dockDetails["protPdb"]
     ligPdb = dockDetails["ligPdb"]
+    runId = dockDetails["runId"]
     ligandDir = pathInfo["ligandDir"]
+
 
     protName = p.splitext(p.basename(protPdb))[0]
     ligandName = p.splitext(p.basename(ligPdb))[0]
 
 
-    runDir = p.join(outDir,f"{protName}_{ligandName}")
+    runDir = p.join(outDir,f"{runId}_{protName}_{ligandName}")
     os.makedirs(runDir,exist_ok=True)
     copy(protPdb,runDir)
     # read ligand pdb and copy to new run directory

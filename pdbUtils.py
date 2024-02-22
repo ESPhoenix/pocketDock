@@ -18,7 +18,7 @@ def left_aligned(pdbList, textList):
 
 
 ########################## write pdb dataframe to pdb file
-def df2Pdb(df, outFile,
+def df2pdb(df, outFile,
            chain=True):
     with open(outFile,"w") as f:
         for _, row in df.iterrows():
@@ -41,11 +41,11 @@ def df2Pdb(df, outFile,
                 pdbList[60:66]  = right_aligned(pdbList[60:66], list(f"{row['BETAFACTOR']:>6.2f}"))
             except:
                 pdbList[60:66] = right_aligned(pdbList[60:66],list("1.00"))
-            try:
-                pdbList[76:78] = right_aligned(pdbList[76:78], list(row['ELEMENT']))
-            except:
-                element = row["ATOM_NAME"][0]
-                pdbList[76:78] = right_aligned(pdbList[76:78], list(element))
+            # try:
+            #     pdbList[76:78] = right_aligned(pdbList[76:78], list(row['ELEMENT']))
+            # except:
+            element = row["ATOM_NAME"][0]
+            pdbList[76:78] = right_aligned(pdbList[76:78], list(element))
             pdbLine = "".join(pdbList)
             f.write(f"{pdbLine}\n")
         f.write("TER")
