@@ -1,8 +1,10 @@
 pathInfo:
-  protDir: "/home/esp/scriptDevelopment/pocketDock/receptors"
+  protDir: "/home/esp/Machine_Learning/001_multiCaveCofactorClassification/16_main_dataset_predictions/cave_locations"
   ligandDir: "/home/esp/scriptDevelopment/pocketDock/ligands"
   outDir: "/home/esp/scriptDevelopment/pocketDock/outputs"
-  ligandOrdersCsv: "/home/esp/scriptDevelopment/pocketDock/cofactor_predictions.csv"
+  ligandOrdersCsv: "/home/esp/Machine_Learning/001_multiCaveCofactorClassification/16_main_dataset_predictions/cofactor_predictions.csv"
+generalInfo:
+  fpocketInputs: True
 dockingInfo:
   maxFlexRes: 5
   nCoresPerRun: 2 

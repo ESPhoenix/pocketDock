@@ -23,14 +23,15 @@ def read_inputs():
     ## Read config.yaml into a dictionary
     with open(configFile,"r") as yamlFile:
         config = yaml.safe_load(yamlFile) 
-    pathInfo = config["pathInfo"]
-    dockingInfo = config["dockingInfo"]
-    cleanUpInfo = config["cleanUpInfo"]
-    return pathInfo, dockingInfo, cleanUpInfo
+
+    return config
 #########################################################################################################################
 #########################################################################################################################
 def main():
-    pathInfo, dockingInfo, cleanUpInfo  = read_inputs()
+    # read config from yaml file
+    config = read_inputs()
+    # extract needed paths
+    pathInfo = config["pathInfo"]
     protDir = pathInfo["protDir"]
     ligandDir = pathInfo["ligandDir"]
     outDir = pathInfo["outDir"]
@@ -39,58 +40,76 @@ def main():
     pd.set_option('mode.chained_assignment', None)
     # make outDir
     os.makedirs(outDir,exist_ok=True)    
-
     # pre-prepare ligand pdbqt files
     gen_ligand_pdbqts(ligandOrdersCsv, ligandDir)
-
     # gererate a seqence of docking runs 
     dockingSequence = gen_docking_sequence(ligandOrdersCsv, protDir, ligandDir)
     # dock 
-    run_paralell(pathInfo, dockingInfo, dockingSequence)
-    # run_serial(pathInfo, dockingInfo, dockingSequence)
+    run_paralell(config, dockingSequence)
+    # run_serial(config, dockingSequence)
     # collect output files into single directory
-    clean_up(cleanUpInfo, outDir)
+    clean_up(config["cleanUpInfo"], outDir)
 #########################################################################################################################
 #########################################################################################################################
-def run_serial(pathInfo, dockingInfo, dockingSequence):
+def run_serial(config, dockingSequence):
     # for testing 
     for dockId in dockingSequence:
-        docking_protocol(pathInfo, dockingInfo, dockDetails = dockingSequence[dockId])
+        docking_protocol(config, dockDetails = dockingSequence[dockId])
 
 
 #########################################################################################################################
-def run_paralell(pathInfo, dockingInfo, dockingSequence):
-    paralellCores= dockingInfo["totalCpus"]
+def run_paralell(config, dockingSequence):
+
+    paralellCores= config["dockingInfo"]["totalCpus"]
 
     dockingDetailsList = []
     for dockId in dockingSequence:
         dockingDetailsList.append(dockingSequence[dockId])
     with mp.Pool(processes=paralellCores) as pool:
         pool.starmap(docking_protocol,
-                     tqdm([(pathInfo, dockingInfo, dockDetails) for dockDetails in dockingDetailsList],
+                     tqdm([(config, dockDetails) for dockDetails in dockingDetailsList],
                                 total=len(dockingSequence)))
 
 #########################################################################################################################
 
-def docking_protocol(pathInfo, dockingInfo, dockDetails):
-    ## unpack path Info
+def docking_protocol(config, dockDetails):
+
+
+    ## unpack config
+    pathInfo = config["pathInfo"]
     outDir      = pathInfo["outDir"]
 
-    ## unpack general docking parameters
+    ## unpack  docking parameters
+    dockingInfo = config["dockingInfo"]
     maxFlexRes      = dockingInfo["maxFlexRes"]
+
+    ## unpack general info
+    generalInfo = config["generalInfo"]
+    fpocketInputs = generalInfo["fpocketInputs"]
 
     # set up run directory and output key variables
     protName, protPdb, ligPdbqt, runDir = set_up_directory(outDir=outDir,
                                                             pathInfo=pathInfo,
                                                             dockDetails=dockDetails)  
     # Use fpocket to identify largest pocket, return center of pocket as [X,Y,Z] coords and Fpocket residues
-    boxCenter, pocketResidues       =   run_fpocket(runDir=runDir,
-                                                        pdbFile=protPdb)
+    if  fpocketInputs:
+        # get boxCenter and pocketResidues from pocketTag in docking instructions and fpocket pdb 
+        pocketTag = dockDetails["pocketTag"]
+        boxCenter, pocketResidues       = get_box_from_fpocket_inputs(pdbFile = protPdb,
+                                                                      pocketTag = pocketTag)
+        # remove fpocket pockets from pdb file
+        protPdb = remove_fpockets(protPdb = protPdb,
+                                   outDir = runDir,
+                                    protName=protName)
+    else:
+        boxCenter, pocketResidues       =   run_fpocket(runDir=runDir,
+                                                            pdbFile=protPdb)
 
     flexibeResidues =                   select_flexible_residues(protName=protName,
                                                                     protPdb=protPdb,
                                                                     flexResList=pocketResidues,
                                                                     maxFlexRes=maxFlexRes)
+    
     
     rigidPdbqt, flexPdbqt           = gen_flex_pdbqts(protPdb = protPdb,
                                             flexibeResidues = flexibeResidues,
@@ -106,7 +125,6 @@ def docking_protocol(pathInfo, dockingInfo, dockDetails):
                                                             boxSize = 30,
                                                             dockingInfo=dockingInfo)
                                                             
-
     # Run vina docking
     run_vina(outDir = runDir,
                 configFile = vinaConfig)

@@ -6,9 +6,45 @@ from shutil import copy, rmtree
 import pandas as pd
 import subprocess
 import yaml
-
+from scipy.spatial import distance
+import numpy as np
 ## pocketDock modules
 from pdbUtils import *
+
+
+#########################################################################################################################
+def remove_fpockets(protPdb, outDir, protName):
+    protDf = pdb2df(protPdb)
+    noPocketDf = protDf[protDf["RES_NAME"] != "STP"]
+    noPocketPdb = p.join(outDir, f"{protName}_no_pockets.pdb")
+    df2pdb(noPocketDf, noPocketPdb)
+    return noPocketPdb
+
+#########################################################################################################################
+def get_box_from_fpocket_inputs(pdbFile, pocketTag):
+    ## get pocket  residues (to potentially make flexible)
+    ## and find center of binding pocket
+    distanceCutoff = 6.4
+    pocketNum = int(pocketTag.split("_")[1])
+    pdbDf = pdb2df(pdbFile)
+    pocketDf = pdbDf[(pdbDf["RES_NAME"] == "STP") & (pdbDf["RES_ID"] == pocketNum)].copy()
+    protDf = pdbDf[pdbDf["RES_NAME"] != "STP"]
+
+    pocketCoords = pocketDf[["X", "Y", "Z"]].values
+    protCoords = protDf[["X", "Y", "Z"]].values
+
+    distances = distance.cdist(pocketCoords, protCoords, "euclidean")
+    minDists = np.amin(distances, axis=0)
+    protDf.loc[:,"MIN_DIST"] = minDists
+    nearbyDf = protDf[protDf["MIN_DIST"] <= distanceCutoff] 
+    pocketResidues = nearbyDf["RES_ID"].unique().tolist()
+
+    meanX = np.mean(pocketCoords[:,0])
+    meanY = np.mean(pocketCoords[:,1])
+    meanZ = np.mean(pocketCoords[:,2])
+    boxCenter = [meanX, meanY, meanZ]
+
+    return boxCenter, pocketResidues 
 #########################################################################################################################
 def clean_up(cleanUpInfo, outDir):
     ## get all final docking pdb files and copy to single directory
