@@ -1,0 +1,18 @@
+REMARK  Name = /home/esp/scriptDevelopment/pocketDock/ligands/indole.pdb
+REMARK  0 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C1  72V A 202      -2.800  -0.852  -1.496  0.00  0.00    +0.000 A 
+ATOM      2  C2  72V A 202      -3.632   0.268  -1.694  0.00  0.00    +0.000 A 
+ATOM      3  C3  72V A 202      -4.793   0.398  -0.895  0.00  0.00    +0.000 A 
+ATOM      4  C4  72V A 202      -5.092  -0.594   0.069  0.00  0.00    +0.000 A 
+ATOM      5  C5  72V A 202      -4.253  -1.722   0.281  0.00  0.00    +0.000 A 
+ATOM      6  C6  72V A 202      -3.097  -1.830  -0.500  0.00  0.00    +0.000 A 
+ATOM      7  N7  72V A 202      -2.106  -2.840  -0.508  0.00  0.00    +0.000 N 
+ATOM      8  C8  72V A 202      -1.053  -2.726  -1.874  0.00  0.00    +0.000 C 
+ATOM      9  C9  72V A 202      -1.585  -1.271  -2.192  0.00  0.00    +0.000 C 
+ATOM     10  C10 72V A 202      -2.051  -3.945   0.456  0.00  0.00    +0.000 C 
+ENDROOT
+TORSDOF 0

@@ -1,0 +1,3 @@
+LMRM8A_fpocket: 
+  ligands: ["WPC", "indole"]
+  pocketTag: "pocket_24"
