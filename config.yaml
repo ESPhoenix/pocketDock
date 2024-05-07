@@ -1,17 +1,17 @@
 pathInfo:
-  protDir: "/home/esp/scriptDevelopment/pocketDock/receptors"
+  protDir: "/home/esp/Machine_Learning/12_cofactorID_III/01_pocket_pdbs"
   ligandDir: "/home/esp/scriptDevelopment/pocketDock/ligands"
   outDir: "/home/esp/scriptDevelopment/pocketDock/outputs"
   dockingOrdersYaml: "/home/esp/scriptDevelopment/pocketDock/docking_orders.yaml"
 generalInfo:
   fpocketInputs: True
 dockingInfo:
-  maxFlexRes: 10
-  nCoresPerRun: 16
-  totalCpus: 1
+  maxFlexRes: 1
+  nCoresPerRun: 1
+  totalCpus: 32
   exhaustiveness: 16
   numModes: 10
 cleanUpInfo:
   collateOutputs: True
   genDockingReport: False
-  removeRunDirs: False
+  removeRunDirs: True

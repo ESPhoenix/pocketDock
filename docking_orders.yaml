@@ -1,3 +1,18 @@
-LMRM8A_fpocket: 
-  ligands: ["WPC", "indole"]
-  pocketTag: "pocket_24"
+- ligands: [FAD]
+  pocketTag: Pocket_1
+  protein: 7P9X
+- ligands: [FMN]
+  pocketTag: Pocket_1
+  protein: 7P9X
+- ligands: [FAD]
+  pocketTag: Pocket_2
+  protein: 7P9X
+- ligands: [FMN]
+  pocketTag: Pocket_2
+  protein: 7P9X
+- ligands: [FAD]
+  pocketTag: Pocket_25
+  protein: 7P9X
+- ligands: [FMN]
+  pocketTag: Pocket_25
+  protein: 7P9X

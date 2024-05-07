@@ -92,14 +92,9 @@ def docking_protocol(config, dockDetails):
     generalInfo = config["generalInfo"]
     fpocketInputs = generalInfo["fpocketInputs"]
 
-    # ## deal with multiple ligands being docked in order
-    # if len(dockDetails["ligPdb"]) > 1:
-    #     ligPdb = dockDetails["ligPdb"][0]
-    #     remainingLigPdbs = dockDetails["ligPdb"][1:]
-    # else:
-    #     ligPdb = dockDetails["ligPdb"][0]
-    #     remainingLigPdbs = False
-    # dockDetails["ligPdb"] = ligPdb
+    pocketTag = None
+    if fpocketInputs:
+        pocketTag = dockDetails["pocketTag"]
 
 
     # set up run directory and output key variables
@@ -107,13 +102,9 @@ def docking_protocol(config, dockDetails):
                                                             pathInfo=pathInfo,
                                                             dockDetails=dockDetails)  
 
-    # Use fpocket to identify largest pocket, return center of pocket as [X,Y,Z] coords and Fpocket residues
     if  fpocketInputs:
         # get boxCenter and pocketResidues from pocketTag in docking instructions and fpocket pdb 
         pocketTag = dockDetails["pocketTag"]
-        # if "boxCenter" in dockDetails:
-        #     boxCenter = dockDetails["boxCenter"]
-        #     pocketResidues = dockDetails["pocketResidues"]
         # else:
         boxCenter, pocketResidues       = get_box_from_fpocket_inputs(pdbFile = protPdb,
                                                                     pocketTag = pocketTag)
@@ -121,17 +112,11 @@ def docking_protocol(config, dockDetails):
         protPdb = remove_fpockets(protPdb = protPdb,
                                    outDir = runDir,
                                     protName=protName)
+  
     else:
-        if "boxCenter" in dockDetails:
-            boxCenter = dockDetails["boxCenter"]
-            pocketResidues = dockDetails["pocketResidues"]
-        else:
-            boxCenter, pocketResidues       =   run_fpocket(runDir=runDir,
-                                                                pdbFile=protPdb)
-
-    # if "flexibleResidues" in dockDetails:
-    #     flexibeResidues = dockDetails["flexibleResidues"]
-    # else:
+        boxCenter, pocketResidues       =   run_fpocket(runDir=runDir,
+                                                            pdbFile=protPdb)
+        
     flexibeResidues =                   select_flexible_residues(protName=protName,
                                                                     protPdb=protPdb,
                                                                     flexResList=pocketResidues,

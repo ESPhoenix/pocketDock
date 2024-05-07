@@ -132,11 +132,14 @@ def gen_flex_pdbqts(protPdb,flexibeResidues, outDir):
 
     return rigidPdbqt, flexPdbqt
 
+
+
 #########################################################################################################################
 def gen_ligand_pdbqts(dockingOrders, ligandDir):
     allLigands = []
-    for receptor in dockingOrders:
-        ligands = dockingOrders[receptor]["ligands"]
+    for dockingOrder in dockingOrders:
+        print(dockingOrder)
+        ligands = dockingOrder["ligands"]
         for ligand in ligands:
             allLigands.append(ligand)
 
@@ -146,6 +149,16 @@ def gen_ligand_pdbqts(dockingOrders, ligandDir):
             print(f"{ligPdb} not found, skipping...")
             continue
         pdb_to_pdbqt(ligPdb, ligandDir, jobType="ligand")
+#########################################################################################################################
+def replace_sodiums_with_nitrogen(fileName):  ## JANK HOTFIX ALERT!
+    with open(fileName, 'r') as file:
+        data = file.read()
+
+    # Replace all instances of "NA" with "N "
+    data = data.replace("NA", "N ")
+
+    with open(fileName, 'w') as file:
+        file.write(data)
 #########################################################################################################################
 def pdb_to_pdbqt(inPdb, outDir, jobType):
     name = p.splitext(p.basename(inPdb))[0]
@@ -157,17 +170,18 @@ def pdb_to_pdbqt(inPdb, outDir, jobType):
     elif jobType == "ligand":
         obabelCommand = ["obabel", "-i","pdb", inPdb, "-o", "pdbqt", "-O", outPdbqt, "-xn"]
     call(obabelCommand, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    replace_sodiums_with_nitrogen(outPdbqt)
     return outPdbqt
 #########################################################################################################################
 def gen_docking_sequence(dockingOrders, protDir, ligandDir):
     dockingSequence = {}
-
     index = 0
-    for receptor in dockingOrders:
-        ligands = dockingOrders[receptor]["ligands"]
+    for dockingOrder in dockingOrders:
+        protName  = dockingOrder["protein"]
+        ligands = dockingOrder["ligands"]
         ligandPdbs = [p.join(ligandDir,f"{ligand}.pdb") for ligand in ligands]
-        protPdb = p.join(protDir,f"{receptor}.pdb")
-        pocketTag = dockingOrders[receptor]["pocketTag"]
+        protPdb = p.join(protDir,f"{protName}.pdb")
+        pocketTag = dockingOrder["pocketTag"]
         tmpDict = {"protPdb":protPdb,
                    "ligPdbs": ligandPdbs,
                    "pocketTag": pocketTag,
@@ -190,8 +204,8 @@ def process_vina_results(outDir,dockedPdbqt,receptorPdbqt,dockDetails):
         ligandName = p.splitext(p.basename(ligPdb))[0]
         ligandNames.append(ligandName)
     ligTag = "_".join(ligandNames)
-    runId = dockDetails["runId"]
-    nameTag = f"{runId}_{protName}_{ligTag}"
+    pocketTag = dockDetails["pocketTag"]
+    nameTag = f"{pocketTag}_{protName}_{ligTag}"
     dockedPdbs = splice_docking_results(dockingDfList, receptorDf, outDir, nameTag)
     return dockedPdbs
 #########################################################################################################################
@@ -347,6 +361,11 @@ def set_up_directory(outDir, pathInfo,  dockDetails):
     runId = dockDetails["runId"]
     ligandDir = pathInfo["ligandDir"]
 
+    pocketTag = ""
+    if "pocketTag" in dockDetails:
+        pocketTag = dockDetails["pocketTag"]
+
+
 
     protName = p.splitext(p.basename(protPdb))[0]
     # read ligand pdb and copy to new run directory
@@ -359,7 +378,7 @@ def set_up_directory(outDir, pathInfo,  dockDetails):
         ligPdbqts.append(ligPdbqt)
 
     ligandTag = "_".join(ligandNames)
-    runDir = p.join(outDir,f"{runId}_{protName}_{ligandTag}")
+    runDir = p.join(outDir,f"{runId}_{protName}_{ligandTag}_{pocketTag}")
     os.makedirs(runDir,exist_ok=True)
     copy(protPdb,runDir)
     for ligPdbqt in ligPdbqts:

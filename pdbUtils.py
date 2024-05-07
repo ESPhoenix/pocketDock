@@ -185,5 +185,3 @@ def pdbqt2df(pdbqtFile):
     df[["X","Y","Z","OCCUPANCY","BETAFACTOR"]]=df[["X","Y","Z","OCCUPANCY","BETAFACTOR"]].astype(float)
     return df
 
-
-
