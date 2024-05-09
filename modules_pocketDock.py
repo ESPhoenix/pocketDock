@@ -46,59 +46,6 @@ def get_box_from_fpocket_inputs(pdbFile, pocketTag):
 
     return boxCenter, pocketResidues 
 #########################################################################################################################
-def clean_up(cleanUpInfo, outDir):
-    ## get all final docking pdb files and copy to single directory
-    if "collateOutputs" in cleanUpInfo:
-        if cleanUpInfo["collateOutputs"]:
-            collatedDir = p.join(outDir,"collated_docked_pdbs")
-            os.makedirs(collatedDir,exist_ok=True)
-            for dirName in os.listdir(outDir):
-                runDir = p.join(outDir, dirName)
-                if not p.isdir(runDir) or dirName == "collated_docked_pdbs":
-                    continue
-                pdbDir = p.join(runDir,"final_docked_pdbs")
-                if not p.isdir(pdbDir):
-                    continue
-                for file in os.listdir(pdbDir):
-                    if not p.splitext(file)[1] == ".pdb":
-                        continue
-                    pdbFile = p.join(pdbDir,file)
-                    copy(pdbFile, p.join(collatedDir, file))
-    ## create a csv file containing docking energies 
-    if "genDockingReport" in cleanUpInfo:
-        if cleanUpInfo["genDockingReport"]:
-            collatedDir = p.join(outDir,"collated_docked_pdbs")
-            index = 0
-            energyDict = {}
-            for dirName in os.listdir(outDir):
-                runDir = p.join(outDir, dirName)
-                if not p.isdir(runDir) or dirName == "collated_docked_pdbs":
-                    continue
-                bindingPosePdbqt = p.join(runDir,"binding_poses.pdbqt")
-                if not p.isfile(bindingPosePdbqt):
-                    continue
-                with open(bindingPosePdbqt,"r") as f:
-                    for line in f.readlines():
-                        if line.startswith("MODEL"):
-                            modelNumber = line.split()[1]
-                        if "VINA RESULT:" in line:
-                            bindingEnergy = float(line.split()[3])
-                tmpDict = {"ID" : dirName,
-                        "Binding Mode": modelNumber,
-                        "Binding Energy": bindingEnergy}
-                energyDict.update({index:tmpDict})
-                index += 1
-            reportDf = pd.DataFrame(energyDict).T
-            reportCsv = p.join(outDir,"docking_report.csv")
-            reportDf.to_csv(reportCsv)
-    ## delete run directories
-    if "removeRunDirs" in cleanUpInfo:
-        if cleanUpInfo["removeRunDirs"]:
-            for dirName in os.listdir(outDir):
-                runDir = p.join(outDir, dirName)
-                if not p.isdir(runDir) or dirName == "collated_docked_pdbs":
-                    continue
-                rmtree(runDir)
 
 
 
@@ -243,7 +190,7 @@ def read_docking_results(dockedPdbqt):
     # remove ROOT/BRANCH
     pdbqtColumns    =   ["ATOM","ATOM_ID", "ATOM_NAME", "RES_NAME",
                     "CHAIN_ID", "RES_ID", "X", "Y", "Z", "OCCUPANCY", 
-                    "BETAFACTOR","CHARGE", "ELEMENT"]
+                    "BETAFACTOR","CHARGE", "ATOM_TYPE"]
     columsNums = [(0, 6), (6, 11), (11, 17), (17, 21), (21, 22), (22, 26), 
                   (26, 38), (38, 46), (46, 54), (54, 60), (60, 70), (70, 77), (77, 79)]
     # read pdbqt file into multiple dataframes
