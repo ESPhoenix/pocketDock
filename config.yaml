@@ -6,12 +6,12 @@ pathInfo:
 generalInfo:
   fpocketInputs: True
 dockingInfo:
-  maxFlexRes: 1
+  maxFlexRes: 0
   nCoresPerRun: 1
   totalCpus: 32
-  exhaustiveness: 16
-  numModes: 10
+  exhaustiveness: 4
+  numModes: 8
 cleanUpInfo:
   collateOutputs: True
-  genDockingReport: False
+  genDockingReport: True
   removeRunDirs: True

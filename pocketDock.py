@@ -8,9 +8,11 @@ import multiprocessing as mp
 import argpass
 from tqdm import tqdm
 import yaml
+import time
 ## pocketDock modules
 from pdbUtils import *
 from modules_pocketDock import *
+from cleanup_pocketDock import clean_up_manager, merge_report_dfs
 #########################################################################################################################
 # get inputs
 def read_inputs():
@@ -28,11 +30,11 @@ def read_inputs():
 #########################################################################################################################
 #########################################################################################################################
 def main():
+    print("POCKET DOCK TIME!")
     # read config from yaml file
     config = read_inputs()
     # extract needed paths
     pathInfo = config["pathInfo"]
-    protDir = pathInfo["protDir"]
     ligandDir = pathInfo["ligandDir"]
     outDir = pathInfo["outDir"]
     dockingOrders = pathInfo["dockingOrdersYaml"]
@@ -44,42 +46,43 @@ def main():
     # make outDir
     os.makedirs(outDir,exist_ok=True)    
     # pre-prepare ligand pdbqt files
+    print("making ligand pdbqt files")
     gen_ligand_pdbqts(dockingOrders, ligandDir)
     # gererate a seqence of docking runs 
-    dockingSequence = gen_docking_sequence(dockingOrders, protDir, ligandDir)
+    print("Made ligand pdbqt files")
 
     if config["dockingInfo"]["totalCpus"] == 1:
-        run_serial(config, dockingSequence)
+        run_serial(config, dockingOrders)
     else:
-        run_paralell(config, dockingSequence)
+        run_paralell(config, dockingOrders)
 
     # collect output files into single directory
-    clean_up(config["cleanUpInfo"], outDir)
+    if config["cleanUpInfo"]["removeRunDirs"]:
+        merge_report_dfs(outDir=outDir)
 #########################################################################################################################
 #########################################################################################################################
-def run_serial(config, dockingSequence):
+def run_serial(config, dockingOrders):#
+    print("Running Serial")
     # for testing 
-    for dockId in dockingSequence:
-        docking_protocol(config, dockDetails = dockingSequence[dockId])
+    for dockingOrder in dockingOrders:
+        print(dockingOrder)
+        docking_protocol(config, dockingOrder)
 
 
 #########################################################################################################################
-def run_paralell(config, dockingSequence):
+def run_paralell(config, dockingOrders):    
+    print("running Parallel")
+    totalCpus = config["dockingInfo"]["totalCpus"]
+    cpusPerRun = config["dockingInfo"]["nCoresPerRun"]
+    paralellCores = totalCpus // cpusPerRun
 
-    paralellCores= config["dockingInfo"]["totalCpus"]
-
-    dockingDetailsList = []
-    for dockId in dockingSequence:
-        dockingDetailsList.append(dockingSequence[dockId])
     with mp.Pool(processes=paralellCores) as pool:
         pool.starmap(docking_protocol,
-                     tqdm([(config, dockDetails) for dockDetails in dockingDetailsList],
-                                total=len(dockingSequence)))
+                     tqdm([(config, dockingOrder) for dockingOrder in dockingOrders],
+                                total=len(dockingOrders)))
 
 #########################################################################################################################
-def docking_protocol(config, dockDetails):
-    print(dockDetails)
-
+def docking_protocol(config, dockingOrder):
     ## unpack config
     pathInfo = config["pathInfo"]
     outDir      = pathInfo["outDir"]
@@ -94,17 +97,17 @@ def docking_protocol(config, dockDetails):
 
     pocketTag = None
     if fpocketInputs:
-        pocketTag = dockDetails["pocketTag"]
+        pocketTag = dockingOrder["pocketTag"]
 
 
     # set up run directory and output key variables
     protName, protPdb, ligPdbqts, runDir = set_up_directory(outDir=outDir,
                                                             pathInfo=pathInfo,
-                                                            dockDetails=dockDetails)  
+                                                            dockingOrder=dockingOrder)  
 
     if  fpocketInputs:
         # get boxCenter and pocketResidues from pocketTag in docking instructions and fpocket pdb 
-        pocketTag = dockDetails["pocketTag"]
+        pocketTag = dockingOrder["pocketTag"]
         # else:
         boxCenter, pocketResidues       = get_box_from_fpocket_inputs(pdbFile = protPdb,
                                                                     pocketTag = pocketTag)
@@ -116,24 +119,37 @@ def docking_protocol(config, dockDetails):
     else:
         boxCenter, pocketResidues       =   run_fpocket(runDir=runDir,
                                                             pdbFile=protPdb)
+    if maxFlexRes > 0:
+        flexibeResidues =                   select_flexible_residues(protName=protName,
+                                                                        protPdb=protPdb,
+                                                                        flexResList=pocketResidues,
+                                                                        maxFlexRes=maxFlexRes)
         
-    flexibeResidues =                   select_flexible_residues(protName=protName,
-                                                                    protPdb=protPdb,
-                                                                    flexResList=pocketResidues,
-                                                                    maxFlexRes=maxFlexRes)
-    
-    rigidPdbqt, flexPdbqt           = gen_flex_pdbqts(protPdb = protPdb,
-                                            flexibeResidues = flexibeResidues,
-                                            outDir = runDir)
+        rigidPdbqt, flexPdbqt           = gen_flex_pdbqts(protPdb = protPdb,
+                                                flexibeResidues = flexibeResidues,
+                                                outDir = runDir)
 
-    # Write a config file for vina
-    vinaConfig, dockedPdbqt         =   write_vina_config(outDir = runDir,
-                                                            receptorPdbqt = rigidPdbqt,
-                                                            flexPdbqt = flexPdbqt,
-                                                            flex=True,
-                                                            boxCenter = boxCenter,
-                                                            boxSize = 30,
-                                                            dockingInfo=dockingInfo)
+        # Write a config file for vina
+        vinaConfig, dockedPdbqt         =   write_vina_config(outDir = runDir,
+                                                                receptorPdbqt = rigidPdbqt,
+                                                                flexPdbqt = flexPdbqt,
+                                                                flex=True,
+                                                                boxCenter = boxCenter,
+                                                                boxSize = 30,
+                                                                dockingInfo=dockingInfo)
+    else:
+        rigidPdbqt = pdb_to_pdbqt(inPdb=protPdb,
+                                  outDir=runDir,
+                                  jobType="rigid")
+        
+
+            # Write a config file for vina
+        vinaConfig, dockedPdbqt         =   write_vina_config(outDir = runDir,
+                                                                receptorPdbqt = rigidPdbqt,
+                                                                flex=False,
+                                                                boxCenter = boxCenter,
+                                                                boxSize = 30,
+                                                                dockingInfo=dockingInfo)
                                                             
     # Run vina docking
     run_vina(outDir = runDir,
@@ -143,21 +159,16 @@ def docking_protocol(config, dockDetails):
     dockedPdbs = process_vina_results(outDir = runDir,
                             receptorPdbqt = protPdb,
                             dockedPdbqt = dockedPdbqt,
-                            dockDetails = dockDetails)
-    
-    # ## use outputs for more ligands to be docked:
-    # if remainingLigPdbs:
-    #     newRunId = dockDetails["runId"] + 1
-    #     newDockingDetails = {"protPdb":dockedPdbs[0],
-    #                         "ligPdb":remainingLigPdbs,
-    #                         "pocketResidues": pocketResidues,
-    #                         "flexibleResidues": flexibeResidues,
-    #                         "boxCenter": boxCenter,
-    #                         "runId": newRunId,
-    #                         "pocketTag": pocketTag}
-    #     docking_protocol(config=config, dockDetails=newDockingDetails)
-
+                            dockingOrder = dockingOrder)
+    cleanUpInfo = config["cleanUpInfo"]
+    clean_up_manager(cleanUpInfo=cleanUpInfo,
+                     runDir=runDir, 
+                     topDir=outDir)
 
 #########################################################################################################################
-
+startTime = time.time()
 main()
+endTime = time.time()
+elapsedTime = endTime - startTime
+with open('time_output.txt', 'w') as f:  # Write elapsed time to file
+    f.write(f"The script took {elapsedTime} seconds to run.")

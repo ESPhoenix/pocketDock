@@ -1,18 +1,8 @@
-- ligands: [FAD]
-  pocketTag: Pocket_1
-  protein: 7P9X
+
 - ligands: [FMN]
   pocketTag: Pocket_1
   protein: 7P9X
-- ligands: [FAD]
-  pocketTag: Pocket_2
-  protein: 7P9X
+
 - ligands: [FMN]
   pocketTag: Pocket_2
-  protein: 7P9X
-- ligands: [FAD]
-  pocketTag: Pocket_25
-  protein: 7P9X
-- ligands: [FMN]
-  pocketTag: Pocket_25
   protein: 7P9X

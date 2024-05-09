@@ -77,7 +77,6 @@ def clean_up(cleanUpInfo, outDir):
                 bindingPosePdbqt = p.join(runDir,"binding_poses.pdbqt")
                 if not p.isfile(bindingPosePdbqt):
                     continue
-                print(bindingPosePdbqt)
                 with open(bindingPosePdbqt,"r") as f:
                     for line in f.readlines():
                         if line.startswith("MODEL"):
@@ -138,11 +137,11 @@ def gen_flex_pdbqts(protPdb,flexibeResidues, outDir):
 def gen_ligand_pdbqts(dockingOrders, ligandDir):
     allLigands = []
     for dockingOrder in dockingOrders:
-        print(dockingOrder)
         ligands = dockingOrder["ligands"]
         for ligand in ligands:
             allLigands.append(ligand)
 
+    allLigands = list(set(allLigands))
     for ligand in allLigands:
         ligPdb = p.join(ligandDir, f"{ligand}.pdb")
         if not p.isfile(ligPdb):
@@ -190,21 +189,17 @@ def gen_docking_sequence(dockingOrders, protDir, ligandDir):
         index += 1
     return dockingSequence  
 #########################################################################################################################
-def process_vina_results(outDir,dockedPdbqt,receptorPdbqt,dockDetails):
+def process_vina_results(outDir,dockedPdbqt,receptorPdbqt,dockingOrder):
     # read output pdbqt file into a list of dataframes
     dockingDfList = read_docking_results(dockedPdbqt)
     receptorDf = pdbqt2df(receptorPdbqt)
-    protName = p.splitext(p.basename(dockDetails["protPdb"]))[0]
+    protName = dockingOrder["protein"]
 
-    ligPdbs = dockDetails["ligPdbs"]
+    ligandNames = dockingOrder["ligands"]
 
     # read ligand pdb and copy to new run directory
-    ligandNames = []
-    for ligPdb in ligPdbs:
-        ligandName = p.splitext(p.basename(ligPdb))[0]
-        ligandNames.append(ligandName)
     ligTag = "_".join(ligandNames)
-    pocketTag = dockDetails["pocketTag"]
+    pocketTag = dockingOrder["pocketTag"]
     nameTag = f"{pocketTag}_{protName}_{ligTag}"
     dockedPdbs = splice_docking_results(dockingDfList, receptorDf, outDir, nameTag)
     return dockedPdbs
@@ -354,31 +349,29 @@ def select_flexible_residues(protName,protPdb,flexResList,maxFlexRes):
     return flexResidues    
 
     #########################################################################################################################
-def set_up_directory(outDir, pathInfo,  dockDetails):
+def set_up_directory(outDir, pathInfo,  dockingOrder):
     # read protein pdb file, get name and make new dir for docking, copy over protein pdb
-    protPdb = dockDetails["protPdb"]
-    ligPdbs = dockDetails["ligPdbs"]
-    runId = dockDetails["runId"]
+    protName = dockingOrder["protein"]
+    ligands = dockingOrder["ligands"]
     ligandDir = pathInfo["ligandDir"]
+    protDir = pathInfo["protDir"]
 
     pocketTag = ""
-    if "pocketTag" in dockDetails:
-        pocketTag = dockDetails["pocketTag"]
+    if "pocketTag" in dockingOrder:
+        pocketTag = dockingOrder["pocketTag"]
 
+    protPdb = p.join(protDir,f"{protName}.pdb")
 
-
-    protName = p.splitext(p.basename(protPdb))[0]
     # read ligand pdb and copy to new run directory
     ligandNames = []
     ligPdbqts = []
-    for ligPdb in ligPdbs:
-        ligandName = p.splitext(p.basename(ligPdb))[0]
+    for ligandName in ligands:
         ligandNames.append(ligandName)
         ligPdbqt = p.join(ligandDir, f"{ligandName}.pdbqt")
         ligPdbqts.append(ligPdbqt)
 
     ligandTag = "_".join(ligandNames)
-    runDir = p.join(outDir,f"{runId}_{protName}_{ligandTag}_{pocketTag}")
+    runDir = p.join(outDir,f"{protName}_{ligandTag}_{pocketTag}")
     os.makedirs(runDir,exist_ok=True)
     copy(protPdb,runDir)
     for ligPdbqt in ligPdbqts:
