@@ -14,4 +14,4 @@ dockingInfo:
 cleanUpInfo:
   collateOutputs: True
   genDockingReport: True
-  removeRunDirs: True
+  removeRunDirs: False

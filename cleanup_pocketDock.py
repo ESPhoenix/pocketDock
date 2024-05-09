@@ -45,7 +45,6 @@ def gen_docking_report(outDir, runDir):
                 energyDict.update({index:tmpDict})
                 index += 1
     reportDf = pd.DataFrame(energyDict).T
-    print(reportDf)
     reportCsv = p.join(outDir,f"docking_report_{dirName}.csv")
     reportDf.to_csv(reportCsv, mode="w", index=False)
 ############################################################

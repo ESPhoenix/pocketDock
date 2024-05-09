@@ -9,7 +9,7 @@ import yaml
 from scipy.spatial import distance
 import numpy as np
 ## pocketDock modules
-from pdbUtils import *
+from pdbUtils.pdbUtils import pdb2df, df2pdb, pdbqt2df
 
 
 #########################################################################################################################

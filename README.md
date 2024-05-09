@@ -27,6 +27,7 @@ pip install tqdm
 pip install pytest-shutil
 pip install pandas
 pip install pyarrow
+pip install pdbutils
 ```
 
 ## Step 5: Create Config File
